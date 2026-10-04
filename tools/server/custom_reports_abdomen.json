@@ -1,0 +1,59 @@
+[
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "own01_liver_metastases",
+  "text": "abdomen: Hepatomegaly with multiple hypodense lesions in both hepatic lobes, consistent with metastases. Mild splenomegaly. No ascites."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "own02_renal_mass",
+  "text": "abdomen: A 4 cm exophytic solid mass arises from the lower pole of the right kidney. The left kidney is normal. No retroperitoneal lymphadenopathy."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "own03_cirrhosis_ascites",
+  "text": "abdomen: Nodular liver contour consistent with cirrhosis. Splenomegaly. Large volume ascites."
+ }
+]

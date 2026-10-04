@@ -1,0 +1,154 @@
+[
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "own01_pleural_effusion",
+  "text": "chest: Moderate right pleural effusion with compressive atelectasis of the adjacent right lower lobe. No left pleural effusion. Heart size is normal. No pericardial effusion. No mediastinal lymphadenopathy."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "own02_cardiomegaly",
+  "text": "chest: Cardiomegaly. Calcified atherosclerotic plaques in the thoracic aorta and coronary arteries. The lungs are clear. No pleural or pericardial effusion."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "own03_emphysema_nodule",
+  "text": "chest: Centrilobular emphysema in both upper lobes. A 9 mm solid nodule in the right upper lobe. No consolidation. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "own04_consolidation",
+  "text": "chest: Consolidation with air bronchograms in the left lower lobe, consistent with pneumonia. Small left pleural effusion. No pneumothorax. Heart size is normal."
+ }
+]

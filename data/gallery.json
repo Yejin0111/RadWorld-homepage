@@ -1,0 +1,2464 @@
+{
+ "windows": {
+  "lung": {
+   "label": "Lung",
+   "lo": -1350,
+   "hi": 150
+  },
+  "mediastinum": {
+   "label": "Mediastinum",
+   "lo": -160,
+   "hi": 240
+  },
+  "abdomen": {
+   "label": "Abdomen",
+   "lo": -135,
+   "hi": 215
+  },
+  "soft": {
+   "label": "Soft tissue",
+   "lo": -160,
+   "hi": 240
+  },
+  "bone": {
+   "label": "Bone",
+   "lo": -450,
+   "hi": 1050
+  },
+  "reader": {
+   "label": "Reader window",
+   "lo": -75,
+   "hi": 175
+  },
+  "auto": {
+   "label": "Auto",
+   "lo": null,
+   "hi": null
+  }
+ },
+ "volumes": {
+  "rep_cardiomegaly": {
+   "url": "assets/vol/report/rep_cardiomegaly.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4258,
+    1.4258,
+    2.4141
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 4940582
+  },
+  "rep_effusion": {
+   "url": "assets/vol/report/rep_effusion.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4258,
+    1.4258,
+    2.4141
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 5041003
+  },
+  "rep_pneumonia": {
+   "url": "assets/vol/report/rep_pneumonia.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4258,
+    1.4258,
+    2.4141
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 4251224
+  },
+  "rep_mass": {
+   "url": "assets/vol/report/rep_mass.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4258,
+    1.4258,
+    2.4141
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 5480386
+  },
+  "mr2ct_mr": {
+   "url": "assets/vol/translation/mr2ct_input_mr.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.2539,
+    1.2539,
+    2.2031
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": 0.0,
+    "hi": 1377.0,
+    "unit": "a.u."
+   },
+   "bytes": 2011054
+  },
+  "mr2ct_radworld": {
+   "url": "assets/vol/translation/mr2ct_radworld.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.2539,
+    1.2539,
+    2.2031
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 1761037
+  },
+  "mr2ct_reference": {
+   "url": "assets/vol/translation/mr2ct_reference.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.2539,
+    1.2539,
+    2.2031
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 1773326
+  },
+  "pretrain_ct_0": {
+   "url": "assets/vol/extra/pretrain_ct_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.5117,
+    1.5117,
+    3.1523
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 3470311
+  },
+  "gen_abdomen_0": {
+   "url": "assets/vol/extra/gen_abdomen_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.602,
+    1.602,
+    4.1438
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 3845514
+  },
+  "gen_hn_0": {
+   "url": "assets/vol/extra/gen_hn_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    2.1289,
+    2.1289,
+    2.9766
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 1316389
+  },
+  "gen_pelvis_0": {
+   "url": "assets/vol/extra/gen_pelvis_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.5625,
+    1.5625,
+    2.3438
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 3948458
+  },
+  "pretrain_mr_0": {
+   "url": "assets/vol/extra/pretrain_mr_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    0.9375,
+    0.9375,
+    1.2109
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -1.0,
+    "hi": 0.9217761096358299,
+    "unit": "a.u."
+   },
+   "bytes": 4347015
+  },
+  "cbct2ct_0": {
+   "url": "assets/vol/extra/cbct2ct_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.2109,
+    1.2109,
+    2.0625
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 1902114
+  },
+  "cbct2ct_1": {
+   "url": "assets/vol/extra/cbct2ct_1.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.2109,
+    1.2109,
+    2.0625
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 1673353
+  },
+  "cbct2ct_2": {
+   "url": "assets/vol/extra/cbct2ct_2.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.2109,
+    1.2109,
+    2.0625
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 1663939
+  },
+  "cbct2ct_ab_0": {
+   "url": "assets/vol/extra/cbct2ct_ab_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.7617,
+    1.7617,
+    1.8984
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -1000.0,
+    "hi": 19.605101623534892,
+    "unit": "a.u."
+   },
+   "bytes": 3737683
+  },
+  "cbct2ct_ab_1": {
+   "url": "assets/vol/extra/cbct2ct_ab_1.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.7617,
+    1.7617,
+    1.8984
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 2568716
+  },
+  "cbct2ct_ab_2": {
+   "url": "assets/vol/extra/cbct2ct_ab_2.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.7617,
+    1.7617,
+    1.8984
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 2706171
+  },
+  "mr2ct_ab_0": {
+   "url": "assets/vol/extra/mr2ct_ab_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.7344,
+    1.7344,
+    2.8359
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": 0.0,
+    "hi": 314.96908248901366,
+    "unit": "a.u."
+   },
+   "bytes": 3542875
+  },
+  "mr2ct_ab_1": {
+   "url": "assets/vol/extra/mr2ct_ab_1.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.7344,
+    1.7344,
+    2.8359
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 2925163
+  },
+  "mr2ct_ab_2": {
+   "url": "assets/vol/extra/mr2ct_ab_2.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.7344,
+    1.7344,
+    2.8359
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 3295171
+  },
+  "ct_phase_0": {
+   "url": "assets/vol/extra/ct_phase_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.5859,
+    1.5859,
+    1.8047
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 3188860
+  },
+  "ct_phase_1": {
+   "url": "assets/vol/extra/ct_phase_1.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.5859,
+    1.5859,
+    1.8047
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 3018540
+  },
+  "ct_phase_2": {
+   "url": "assets/vol/extra/ct_phase_2.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.5859,
+    1.5859,
+    1.8047
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 3234330
+  },
+  "ct_venous_0": {
+   "url": "assets/vol/extra/ct_venous_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.3828,
+    1.3828,
+    2.3906
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 2820268
+  },
+  "ct_venous_1": {
+   "url": "assets/vol/extra/ct_venous_1.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.3828,
+    1.3828,
+    2.3906
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 2884208
+  },
+  "ct_venous_2": {
+   "url": "assets/vol/extra/ct_venous_2.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.3828,
+    1.3828,
+    2.3906
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 2746172
+  },
+  "m2i_a_0": {
+   "url": "assets/vol/extra/m2i_a_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4336,
+    1.4336,
+    4.6875
+   ],
+   "encoding": {
+    "type": "labelmap",
+    "colors": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      214,
+      81,
+      81
+     ],
+     [
+      81,
+      120,
+      214
+     ],
+     [
+      159,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      197
+     ],
+     [
+      81,
+      214,
+      192
+     ],
+     [
+      214,
+      153,
+      81
+     ],
+     [
+      114,
+      81,
+      214
+     ],
+     [
+      87,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      125
+     ],
+     [
+      81,
+      164,
+      214
+     ],
+     [
+      203,
+      214,
+      81
+     ],
+     [
+      186,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      147
+     ],
+     [
+      214,
+      108,
+      81
+     ],
+     [
+      81,
+      92,
+      214
+     ],
+     [
+      131,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      170
+     ],
+     [
+      81,
+      209,
+      214
+     ],
+     [
+      214,
+      180,
+      81
+     ],
+     [
+      142,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      103
+     ],
+     [
+      214,
+      81,
+      98
+     ],
+     [
+      81,
+      137,
+      214
+     ],
+     [
+      175,
+      214,
+      81
+     ],
+     [
+      213,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      175
+     ],
+     [
+      214,
+      136,
+      81
+     ],
+     [
+      97,
+      81,
+      214
+     ],
+     [
+      104,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      142
+     ],
+     [
+      81,
+      181,
+      214
+     ],
+     [
+      214,
+      208,
+      81
+     ],
+     [
+      169,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      130
+     ],
+     [
+      214,
+      91,
+      81
+     ],
+     [
+      81,
+      109,
+      214
+     ],
+     [
+      148,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      187
+     ],
+     [
+      81,
+      214,
+      202
+     ],
+     [
+      214,
+      163,
+      81
+     ],
+     [
+      125,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      86
+     ],
+     [
+      214,
+      81,
+      115
+     ],
+     [
+      81,
+      154,
+      214
+     ],
+     [
+      192,
+      214,
+      81
+     ],
+     [
+      196,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      158
+     ],
+     [
+      214,
+      119,
+      81
+     ],
+     [
+      81,
+      82,
+      214
+     ],
+     [
+      121,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      159
+     ],
+     [
+      81,
+      198,
+      214
+     ],
+     [
+      214,
+      191,
+      81
+     ],
+     [
+      152,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      113
+     ],
+     [
+      214,
+      81,
+      87
+     ],
+     [
+      81,
+      126,
+      214
+     ],
+     [
+      165,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      204
+     ],
+     [
+      81,
+      214,
+      185
+     ],
+     [
+      214,
+      146,
+      81
+     ],
+     [
+      108,
+      81,
+      214
+     ],
+     [
+      93,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      132
+     ],
+     [
+      81,
+      171,
+      214
+     ],
+     [
+      209,
+      214,
+      81
+     ],
+     [
+      179,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      141
+     ],
+     [
+      214,
+      102,
+      81
+     ],
+     [
+      81,
+      99,
+      214
+     ],
+     [
+      138,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      176
+     ],
+     [
+      81,
+      214,
+      213
+     ],
+     [
+      214,
+      174,
+      81
+     ],
+     [
+      135,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      96
+     ],
+     [
+      214,
+      81,
+      104
+     ],
+     [
+      81,
+      143,
+      214
+     ],
+     [
+      182,
+      214,
+      81
+     ],
+     [
+      207,
+      81,
+      214
+     ],
+     [
+      66,
+      68,
+      78
+     ]
+    ]
+   },
+   "bytes": 188718
+  },
+  "m2i_a_1": {
+   "url": "assets/vol/extra/m2i_a_1.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4336,
+    1.4336,
+    4.6875
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 3342718
+  },
+  "m2i_b_0": {
+   "url": "assets/vol/extra/m2i_b_0.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.9531,
+    1.9531,
+    6.1641
+   ],
+   "encoding": {
+    "type": "labelmap",
+    "colors": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      214,
+      81,
+      81
+     ],
+     [
+      81,
+      120,
+      214
+     ],
+     [
+      159,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      197
+     ],
+     [
+      81,
+      214,
+      192
+     ],
+     [
+      214,
+      153,
+      81
+     ],
+     [
+      114,
+      81,
+      214
+     ],
+     [
+      87,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      125
+     ],
+     [
+      81,
+      164,
+      214
+     ],
+     [
+      203,
+      214,
+      81
+     ],
+     [
+      186,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      147
+     ],
+     [
+      214,
+      108,
+      81
+     ],
+     [
+      81,
+      92,
+      214
+     ],
+     [
+      131,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      170
+     ],
+     [
+      81,
+      209,
+      214
+     ],
+     [
+      214,
+      180,
+      81
+     ],
+     [
+      142,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      103
+     ],
+     [
+      214,
+      81,
+      98
+     ],
+     [
+      81,
+      137,
+      214
+     ],
+     [
+      175,
+      214,
+      81
+     ],
+     [
+      213,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      175
+     ],
+     [
+      214,
+      136,
+      81
+     ],
+     [
+      97,
+      81,
+      214
+     ],
+     [
+      104,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      142
+     ],
+     [
+      81,
+      181,
+      214
+     ],
+     [
+      214,
+      208,
+      81
+     ],
+     [
+      169,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      130
+     ],
+     [
+      214,
+      91,
+      81
+     ],
+     [
+      81,
+      109,
+      214
+     ],
+     [
+      148,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      187
+     ],
+     [
+      81,
+      214,
+      202
+     ],
+     [
+      214,
+      163,
+      81
+     ],
+     [
+      125,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      86
+     ],
+     [
+      214,
+      81,
+      115
+     ],
+     [
+      81,
+      154,
+      214
+     ],
+     [
+      192,
+      214,
+      81
+     ],
+     [
+      196,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      158
+     ],
+     [
+      214,
+      119,
+      81
+     ],
+     [
+      81,
+      82,
+      214
+     ],
+     [
+      121,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      159
+     ],
+     [
+      81,
+      198,
+      214
+     ],
+     [
+      214,
+      191,
+      81
+     ],
+     [
+      152,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      113
+     ],
+     [
+      214,
+      81,
+      87
+     ],
+     [
+      81,
+      126,
+      214
+     ],
+     [
+      165,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      204
+     ],
+     [
+      81,
+      214,
+      185
+     ],
+     [
+      214,
+      146,
+      81
+     ],
+     [
+      108,
+      81,
+      214
+     ],
+     [
+      93,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      132
+     ],
+     [
+      81,
+      171,
+      214
+     ],
+     [
+      209,
+      214,
+      81
+     ],
+     [
+      179,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      141
+     ],
+     [
+      214,
+      102,
+      81
+     ],
+     [
+      81,
+      99,
+      214
+     ],
+     [
+      138,
+      214,
+      81
+     ],
+     [
+      214,
+      81,
+      176
+     ],
+     [
+      81,
+      214,
+      213
+     ],
+     [
+      214,
+      174,
+      81
+     ],
+     [
+      135,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      96
+     ],
+     [
+      214,
+      81,
+      104
+     ],
+     [
+      81,
+      143,
+      214
+     ],
+     [
+      182,
+      214,
+      81
+     ],
+     [
+      207,
+      81,
+      214
+     ],
+     [
+      81,
+      214,
+      168
+     ],
+     [
+      214,
+      129,
+      81
+     ],
+     [
+      91,
+      81,
+      214
+     ],
+     [
+      110,
+      214,
+      81
+     ],
+     [
+      66,
+      68,
+      78
+     ]
+    ]
+   },
+   "bytes": 131338
+  },
+  "m2i_b_1": {
+   "url": "assets/vol/extra/m2i_b_1.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.9531,
+    1.9531,
+    6.1641
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 2061855
+  }
+ },
+ "groups": {
+  "translation": {
+   "layout": "compare",
+   "cases": [
+    {
+     "id": "cbct2ct",
+     "label": "CBCT to CT, head and neck",
+     "source": "SynthRAD2025",
+     "text": "Cone-beam CT with streak artifacts, translated into CT. The patient's real CT is shown for comparison.",
+     "window": "soft",
+     "windows": [
+      "soft",
+      "bone"
+     ],
+     "credit": "SynthRAD2025 case 2HNA070 (center A), CC BY-NC 4.0",
+     "render3dPresets": [
+      "bone"
+     ],
+     "panes": [
+      {
+       "vol": "cbct2ct_0",
+       "title": "Input CBCT",
+       "posters": {
+        "axial": "assets/img/poster/extra/cbct2ct_0_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": null,
+       "mask": null
+      },
+      {
+       "vol": "cbct2ct_1",
+       "title": "RadWorld CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/cbct2ct_1_axial.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      },
+      {
+       "vol": "cbct2ct_2",
+       "title": "Real CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/cbct2ct_2_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "cross": [
+      128,
+      128,
+      64
+     ],
+     "extra": true,
+     "plane": "axial"
+    },
+    {
+     "id": "mr2ct",
+     "label": "MR to CT, head and neck",
+     "source": "SynthRAD2025",
+     "credit": "SynthRAD2025 case 1HNA124 (center A), CC BY-NC 4.0",
+     "text": "Head and neck MR, translated into CT. The patient's real CT is shown for comparison.",
+     "panes": [
+      {
+       "vol": "mr2ct_mr",
+       "title": "Input MR",
+       "posters": {
+        "axial": "assets/img/poster/translation/mr2ct_mr2ct_mr_axial.webp"
+       },
+       "fixedWindow": "auto",
+       "render3d": false
+      },
+      {
+       "vol": "mr2ct_radworld",
+       "title": "RadWorld CT",
+       "posters": {
+        "axial": "assets/img/poster/translation/mr2ct_mr2ct_radworld_axial.webp"
+       },
+       "fixedWindow": null,
+       "render3d": true
+      },
+      {
+       "vol": "mr2ct_reference",
+       "title": "Real CT",
+       "posters": {
+        "axial": "assets/img/poster/translation/mr2ct_mr2ct_reference_axial.webp"
+       },
+       "fixedWindow": null,
+       "render3d": false
+      }
+     ],
+     "plane": "axial",
+     "window": "bone",
+     "windows": [
+      "bone",
+      "soft"
+     ],
+     "cross": [
+      128,
+      128,
+      75
+     ],
+     "render3dPresets": [
+      "bone"
+     ]
+    },
+    {
+     "id": "cbct2ct_ab",
+     "label": "CBCT to CT, abdomen",
+     "source": "SynthRAD2025",
+     "text": "Abdominal cone-beam CT with uncalibrated intensities, translated into CT. The patient's real CT is shown for comparison.",
+     "window": "abdomen",
+     "windows": [
+      "abdomen",
+      "bone"
+     ],
+     "credit": "SynthRAD2025 case 2ABC137 (center C), CC BY-NC 4.0",
+     "level": 0.3,
+     "panes": [
+      {
+       "vol": "cbct2ct_ab_0",
+       "title": "Input CBCT",
+       "posters": {
+        "axial": "assets/img/poster/extra/cbct2ct_ab_0_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": "auto",
+       "mask": null
+      },
+      {
+       "vol": "cbct2ct_ab_1",
+       "title": "RadWorld CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/cbct2ct_ab_1_axial.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      },
+      {
+       "vol": "cbct2ct_ab_2",
+       "title": "Real CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/cbct2ct_ab_2_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "cross": [
+      128,
+      128,
+      38
+     ],
+     "extra": true,
+     "plane": "axial"
+    },
+    {
+     "id": "mr2ct_ab",
+     "label": "MR to CT, abdomen",
+     "source": "SynthRAD2025",
+     "text": "Abdominal MR, translated into CT. The patient's real CT is shown for comparison.",
+     "window": "abdomen",
+     "windows": [
+      "abdomen",
+      "bone"
+     ],
+     "credit": "SynthRAD2025 case 1ABB035 (center B), CC BY-NC 4.0",
+     "panes": [
+      {
+       "vol": "mr2ct_ab_0",
+       "title": "Input MR",
+       "posters": {
+        "axial": "assets/img/poster/extra/mr2ct_ab_0_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": "auto",
+       "mask": null
+      },
+      {
+       "vol": "mr2ct_ab_1",
+       "title": "RadWorld CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/mr2ct_ab_1_axial.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      },
+      {
+       "vol": "mr2ct_ab_2",
+       "title": "Real CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/mr2ct_ab_2_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "cross": [
+      128,
+      128,
+      64
+     ],
+     "extra": true,
+     "plane": "axial"
+    },
+    {
+     "id": "ct_phase",
+     "label": "Non-contrast to arterial phase",
+     "source": "Coltea-Lung-CT-100W",
+     "text": "Arterial-phase CT generated from non-contrast CT. The real arterial phase, aligned to the input, is shown for comparison.",
+     "window": "mediastinum",
+     "windows": [
+      "mediastinum",
+      "lung"
+     ],
+     "credit": "Coltea-Lung-CT-100W case CH24092019, CC BY-SA 4.0",
+     "panes": [
+      {
+       "vol": "ct_phase_0",
+       "title": "Input non-contrast CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/ct_phase_0_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": null,
+       "mask": null
+      },
+      {
+       "vol": "ct_phase_1",
+       "title": "RadWorld arterial phase",
+       "posters": {
+        "axial": "assets/img/poster/extra/ct_phase_1_axial.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      },
+      {
+       "vol": "ct_phase_2",
+       "title": "Real arterial phase",
+       "posters": {
+        "axial": "assets/img/poster/extra/ct_phase_2_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "cross": [
+      128,
+      128,
+      64
+     ],
+     "extra": true,
+     "plane": "axial"
+    },
+    {
+     "id": "ct_venous",
+     "label": "Non-contrast to venous phase",
+     "source": "Coltea-Lung-CT-100W",
+     "text": "Venous-phase CT generated from non-contrast CT. The real venous phase, aligned to the input, is shown for comparison.",
+     "window": "mediastinum",
+     "windows": [
+      "mediastinum",
+      "lung"
+     ],
+     "credit": "Coltea-Lung-CT-100W case SG20102015, CC BY-SA 4.0",
+     "panes": [
+      {
+       "vol": "ct_venous_0",
+       "title": "Input non-contrast CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/ct_venous_0_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": null,
+       "mask": null
+      },
+      {
+       "vol": "ct_venous_1",
+       "title": "RadWorld venous phase",
+       "posters": {
+        "axial": "assets/img/poster/extra/ct_venous_1_axial.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      },
+      {
+       "vol": "ct_venous_2",
+       "title": "Real venous phase",
+       "posters": {
+        "axial": "assets/img/poster/extra/ct_venous_2_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "cross": [
+      128,
+      128,
+      64
+     ],
+     "extra": true,
+     "plane": "axial"
+    }
+   ]
+  },
+  "report": {
+   "layout": "triplanar",
+   "cases": [
+    {
+     "id": "rep_cardiomegaly",
+     "label": "Cardiomegaly",
+     "summary": "Trachea and both main bronchi are patent. The heart is enlarged. Calcified atherosclerotic plaques are present in the walls of the thoracic aorta and coronary arteries. No pericardial or pleural effusion. Both lungs are clear, with no consolidation, mass or nodule. No enlarged lymph nodes in the mediastinum or hila. Degenerative changes are seen in the thoracic spine.",
+     "inputLabel": "Input: radiology report",
+     "note": "Report written by the authors for this demonstration. RadWorld generated the whole 3D volume from it.",
+     "panes": [
+      {
+       "vol": "rep_cardiomegaly",
+       "title": "RadWorld, generated from the report",
+       "posters": {
+        "axial": "assets/img/poster/report/rep_cardiomegaly_axial.webp",
+        "coronal": "assets/img/poster/report/rep_cardiomegaly_coronal.webp",
+        "sagittal": "assets/img/poster/report/rep_cardiomegaly_sagittal.webp"
+       },
+       "render3d": true
+      }
+     ],
+     "window": "mediastinum",
+     "windows": [
+      "mediastinum",
+      "lung",
+      "bone"
+     ],
+     "cross": [
+      128,
+      128,
+      64
+     ]
+    },
+    {
+     "id": "rep_effusion",
+     "label": "Pleural effusion",
+     "summary": "Trachea and both main bronchi are patent. Mediastinal vascular structures are of normal calibre and heart size is normal. No pericardial effusion. There is a moderate right pleural effusion measuring 35 mm in thickness, with compressive atelectasis in the adjacent right lower lobe. A small left pleural effusion is also present. No mass or nodule is seen in either lung. No pathologically enlarged lymph nodes in the mediastinum or hila. Upper abdominal organs included in the scan are unremarkable.",
+     "inputLabel": "Input: radiology report",
+     "note": "Report written by the authors for this demonstration. RadWorld generated the whole 3D volume from it.",
+     "panes": [
+      {
+       "vol": "rep_effusion",
+       "title": "RadWorld, generated from the report",
+       "posters": {
+        "axial": "assets/img/poster/report/rep_effusion_axial.webp",
+        "coronal": "assets/img/poster/report/rep_effusion_coronal.webp",
+        "sagittal": "assets/img/poster/report/rep_effusion_sagittal.webp"
+       },
+       "render3d": true
+      }
+     ],
+     "window": "mediastinum",
+     "windows": [
+      "mediastinum",
+      "lung",
+      "bone"
+     ],
+     "cross": [
+      128,
+      128,
+      51
+     ]
+    },
+    {
+     "id": "rep_pneumonia",
+     "label": "Pneumonia",
+     "summary": "Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum.",
+     "inputLabel": "Input: radiology report",
+     "note": "Report written by the authors for this demonstration. RadWorld generated the whole 3D volume from it.",
+     "panes": [
+      {
+       "vol": "rep_pneumonia",
+       "title": "RadWorld, generated from the report",
+       "posters": {
+        "axial": "assets/img/poster/report/rep_pneumonia_axial.webp",
+        "coronal": "assets/img/poster/report/rep_pneumonia_coronal.webp",
+        "sagittal": "assets/img/poster/report/rep_pneumonia_sagittal.webp"
+       },
+       "render3d": true
+      }
+     ],
+     "window": "lung",
+     "windows": [
+      "lung",
+      "mediastinum"
+     ],
+     "cross": [
+      128,
+      128,
+      57
+     ]
+    },
+    {
+     "id": "rep_mass",
+     "label": "Lung cancer",
+     "summary": "Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal.",
+     "inputLabel": "Input: radiology report",
+     "note": "Report written by the authors for this demonstration. RadWorld generated the whole 3D volume from it.",
+     "panes": [
+      {
+       "vol": "rep_mass",
+       "title": "RadWorld, generated from the report",
+       "posters": {
+        "axial": "assets/img/poster/report/rep_mass_axial.webp",
+        "coronal": "assets/img/poster/report/rep_mass_coronal.webp",
+        "sagittal": "assets/img/poster/report/rep_mass_sagittal.webp"
+       },
+       "render3d": true
+      }
+     ],
+     "window": "lung",
+     "windows": [
+      "lung",
+      "mediastinum"
+     ],
+     "cross": [
+      128,
+      128,
+      99
+     ]
+    }
+   ]
+  },
+  "generation": {
+   "layout": "triplanar",
+   "cases": [
+    {
+     "id": "pretrain_ct",
+     "label": "Chest CT",
+     "window": "mediastinum",
+     "windows": [
+      "mediastinum",
+      "lung",
+      "bone"
+     ],
+     "summary": "Only the scan type, the anatomy to include, the voxel spacing and the volume size. No image, report or mask.",
+     "inputLabel": "Input",
+     "cross": [
+      127,
+      104,
+      79
+     ],
+     "panes": [
+      {
+       "vol": "pretrain_ct_0",
+       "title": "RadWorld, generated from scan type and anatomy",
+       "posters": {
+        "axial": "assets/img/poster/extra/pretrain_ct_0_axial.webp",
+        "coronal": "assets/img/poster/extra/pretrain_ct_0_coronal.webp",
+        "sagittal": "assets/img/poster/extra/pretrain_ct_0_sagittal.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "extra": true,
+     "plane": "axial"
+    },
+    {
+     "id": "gen_abdomen",
+     "label": "Abdomen and pelvis CT",
+     "window": "abdomen",
+     "windows": [
+      "abdomen",
+      "bone"
+     ],
+     "summary": "Only the scan type, the anatomy to include, the voxel spacing and the volume size. No image, report or mask.",
+     "inputLabel": "Input",
+     "cross": [
+      127,
+      111,
+      76
+     ],
+     "panes": [
+      {
+       "vol": "gen_abdomen_0",
+       "title": "RadWorld, generated from scan type and anatomy",
+       "posters": {
+        "axial": "assets/img/poster/extra/gen_abdomen_0_axial.webp",
+        "coronal": "assets/img/poster/extra/gen_abdomen_0_coronal.webp",
+        "sagittal": "assets/img/poster/extra/gen_abdomen_0_sagittal.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "extra": true,
+     "plane": "axial"
+    },
+    {
+     "id": "gen_hn",
+     "label": "Head and neck CT",
+     "window": "soft",
+     "windows": [
+      "soft",
+      "bone"
+     ],
+     "summary": "Only the scan type, the anatomy to include, the voxel spacing and the volume size. No image, report or mask.",
+     "inputLabel": "Input",
+     "render3dPresets": [
+      "bone"
+     ],
+     "cross": [
+      127,
+      118,
+      102
+     ],
+     "panes": [
+      {
+       "vol": "gen_hn_0",
+       "title": "RadWorld, generated from scan type and anatomy",
+       "posters": {
+        "axial": "assets/img/poster/extra/gen_hn_0_axial.webp",
+        "coronal": "assets/img/poster/extra/gen_hn_0_coronal.webp",
+        "sagittal": "assets/img/poster/extra/gen_hn_0_sagittal.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "extra": true,
+     "plane": "axial"
+    },
+    {
+     "id": "gen_pelvis",
+     "label": "Pelvis CT",
+     "window": "abdomen",
+     "windows": [
+      "abdomen",
+      "bone"
+     ],
+     "summary": "Only the scan type, the anatomy to include, the voxel spacing and the volume size. No image, report or mask.",
+     "inputLabel": "Input",
+     "cross": [
+      126,
+      128,
+      44
+     ],
+     "panes": [
+      {
+       "vol": "gen_pelvis_0",
+       "title": "RadWorld, generated from scan type and anatomy",
+       "posters": {
+        "axial": "assets/img/poster/extra/gen_pelvis_0_axial.webp",
+        "coronal": "assets/img/poster/extra/gen_pelvis_0_coronal.webp",
+        "sagittal": "assets/img/poster/extra/gen_pelvis_0_sagittal.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "extra": true,
+     "plane": "axial"
+    },
+    {
+     "id": "pretrain_mr",
+     "label": "Brain MRI (T1CE)",
+     "summary": "Only the scan type, the anatomy to include, the voxel spacing and the volume size. No image, report or mask.",
+     "inputLabel": "Input",
+     "panes": [
+      {
+       "vol": "pretrain_mr_0",
+       "title": "RadWorld, generated from scan type and anatomy",
+       "posters": {
+        "axial": "assets/img/poster/extra/pretrain_mr_0_axial.webp",
+        "coronal": "assets/img/poster/extra/pretrain_mr_0_coronal.webp",
+        "sagittal": "assets/img/poster/extra/pretrain_mr_0_sagittal.webp"
+       },
+       "render3d": false,
+       "fixedWindow": "auto",
+       "mask": null
+      }
+     ],
+     "cross": [
+      128,
+      128,
+      64
+     ],
+     "extra": true,
+     "plane": "axial"
+    }
+   ]
+  },
+  "mask": {
+   "layout": "compare",
+   "cases": [
+    {
+     "id": "m2i_a",
+     "label": "Abdomen and pelvis 1",
+     "source": "WORD",
+     "text": "RadWorld generated this CT from the organ mask, which labels each organ and structure.",
+     "credit": "Organ mask derived from a WORD CT scan (research use)",
+     "window": "abdomen",
+     "windows": [
+      "abdomen",
+      "bone"
+     ],
+     "cross": [
+      127,
+      141,
+      106
+     ],
+     "render3dPresets": [
+      "bone"
+     ],
+     "panes": [
+      {
+       "vol": "m2i_a_0",
+       "title": "Input organ mask",
+       "posters": {
+        "axial": "assets/img/poster/extra/m2i_a_0_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": "auto",
+       "mask": null
+      },
+      {
+       "vol": "m2i_a_1",
+       "title": "RadWorld CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/m2i_a_1_axial.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "extra": true,
+     "plane": "axial"
+    },
+    {
+     "id": "m2i_b",
+     "label": "Abdomen and pelvis 2",
+     "source": "WORD",
+     "text": "RadWorld generated this CT from the organ mask, which labels each organ and structure.",
+     "credit": "Organ mask derived from a WORD CT scan (research use)",
+     "window": "abdomen",
+     "windows": [
+      "abdomen",
+      "bone"
+     ],
+     "cross": [
+      127,
+      129,
+      99
+     ],
+     "render3dPresets": [
+      "bone"
+     ],
+     "panes": [
+      {
+       "vol": "m2i_b_0",
+       "title": "Input organ mask",
+       "posters": {
+        "axial": "assets/img/poster/extra/m2i_b_0_axial.webp"
+       },
+       "render3d": false,
+       "fixedWindow": "auto",
+       "mask": null
+      },
+      {
+       "vol": "m2i_b_1",
+       "title": "RadWorld CT",
+       "posters": {
+        "axial": "assets/img/poster/extra/m2i_b_1_axial.webp"
+       },
+       "render3d": true,
+       "fixedWindow": null,
+       "mask": null
+      }
+     ],
+     "extra": true,
+     "plane": "axial"
+    }
+   ]
+  }
+ },
+ "teaser": [
+  {
+   "src": "assets/img/teaser/pretrain_ct_0.webp",
+   "still": "assets/img/teaser/pretrain_ct_0_still.webp"
+  },
+  {
+   "src": "assets/img/teaser/pretrain_mr_0.webp",
+   "still": "assets/img/teaser/pretrain_mr_0_still.webp"
+  },
+  {
+   "src": "assets/img/teaser/rep_mass.webp",
+   "still": "assets/img/teaser/rep_mass_still.webp"
+  },
+  {
+   "src": "assets/img/teaser/mr2ct_radworld.webp",
+   "still": "assets/img/teaser/mr2ct_radworld_still.webp"
+  }
+ ],
+ "pending": []
+}

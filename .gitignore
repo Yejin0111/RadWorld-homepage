@@ -1,0 +1,5 @@
+.DS_Store
+._*
+__pycache__/
+# internal notes, never deploy
+_internal/

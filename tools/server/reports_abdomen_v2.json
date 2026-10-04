@@ -1,0 +1,230 @@
+[
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "liver_metastases_s0",
+  "text": "abdomen: The liver is enlarged and contains multiple hypoattenuating lesions in both lobes, the largest measuring 4 cm in segment 7, consistent with metastatic disease. The gallbladder, pancreas, spleen and adrenal glands are unremarkable. Both kidneys enhance normally without hydronephrosis. No ascites or free air. No enlarged retroperitoneal lymph nodes."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "liver_metastases_s1",
+  "text": "abdomen: The liver is enlarged and contains multiple hypoattenuating lesions in both lobes, the largest measuring 4 cm in segment 7, consistent with metastatic disease. The gallbladder, pancreas, spleen and adrenal glands are unremarkable. Both kidneys enhance normally without hydronephrosis. No ascites or free air. No enlarged retroperitoneal lymph nodes."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "liver_metastases_s2",
+  "text": "abdomen: The liver is enlarged and contains multiple hypoattenuating lesions in both lobes, the largest measuring 4 cm in segment 7, consistent with metastatic disease. The gallbladder, pancreas, spleen and adrenal glands are unremarkable. Both kidneys enhance normally without hydronephrosis. No ascites or free air. No enlarged retroperitoneal lymph nodes."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "liver_metastases_s3",
+  "text": "abdomen: The liver is enlarged and contains multiple hypoattenuating lesions in both lobes, the largest measuring 4 cm in segment 7, consistent with metastatic disease. The gallbladder, pancreas, spleen and adrenal glands are unremarkable. Both kidneys enhance normally without hydronephrosis. No ascites or free air. No enlarged retroperitoneal lymph nodes."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "renal_mass_s0",
+  "text": "abdomen: There is a 5 cm heterogeneously enhancing solid mass arising from the lower pole of the right kidney, suspicious for renal cell carcinoma. The left kidney is normal. No hydronephrosis. The liver, spleen, pancreas and adrenal glands are unremarkable. No retroperitoneal lymphadenopathy. No ascites."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "renal_mass_s1",
+  "text": "abdomen: There is a 5 cm heterogeneously enhancing solid mass arising from the lower pole of the right kidney, suspicious for renal cell carcinoma. The left kidney is normal. No hydronephrosis. The liver, spleen, pancreas and adrenal glands are unremarkable. No retroperitoneal lymphadenopathy. No ascites."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "renal_mass_s2",
+  "text": "abdomen: There is a 5 cm heterogeneously enhancing solid mass arising from the lower pole of the right kidney, suspicious for renal cell carcinoma. The left kidney is normal. No hydronephrosis. The liver, spleen, pancreas and adrenal glands are unremarkable. No retroperitoneal lymphadenopathy. No ascites."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "renal_mass_s3",
+  "text": "abdomen: There is a 5 cm heterogeneously enhancing solid mass arising from the lower pole of the right kidney, suspicious for renal cell carcinoma. The left kidney is normal. No hydronephrosis. The liver, spleen, pancreas and adrenal glands are unremarkable. No retroperitoneal lymphadenopathy. No ascites."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "cirrhosis_ascites_s0",
+  "text": "abdomen: The liver is small with a nodular contour, consistent with cirrhosis. The spleen is enlarged. There is a large volume of ascites throughout the abdomen and pelvis. Varices are seen near the splenic hilum. The kidneys, pancreas and adrenal glands are unremarkable."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "cirrhosis_ascites_s1",
+  "text": "abdomen: The liver is small with a nodular contour, consistent with cirrhosis. The spleen is enlarged. There is a large volume of ascites throughout the abdomen and pelvis. Varices are seen near the splenic hilum. The kidneys, pancreas and adrenal glands are unremarkable."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "cirrhosis_ascites_s2",
+  "text": "abdomen: The liver is small with a nodular contour, consistent with cirrhosis. The spleen is enlarged. There is a large volume of ascites throughout the abdomen and pelvis. Varices are seen near the splenic hilum. The kidneys, pancreas and adrenal glands are unremarkable."
+ },
+ {
+  "spacing": [
+   1.40625,
+   1.40625,
+   3.642578125
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   1
+  ],
+  "modality": "CT",
+  "image_file": "cirrhosis_ascites_s3",
+  "text": "abdomen: The liver is small with a nodular contour, consistent with cirrhosis. The spleen is enlarged. There is a large volume of ascites throughout the abdomen and pelvis. Varices are seen near the splenic hilum. The kidneys, pancreas and adrenal glands are unremarkable."
+ }
+]

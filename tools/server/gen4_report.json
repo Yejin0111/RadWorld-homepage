@@ -1,0 +1,914 @@
+[
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pleural_effusion_r0",
+  "text": "chest: Trachea and both main bronchi are patent. Mediastinal vascular structures are of normal calibre and heart size is normal. No pericardial effusion. There is a moderate right pleural effusion measuring 35 mm in thickness, with compressive atelectasis in the adjacent right lower lobe. A small left pleural effusion is also present. No mass or nodule is seen in either lung. No pathologically enlarged lymph nodes in the mediastinum or hila. Upper abdominal organs included in the scan are unremarkable."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pleural_effusion_r1",
+  "text": "chest: Trachea and both main bronchi are patent. Mediastinal vascular structures are of normal calibre and heart size is normal. No pericardial effusion. There is a moderate right pleural effusion measuring 35 mm in thickness, with compressive atelectasis in the adjacent right lower lobe. A small left pleural effusion is also present. No mass or nodule is seen in either lung. No pathologically enlarged lymph nodes in the mediastinum or hila. Upper abdominal organs included in the scan are unremarkable."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pleural_effusion_r2",
+  "text": "chest: Trachea and both main bronchi are patent. Mediastinal vascular structures are of normal calibre and heart size is normal. No pericardial effusion. There is a moderate right pleural effusion measuring 35 mm in thickness, with compressive atelectasis in the adjacent right lower lobe. A small left pleural effusion is also present. No mass or nodule is seen in either lung. No pathologically enlarged lymph nodes in the mediastinum or hila. Upper abdominal organs included in the scan are unremarkable."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pleural_effusion_r3",
+  "text": "chest: Trachea and both main bronchi are patent. Mediastinal vascular structures are of normal calibre and heart size is normal. No pericardial effusion. There is a moderate right pleural effusion measuring 35 mm in thickness, with compressive atelectasis in the adjacent right lower lobe. A small left pleural effusion is also present. No mass or nodule is seen in either lung. No pathologically enlarged lymph nodes in the mediastinum or hila. Upper abdominal organs included in the scan are unremarkable."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pleural_effusion_r4",
+  "text": "chest: Trachea and both main bronchi are patent. Mediastinal vascular structures are of normal calibre and heart size is normal. No pericardial effusion. There is a moderate right pleural effusion measuring 35 mm in thickness, with compressive atelectasis in the adjacent right lower lobe. A small left pleural effusion is also present. No mass or nodule is seen in either lung. No pathologically enlarged lymph nodes in the mediastinum or hila. Upper abdominal organs included in the scan are unremarkable."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pleural_effusion_r5",
+  "text": "chest: Trachea and both main bronchi are patent. Mediastinal vascular structures are of normal calibre and heart size is normal. No pericardial effusion. There is a moderate right pleural effusion measuring 35 mm in thickness, with compressive atelectasis in the adjacent right lower lobe. A small left pleural effusion is also present. No mass or nodule is seen in either lung. No pathologically enlarged lymph nodes in the mediastinum or hila. Upper abdominal organs included in the scan are unremarkable."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "cardiomegaly_r0",
+  "text": "chest: Trachea and both main bronchi are patent. The heart is enlarged. Calcified atherosclerotic plaques are present in the walls of the thoracic aorta and coronary arteries. No pericardial or pleural effusion. Both lungs are clear, with no consolidation, mass or nodule. No enlarged lymph nodes in the mediastinum or hila. Degenerative changes are seen in the thoracic spine."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "cardiomegaly_r1",
+  "text": "chest: Trachea and both main bronchi are patent. The heart is enlarged. Calcified atherosclerotic plaques are present in the walls of the thoracic aorta and coronary arteries. No pericardial or pleural effusion. Both lungs are clear, with no consolidation, mass or nodule. No enlarged lymph nodes in the mediastinum or hila. Degenerative changes are seen in the thoracic spine."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "cardiomegaly_r2",
+  "text": "chest: Trachea and both main bronchi are patent. The heart is enlarged. Calcified atherosclerotic plaques are present in the walls of the thoracic aorta and coronary arteries. No pericardial or pleural effusion. Both lungs are clear, with no consolidation, mass or nodule. No enlarged lymph nodes in the mediastinum or hila. Degenerative changes are seen in the thoracic spine."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "cardiomegaly_r3",
+  "text": "chest: Trachea and both main bronchi are patent. The heart is enlarged. Calcified atherosclerotic plaques are present in the walls of the thoracic aorta and coronary arteries. No pericardial or pleural effusion. Both lungs are clear, with no consolidation, mass or nodule. No enlarged lymph nodes in the mediastinum or hila. Degenerative changes are seen in the thoracic spine."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "cardiomegaly_r4",
+  "text": "chest: Trachea and both main bronchi are patent. The heart is enlarged. Calcified atherosclerotic plaques are present in the walls of the thoracic aorta and coronary arteries. No pericardial or pleural effusion. Both lungs are clear, with no consolidation, mass or nodule. No enlarged lymph nodes in the mediastinum or hila. Degenerative changes are seen in the thoracic spine."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "cardiomegaly_r5",
+  "text": "chest: Trachea and both main bronchi are patent. The heart is enlarged. Calcified atherosclerotic plaques are present in the walls of the thoracic aorta and coronary arteries. No pericardial or pleural effusion. Both lungs are clear, with no consolidation, mass or nodule. No enlarged lymph nodes in the mediastinum or hila. Degenerative changes are seen in the thoracic spine."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_r0",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_r1",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_r2",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_r3",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_r4",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_r5",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_r0",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_r1",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_r2",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_r3",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_r4",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_r5",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ }
+]

@@ -1,0 +1,434 @@
+[
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1W MRI",
+  "image_file": "t1_r0"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1W MRI",
+  "image_file": "t1_r1"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1W MRI",
+  "image_file": "t1_r2"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1W MRI",
+  "image_file": "t1_r3"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1W MRI",
+  "image_file": "t1_r4"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1W MRI",
+  "image_file": "t1_r5"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T2W MRI",
+  "image_file": "t2_r0"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T2W MRI",
+  "image_file": "t2_r1"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T2W MRI",
+  "image_file": "t2_r2"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T2W MRI",
+  "image_file": "t2_r3"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T2W MRI",
+  "image_file": "t2_r4"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T2W MRI",
+  "image_file": "t2_r5"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "FLAIR MRI",
+  "image_file": "flair_r0"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "FLAIR MRI",
+  "image_file": "flair_r1"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "FLAIR MRI",
+  "image_file": "flair_r2"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "FLAIR MRI",
+  "image_file": "flair_r3"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "FLAIR MRI",
+  "image_file": "flair_r4"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "FLAIR MRI",
+  "image_file": "flair_r5"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1ce MRI",
+  "image_file": "t1ce_r0"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1ce MRI",
+  "image_file": "t1ce_r1"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1ce MRI",
+  "image_file": "t1ce_r2"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1ce MRI",
+  "image_file": "t1ce_r3"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1ce MRI",
+  "image_file": "t1ce_r4"
+ },
+ {
+  "spacing": [
+   0.9375,
+   0.9375,
+   1.2109375
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   4,
+   36
+  ],
+  "modality": "T1ce MRI",
+  "image_file": "t1ce_r5"
+ }
+]

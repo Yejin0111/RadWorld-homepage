@@ -1,0 +1,610 @@
+[
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_s0",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_s1",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_s2",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pneumonia_bilateral_s3",
+  "text": "chest: Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "emphysema_s0",
+  "text": "chest: Trachea and both main bronchi are open. Centriacinar and paraseptal emphysematous changes are observed in both lungs, more prominent in the upper lobes. Bullous changes are present at the apex of the right lung. No mass or infiltrative lesion is observed in either lung. Heart size is normal. No pleural or pericardial effusion."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "emphysema_s1",
+  "text": "chest: Trachea and both main bronchi are open. Centriacinar and paraseptal emphysematous changes are observed in both lungs, more prominent in the upper lobes. Bullous changes are present at the apex of the right lung. No mass or infiltrative lesion is observed in either lung. Heart size is normal. No pleural or pericardial effusion."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "emphysema_s2",
+  "text": "chest: Trachea and both main bronchi are open. Centriacinar and paraseptal emphysematous changes are observed in both lungs, more prominent in the upper lobes. Bullous changes are present at the apex of the right lung. No mass or infiltrative lesion is observed in either lung. Heart size is normal. No pleural or pericardial effusion."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "emphysema_s3",
+  "text": "chest: Trachea and both main bronchi are open. Centriacinar and paraseptal emphysematous changes are observed in both lungs, more prominent in the upper lobes. Bullous changes are present at the apex of the right lung. No mass or infiltrative lesion is observed in either lung. Heart size is normal. No pleural or pericardial effusion."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_s0",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_s1",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_s2",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "lung_mass_s3",
+  "text": "chest: Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pericardial_effusion_s0",
+  "text": "chest: Trachea and both main bronchi are open. The heart is enlarged and there is a large pericardial effusion measuring up to 30 mm in thickness. Bilateral minimal pleural effusion. Passive atelectasis is observed in the lower lobes of both lungs. No mass lesion is observed in either lung."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pericardial_effusion_s1",
+  "text": "chest: Trachea and both main bronchi are open. The heart is enlarged and there is a large pericardial effusion measuring up to 30 mm in thickness. Bilateral minimal pleural effusion. Passive atelectasis is observed in the lower lobes of both lungs. No mass lesion is observed in either lung."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pericardial_effusion_s2",
+  "text": "chest: Trachea and both main bronchi are open. The heart is enlarged and there is a large pericardial effusion measuring up to 30 mm in thickness. Bilateral minimal pleural effusion. Passive atelectasis is observed in the lower lobes of both lungs. No mass lesion is observed in either lung."
+ },
+ {
+  "spacing": [
+   1.42578,
+   1.42578,
+   2.4140625
+  ],
+  "size": [
+   256,
+   256,
+   128
+  ],
+  "category_ids": [
+   0,
+   5,
+   6,
+   12,
+   14,
+   16,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32,
+   33,
+   34,
+   36,
+   37,
+   38
+  ],
+  "modality": "CT",
+  "image_file": "pericardial_effusion_s3",
+  "text": "chest: Trachea and both main bronchi are open. The heart is enlarged and there is a large pericardial effusion measuring up to 30 mm in thickness. Bilateral minimal pleural effusion. Passive atelectasis is observed in the lower lobes of both lungs. No mass lesion is observed in either lung."
+ }
+]

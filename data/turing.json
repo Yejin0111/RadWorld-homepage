@@ -1,0 +1,901 @@
+{
+ "cases": [
+  {
+   "id": "bladder_001",
+   "type": "Bladder cancer",
+   "modality": "MRI (T2-weighted)",
+   "vol": "assets/vol/turing/bladder_001.nii.gz",
+   "mask": "assets/vol/turing/bladder_001_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    73
+   ],
+   "spacing": [
+    0.8594,
+    0.8594,
+    0.6562
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -1.0,
+    "hi": 1.0,
+    "unit": "a.u."
+   },
+   "bytes": 2098733,
+   "windows": [
+    "auto"
+   ],
+   "cross": [
+    97,
+    97,
+    40
+   ],
+   "source": "FedBCa",
+   "license": "CC BY 4.0",
+   "k": "YmxhZGRlcl8wMDE6cmVhbA=="
+  },
+  {
+   "id": "bladder_002",
+   "type": "Bladder cancer",
+   "modality": "MRI (T2-weighted)",
+   "vol": "assets/vol/turing/bladder_002.nii.gz",
+   "mask": "assets/vol/turing/bladder_002_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    80
+   ],
+   "spacing": [
+    0.7812,
+    0.7812,
+    0.5156
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -1.0,
+    "hi": 1.0,
+    "unit": "a.u."
+   },
+   "bytes": 2517193,
+   "windows": [
+    "auto"
+   ],
+   "cross": [
+    96,
+    95,
+    40
+   ],
+   "source": "FedBCa",
+   "license": "CC BY 4.0",
+   "k": "YmxhZGRlcl8wMDI6cmVhbA=="
+  },
+  {
+   "id": "bladder_006",
+   "type": "Bladder cancer",
+   "modality": "MRI (T2-weighted)",
+   "vol": "assets/vol/turing/bladder_006.nii.gz",
+   "mask": "assets/vol/turing/bladder_006_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    57
+   ],
+   "spacing": [
+    0.9367,
+    0.9367,
+    1.0247
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -1.0,
+    "hi": 1.0,
+    "unit": "a.u."
+   },
+   "bytes": 1666655,
+   "windows": [
+    "auto"
+   ],
+   "cross": [
+    96,
+    98,
+    29
+   ],
+   "source": "FedBCa",
+   "license": "CC BY 4.0",
+   "k": "YmxhZGRlcl8wMDY6c3ludGhldGlj"
+  },
+  {
+   "id": "bladder_008",
+   "type": "Bladder cancer",
+   "modality": "MRI (T2-weighted)",
+   "vol": "assets/vol/turing/bladder_008.nii.gz",
+   "mask": "assets/vol/turing/bladder_008_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    96
+   ],
+   "spacing": [
+    0.7812,
+    0.7812,
+    0.5156
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -1.0,
+    "hi": 1.0,
+    "unit": "a.u."
+   },
+   "bytes": 2768825,
+   "windows": [
+    "auto"
+   ],
+   "cross": [
+    93,
+    87,
+    55
+   ],
+   "source": "FedBCa",
+   "license": "CC BY 4.0",
+   "k": "YmxhZGRlcl8wMDg6c3ludGhldGlj"
+  },
+  {
+   "id": "colon_001",
+   "type": "Colorectal cancer",
+   "modality": "CT",
+   "vol": "assets/vol/turing/colon_001.nii.gz",
+   "mask": "assets/vol/turing/colon_001_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    32
+   ],
+   "spacing": [
+    1.707,
+    1.707,
+    4.1406
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 564175,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    137,
+    93,
+    16
+   ],
+   "source": "MSD Colon",
+   "license": "CC BY-SA 4.0",
+   "k": "Y29sb25fMDAxOnJlYWw="
+  },
+  {
+   "id": "colon_002",
+   "type": "Colorectal cancer",
+   "modality": "CT",
+   "vol": "assets/vol/turing/colon_002.nii.gz",
+   "mask": "assets/vol/turing/colon_002_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    38
+   ],
+   "spacing": [
+    1.4102,
+    1.4102,
+    2.5078
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 465604,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    126,
+    94,
+    14
+   ],
+   "source": "MSD Colon",
+   "license": "CC BY-SA 4.0",
+   "k": "Y29sb25fMDAyOnJlYWw="
+  },
+  {
+   "id": "colon_003",
+   "type": "Colorectal cancer",
+   "modality": "CT",
+   "vol": "assets/vol/turing/colon_003.nii.gz",
+   "mask": "assets/vol/turing/colon_003_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    31
+   ],
+   "spacing": [
+    1.396,
+    1.396,
+    3.4766
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 517191,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    138,
+    96,
+    14
+   ],
+   "source": "MSD Colon",
+   "license": "CC BY-SA 4.0",
+   "k": "Y29sb25fMDAzOnN5bnRoZXRpYw=="
+  },
+  {
+   "id": "colon_004",
+   "type": "Colorectal cancer",
+   "modality": "CT",
+   "vol": "assets/vol/turing/colon_004.nii.gz",
+   "mask": "assets/vol/turing/colon_004_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    31
+   ],
+   "spacing": [
+    1.6133,
+    1.6133,
+    4.0234
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 636010,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    136,
+    86,
+    12
+   ],
+   "source": "MSD Colon",
+   "license": "CC BY-SA 4.0",
+   "k": "Y29sb25fMDA0OnN5bnRoZXRpYw=="
+  },
+  {
+   "id": "kidney_001",
+   "type": "Kidney tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/kidney_001.nii.gz",
+   "mask": "assets/vol/turing/kidney_001_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    61
+   ],
+   "spacing": [
+    1.6758,
+    1.6758,
+    2.4766
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 1012718,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    71,
+    95,
+    33
+   ],
+   "source": "KiTS2023",
+   "license": "CC BY-NC-SA 4.0",
+   "k": "a2lkbmV5XzAwMTpyZWFs"
+  },
+  {
+   "id": "kidney_003",
+   "type": "Kidney tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/kidney_003.nii.gz",
+   "mask": "assets/vol/turing/kidney_003_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    93
+   ],
+   "spacing": [
+    1.7344,
+    1.7344,
+    1.6406
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 1428724,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    110,
+    94,
+    36
+   ],
+   "source": "KiTS2023",
+   "license": "CC BY-NC-SA 4.0",
+   "k": "a2lkbmV5XzAwMzpyZWFs"
+  },
+  {
+   "id": "kidney_004",
+   "type": "Kidney tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/kidney_004.nii.gz",
+   "mask": "assets/vol/turing/kidney_004_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    52
+   ],
+   "spacing": [
+    1.6641,
+    1.6641,
+    3.6328
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 987182,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    115,
+    97,
+    24
+   ],
+   "source": "KiTS2023",
+   "license": "CC BY-NC-SA 4.0",
+   "k": "a2lkbmV5XzAwNDpzeW50aGV0aWM="
+  },
+  {
+   "id": "kidney_007",
+   "type": "Kidney tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/kidney_007.nii.gz",
+   "mask": "assets/vol/turing/kidney_007_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    76
+   ],
+   "spacing": [
+    1.2891,
+    1.2891,
+    1.7578
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 1425284,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    120,
+    97,
+    25
+   ],
+   "source": "KiTS2023",
+   "license": "CC BY-NC-SA 4.0",
+   "k": "a2lkbmV5XzAwNzpzeW50aGV0aWM="
+  },
+  {
+   "id": "liver_001",
+   "type": "Liver tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/liver_001.nii.gz",
+   "mask": "assets/vol/turing/liver_001_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    58
+   ],
+   "spacing": [
+    1.25,
+    1.25,
+    1.543
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 1335685,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    127,
+    83,
+    29
+   ],
+   "source": "HCC-TACE-Seg (TCIA)",
+   "license": "CC BY 4.0",
+   "k": "bGl2ZXJfMDAxOnJlYWw="
+  },
+  {
+   "id": "liver_003",
+   "type": "Liver tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/liver_003.nii.gz",
+   "mask": "assets/vol/turing/liver_003_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    88
+   ],
+   "spacing": [
+    1.625,
+    1.625,
+    1.9453
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 1688898,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    129,
+    93,
+    50
+   ],
+   "source": "Colorectal-Liver-Metastases (TCIA)",
+   "license": "CC BY 4.0",
+   "k": "bGl2ZXJfMDAzOnJlYWw="
+  },
+  {
+   "id": "liver_002",
+   "type": "Liver tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/liver_002.nii.gz",
+   "mask": "assets/vol/turing/liver_002_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    95
+   ],
+   "spacing": [
+    1.5625,
+    1.5625,
+    1.5039
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 1930349,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    114,
+    95,
+    51
+   ],
+   "source": "HCC-TACE-Seg (TCIA)",
+   "license": "CC BY 4.0",
+   "k": "bGl2ZXJfMDAyOnN5bnRoZXRpYw=="
+  },
+  {
+   "id": "liver_004",
+   "type": "Liver tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/liver_004.nii.gz",
+   "mask": "assets/vol/turing/liver_004_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    65
+   ],
+   "spacing": [
+    1.5625,
+    1.5625,
+    1.582
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 1142422,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    101,
+    100,
+    31
+   ],
+   "source": "HCC-TACE-Seg (TCIA)",
+   "license": "CC BY 4.0",
+   "k": "bGl2ZXJfMDA0OnN5bnRoZXRpYw=="
+  },
+  {
+   "id": "lung_001",
+   "type": "Lung tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/lung_001.nii.gz",
+   "mask": "assets/vol/turing/lung_001_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    46
+   ],
+   "spacing": [
+    1.0391,
+    1.0391,
+    2.041
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 1378768,
+   "windows": [
+    "lung",
+    "mediastinum"
+   ],
+   "cross": [
+    96,
+    97,
+    19
+   ],
+   "source": "RIDER-LungCT-Seg (TCIA)",
+   "license": "CC BY 3.0",
+   "k": "bHVuZ18wMDE6cmVhbA=="
+  },
+  {
+   "id": "lung_002",
+   "type": "Lung tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/lung_002.nii.gz",
+   "mask": "assets/vol/turing/lung_002_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    40
+   ],
+   "spacing": [
+    1.0156,
+    1.0156,
+    1.8848
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 1095221,
+   "windows": [
+    "lung",
+    "mediastinum"
+   ],
+   "cross": [
+    102,
+    96,
+    17
+   ],
+   "source": "QIBA-VolCT-1B (TCIA)",
+   "license": "CC BY 4.0 and CC BY 3.0",
+   "k": "bHVuZ18wMDI6cmVhbA=="
+  },
+  {
+   "id": "lung_006",
+   "type": "Lung tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/lung_006.nii.gz",
+   "mask": "assets/vol/turing/lung_006_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    31
+   ],
+   "spacing": [
+    1.4688,
+    1.4688,
+    2.4316
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 760771,
+   "windows": [
+    "lung",
+    "mediastinum"
+   ],
+   "cross": [
+    107,
+    113,
+    16
+   ],
+   "source": "QIN-LungCT-Seg (TCIA)",
+   "license": "CC BY 3.0",
+   "k": "bHVuZ18wMDY6c3ludGhldGlj"
+  },
+  {
+   "id": "lung_008",
+   "type": "Lung tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/lung_008.nii.gz",
+   "mask": "assets/vol/turing/lung_008_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    48
+   ],
+   "spacing": [
+    1.2734,
+    1.2734,
+    2.1582
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 1320014,
+   "windows": [
+    "lung",
+    "mediastinum"
+   ],
+   "cross": [
+    123,
+    94,
+    19
+   ],
+   "source": "RIDER-LungCT-Seg (TCIA)",
+   "license": "CC BY 3.0",
+   "k": "bHVuZ18wMDg6c3ludGhldGlj"
+  },
+  {
+   "id": "pancreatic_003",
+   "type": "Pancreatic tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/pancreatic_003.nii.gz",
+   "mask": "assets/vol/turing/pancreatic_003_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    43
+   ],
+   "spacing": [
+    1.3477,
+    1.3477,
+    1.543
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 947017,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    96,
+    95,
+    19
+   ],
+   "source": "PANORAMA",
+   "license": "CC BY-NC 4.0",
+   "k": "cGFuY3JlYXRpY18wMDM6cmVhbA=="
+  },
+  {
+   "id": "pancreatic_004",
+   "type": "Pancreatic tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/pancreatic_004.nii.gz",
+   "mask": "assets/vol/turing/pancreatic_004_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    26
+   ],
+   "spacing": [
+    1.4531,
+    1.4531,
+    5.3828
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 502715,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    96,
+    96,
+    11
+   ],
+   "source": "PANORAMA",
+   "license": "CC BY-NC 4.0",
+   "k": "cGFuY3JlYXRpY18wMDQ6cmVhbA=="
+  },
+  {
+   "id": "pancreatic_002",
+   "type": "Pancreatic tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/pancreatic_002.nii.gz",
+   "mask": "assets/vol/turing/pancreatic_002_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    33
+   ],
+   "spacing": [
+    1.5156,
+    1.5156,
+    3.7969
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 663929,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    98,
+    96,
+    15
+   ],
+   "source": "PANORAMA",
+   "license": "CC BY-NC 4.0",
+   "k": "cGFuY3JlYXRpY18wMDI6c3ludGhldGlj"
+  },
+  {
+   "id": "pancreatic_005",
+   "type": "Pancreatic tumor",
+   "modality": "CT",
+   "vol": "assets/vol/turing/pancreatic_005.nii.gz",
+   "mask": "assets/vol/turing/pancreatic_005_mask.nii.gz",
+   "dims": [
+    192,
+    192,
+    73
+   ],
+   "spacing": [
+    1.7578,
+    1.7578,
+    2.3828
+   ],
+   "encoding": {
+    "type": "linear",
+    "lo": -75.0,
+    "hi": 175.0,
+    "unit": "HU"
+   },
+   "bytes": 1409023,
+   "windows": [
+    "reader"
+   ],
+   "cross": [
+    79,
+    97,
+    38
+   ],
+   "source": "MSD Pancreas",
+   "license": "CC BY-SA 4.0",
+   "k": "cGFuY3JlYXRpY18wMDU6c3ludGhldGlj"
+  }
+ ],
+ "reference": {
+  "overall": 59.7,
+  "overall_ci": [
+   55.6,
+   63.9
+  ],
+  "junior": 52.9,
+  "senior": 66.0,
+  "synthetic_called_real": 58.8,
+  "readers": 6,
+  "scans_per_reader": 240,
+  "judgments": 1440
+ }
+}

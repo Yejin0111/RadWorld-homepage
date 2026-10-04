@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" data-status="preprint">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RadWorld: A World Foundation Model for 3D Tomographic Medical Imaging</title>
+<meta name="description" content="RadWorld is a radiologic world foundation model pretrained on 232,781 curated 3D CT and MRI scans from 152 datasets across 23 countries, and readily adapted to generate CT and MRI from radiology reports, segmentation masks, other scans or treatment information.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RadWorld: A World Foundation Model for 3D Tomographic Medical Imaging">
+<meta property="og:description" content="A radiologic world foundation model pretrained on 232,781 curated 3D scans. Browse generated CT and MRI volumes and take the visual Turing test.">
+<meta property="og:image" content="assets/img/social.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- <link rel="canonical" href="https://YOUR-DOMAIN/"> set once the address is final, and make og:image absolute -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/site-config.js"></script>
+<script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="#top" aria-label="RadWorld, back to top">
+      <img src="assets/img/favicon.svg" alt="" width="24" height="24">RadWorld
+    </a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#overview">Overview</a>
+      <a href="#generation">Generation</a>
+      <a href="#turing">Turing test</a>
+      <a href="#synthetic">Synthetic data</a>
+      <a href="#translation">Translation</a>
+      <a href="#treatment">Treatment</a>
+      <a href="#citation">Citation</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="pill only-published" data-link="paper">Paper</a>
+      <a class="pill only-preprint" data-link="arxiv">arXiv</a>
+      <a class="pill" data-link="code">Code</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================================================================== hero -->
+<section class="hero">
+  <div class="container hero-text">
+    <h1>RadWorld</h1>
+    <p class="subtitle">A World Foundation Model for 3D Tomographic Medical Imaging</p>
+    <p class="lead">Pretrained on 232,781 CT and MRI scans, RadWorld readily adapts to generate realistic 3D scans from a radiology report, a mask, another scan or treatment details.</p>
+
+    <p class="authors">
+      <span>Jin Ye<sup>1,3‡</sup>,</span>
+      <span>Chenglong Ma<sup>3,5,7‡</sup>,</span>
+      <span>Lu Zhang<sup>6‡</sup>,</span>
+      <span>Yanzhou Su<sup>8</sup>,</span>
+      <span>Jiyao Liu<sup>3,7</sup>,</span>
+      <span>Wei Li<sup>3</sup>,</span>
+      <span>Yicheng Wu<sup>1</sup>,</span>
+      <span>Zhihao Chen<sup>7</sup>,</span>
+      <span>Hongming Shan<sup>7</sup>,</span>
+      <span>Zhaolin Chen<sup>1</sup>,</span>
+      <span>Bohan Zhuang<sup>1</sup>,</span>
+      <span>Yu Qiao<sup>3</sup>,</span>
+      <span>Junjie Zhang<sup>2</sup>,</span>
+      <span>Junjun He<sup>2,3,5*</sup>,</span>
+      <span>Jianfei Cai<sup>1*</sup>,</span>
+      <span>Yuanfeng Ji<sup>2,4*</sup></span>
+    </p>
+    <p class="affils">
+      <span><sup>1</sup>Monash University</span>
+      <span><sup>2</sup>Ant Healthcare</span>
+      <span><sup>3</sup>Shanghai Artificial Intelligence Laboratory</span>
+      <span><sup>4</sup>Stanford University School of Medicine</span>
+      <span><sup>5</sup>Shanghai Innovation Institute</span>
+      <span><sup>6</sup>The First Affiliated Hospital of Jinan University</span>
+      <span><sup>7</sup>Fudan University</span>
+      <span><sup>8</sup>Fuzhou University</span>
+    </p>
+    <p class="notes">‡ Equal contribution · * Corresponding authors</p>
+
+    <nav class="links" aria-label="Paper and resources">
+      <a class="btn only-published" data-link="paper"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6V2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 4h8v1.5H8V16z"/></svg>Paper</a>
+      <a class="btn" data-link="arxiv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6V2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 4h8v1.5H8V16z"/></svg>arXiv</a>
+      <a class="btn" data-link="code"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>Code</a>
+      <a class="btn" data-link="weights"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5zm0 2.2L18.8 8 12 11.8 5.2 8 12 4.2zM5 9.7l6 3.3v6.8l-6-3.3V9.7zm8 10.1V13l6-3.3v6.8l-6 3.3z"/></svg>Weights</a>
+      <a class="btn" href="#citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4H8.5c0 1.7.8 2.8 2.5 3v2c-3 0-4-2.3-4-5V7zm7 0h4v4h-2.5c0 1.7.8 2.8 2.5 3v2c-3 0-4-2.3-4-5V7z"/></svg>BibTeX</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <p class="strip-label">Every scan below was generated by RadWorld</p>
+    <div class="strip">
+      <figure class="strip-item">
+        <div class="frame"><img src="assets/img/teaser/render3d_abdomen_bone.webp" data-still="assets/img/teaser/render3d_abdomen_bone_still.webp" alt="Rotating 3D rendering of the skeleton in an abdomen and pelvis CT that RadWorld generated from scan type and anatomy" width="420" height="420"></div>
+        <figcaption><b>Abdomen and pelvis CT, 3D</b>from scan type and anatomy</figcaption>
+      </figure>
+      <figure class="strip-item">
+        <div class="frame"><img src="assets/img/teaser/pretrain_ct_0.webp" data-still="assets/img/teaser/pretrain_ct_0_still.webp" alt="Axial sweep through a chest CT generated by RadWorld from scan type and anatomy" width="300" height="300"></div>
+        <figcaption><b>Chest CT</b>from scan type and anatomy</figcaption>
+      </figure>
+      <figure class="strip-item">
+        <div class="frame"><img src="assets/img/teaser/pretrain_mr_0.webp" data-still="assets/img/teaser/pretrain_mr_0_still.webp" alt="Axial sweep through a brain MRI generated by RadWorld from scan type and anatomy" width="300" height="300"></div>
+        <figcaption><b>Brain MRI</b>from scan type and anatomy</figcaption>
+      </figure>
+      <figure class="strip-item">
+        <div class="frame"><img src="assets/img/teaser/rep_mass.webp" data-still="assets/img/teaser/rep_mass_still.webp" alt="Axial sweep through a chest CT generated by RadWorld from a written report of lung cancer" width="300" height="300"></div>
+        <figcaption><b>Chest CT</b>from a lung cancer report</figcaption>
+      </figure>
+      <figure class="strip-item">
+        <div class="frame"><img src="assets/img/teaser/mr2ct_radworld.webp" data-still="assets/img/teaser/mr2ct_radworld_still.webp" alt="Axial sweep through a head and neck CT translated by RadWorld from MR" width="300" height="300"></div>
+        <figcaption><b>Head and neck CT</b>from an MR scan</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== overview -->
+<section id="overview" class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Overview</p>
+      <h2>Why a world foundation model?</h2>
+    </div>
+
+    <ol class="story">
+      <li>
+        <p class="story-step">The problem</p>
+        <h3>Clinical scans leave gaps</h3>
+        <p>Scans are taken to answer specific clinical questions, so even large datasets cover patients, diseases and protocols unevenly, which holds back medical AI. Scanning more costs money, burdens patients and can add radiation.</p>
+      </li>
+      <li>
+        <p class="story-step">The gap</p>
+        <h3>Most generators are built for one task</h3>
+        <p>Generative models can help fill these gaps, but most are built for one modality, one type of input or one clinical use, so what they learn is hard to reuse.</p>
+      </li>
+      <li class="story-ours">
+        <p class="story-step">Our approach</p>
+        <h3>Learn once, then adapt</h3>
+        <p>RadWorld first learns how 3D anatomy and disease appear across 232,781 scans, then adapts this knowledge to each new task instead of training a new generator from scratch.</p>
+      </li>
+    </ol>
+
+    <div class="para para-new">
+      <p class="para-label">One pretrained foundation, adapted to each task</p>
+      <div class="para-flow">
+        <ul class="para-inputs">
+          <li>Radiology report</li>
+          <li>Organ or tumor mask</li>
+          <li>CBCT or MR</li>
+          <li>T1, T2 and FLAIR</li>
+          <li>Non-contrast CT</li>
+          <li>Pre-treatment CT and treatment details</li>
+        </ul>
+        <i class="arr big" aria-hidden="true"></i>
+        <div class="para-core">
+          <b>RadWorld</b>
+          <span>pretrained on 232,781 curated scans</span>
+          <small>152 datasets · 23 countries · CT and 21 MRI sequences</small>
+        </div>
+        <i class="arr big" aria-hidden="true"></i>
+        <ul class="para-outputs">
+          <li>3D CT</li>
+          <li>3D MRI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== generation -->
+<section id="generation" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Generation</p>
+      <h2>Realistic CT and MRI, generated in full 3D</h2>
+      <p class="section-sub">From a scan type and anatomy, a radiology report or an organ mask, RadWorld generates complete 3D volumes.</p>
+    </div>
+
+    <div class="explorer">
+      <div class="cap-tabs" role="tablist" aria-label="Generation settings">
+        <button type="button" role="tab" data-cap="generation" aria-selected="true">Scan type and anatomy</button>
+        <button type="button" role="tab" data-cap="report" aria-selected="false">Radiology report</button>
+        <button type="button" role="tab" data-cap="mask" aria-selected="false">Organ mask</button>
+      </div>
+      <div class="explorer-stage" data-group="generation"></div>
+    </div>
+
+    <div class="evidence stack">
+      <figure class="chart columns" data-src="fid" data-min="0" data-max="300" data-ticks="0,100,200,300">
+        <figcaption>
+          <h3>Outperforms existing 3D generators in fidelity</h3>
+          <p>Fréchet inception distance (FID), lower is better</p>
+        </figcaption>
+        <table>
+          <thead><tr><th scope="col">Benchmark</th><th scope="col" data-tone="1">HA-GAN</th><th scope="col" data-tone="2">MAISI</th><th scope="col" data-tone="3">3D-MedDiffusion</th><th scope="col" data-ours>RadWorld</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" data-panel="CT">Head and neck</th><td>263.3</td><td>157.5</td><td>147.3</td><td>47.4</td></tr>
+            <tr><th scope="row">Chest</th><td>199.0</td><td>86.6</td><td>64.1</td><td>56.4</td></tr>
+            <tr><th scope="row">Abdomen</th><td>226.3</td><td>89.3</td><td>89.2</td><td>49.0</td></tr>
+            <tr><th scope="row">Pelvis</th><td>253.3</td><td>75.1</td><td>104.2</td><td>55.8</td></tr>
+            <tr><th scope="row" data-panel="MRI">Head and neck</th><td>135.6</td><td>208.4</td><td>93.1</td><td>80.0</td></tr>
+            <tr><th scope="row">Chest</th><td>195.1</td><td>230.6</td><td>148.5</td><td>110.1</td></tr>
+            <tr><th scope="row">Abdomen</th><td>210.1</td><td>120.7</td><td>120.5</td><td>79.0</td></tr>
+            <tr><th scope="row">Pelvis</th><td>204.8</td><td>129.1</td><td>111.0</td><td>79.2</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <figure class="chart lollipop" data-src="organ-dice" data-min="0.3" data-max="1" data-ticks="0.4,0.6,0.8,1.0">
+        <figcaption>
+          <h3>Reproduces anatomy specified by masks more accurately</h3>
+          <p>Dice across 16 abdominal organs, higher is better</p>
+        </figcaption>
+        <table>
+          <thead><tr><th scope="col">Organ</th><th scope="col" data-tone="2">MAISI</th><th scope="col" data-ours>RadWorld</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Liver</th><td>0.930</td><td>0.953</td></tr>
+            <tr><th scope="row">Left kidney</th><td>0.905</td><td>0.927</td></tr>
+            <tr><th scope="row">Right kidney</th><td>0.892</td><td>0.927</td></tr>
+            <tr><th scope="row">Spleen</th><td>0.878</td><td>0.925</td></tr>
+            <tr><th scope="row">Stomach</th><td>0.815</td><td>0.887</td></tr>
+            <tr><th scope="row">Bladder</th><td>0.785</td><td>0.872</td></tr>
+            <tr><th scope="row">Intestine</th><td>0.708</td><td>0.756</td></tr>
+            <tr><th scope="row">Colon</th><td>0.707</td><td>0.749</td></tr>
+            <tr><th scope="row">Pancreas</th><td>0.650</td><td>0.725</td></tr>
+            <tr><th scope="row">Esophagus</th><td>0.601</td><td>0.630</td></tr>
+            <tr><th scope="row">Duodenum</th><td>0.513</td><td>0.601</td></tr>
+            <tr><th scope="row">Gallbladder</th><td>0.332</td><td>0.589</td></tr>
+            <tr><th scope="row">Left femur</th><td>0.541</td><td>0.588</td></tr>
+            <tr><th scope="row">Rectum</th><td>0.394</td><td>0.581</td></tr>
+            <tr><th scope="row">Adrenal</th><td>0.414</td><td>0.503</td></tr>
+            <tr><th scope="row">Right femur</th><td>0.338</td><td>0.497</td></tr>
+          </tbody>
+        </table>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== Turing test -->
+<section id="turing" class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Visual Turing test</p>
+      <h2>Can you tell real from synthetic?</h2>
+    </div>
+    <div id="turing-app">
+      <div class="turing-card turing-intro">
+        <div>
+          <p class="turing-stat"><b>58.8%</b>of the time, board-certified radiologists took RadWorld's synthetic tumor scans for real.</p>
+          <h3>Your turn: ten cases from the study</h3>
+          <p>Each tumor is outlined, as it was for the radiologists.</p>
+          <button type="button" class="turing-start" data-role="start">Start the test</button>
+          <p class="fineprint">Answers stay in your browser.</p>
+        </div>
+        <figure class="chart" data-src="turing-accuracy" data-scale="100" data-ref="50" data-ref-label="Chance level (50%)">
+          <figcaption>
+            <h3>Classification accuracy by reader experience</h3>
+            <p>Blinded reading of real and synthetic tumor scans</p>
+          </figcaption>
+          <table>
+            <thead><tr><th scope="col">Readers</th><th scope="col">Accuracy (%)</th></tr></thead>
+            <tbody>
+              <tr data-tone="1"><td>Junior radiologists</td><td>52.9</td></tr>
+              <tr data-tone="2"><td>All radiologists</td><td>59.7</td></tr>
+              <tr data-tone="3"><td>Senior radiologists</td><td>66.0</td></tr>
+            </tbody>
+          </table>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== synthetic data -->
+<section id="synthetic" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Synthetic data</p>
+      <h2>Synthetic scans that improve medical AI</h2>
+      <p class="section-sub">Added to real training data, RadWorld scans improved abnormality classification, tumor segmentation and report generation, more than scans from other generators. Each generator added twice as many synthetic scans as real ones.</p>
+    </div>
+
+    <div class="evidence stack" data-same-bars>
+      <figure class="chart columns" data-src="cls-auc" data-bar="14" data-min="0.4" data-max="1" data-ticks="0.4,0.6,0.8,1.0">
+        <figcaption>
+          <h3>Better than real-only training for every abnormality, with the highest overall AUC</h3>
+          <p>AUC for chest CT abnormalities, higher is better</p>
+        </figcaption>
+        <table>
+          <thead><tr><th scope="col">Abnormality</th><th scope="col" data-tone="1">Real data only</th><th scope="col" data-tone="2">+ GenerateCT</th><th scope="col" data-tone="3">+ MedSyn</th><th scope="col" data-ours>+ RadWorld</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Hiatal hernia</th><td>0.477</td><td>0.483</td><td>0.489</td><td>0.609</td></tr>
+            <tr><th scope="row">Lung opacity</th><td>0.546</td><td>0.559</td><td>0.613</td><td>0.632</td></tr>
+            <tr><th scope="row">Atelectasis</th><td>0.566</td><td>0.582</td><td>0.608</td><td>0.690</td></tr>
+            <tr><th scope="row">Adenopathy</th><td>0.623</td><td>0.612</td><td>0.623</td><td>0.650</td></tr>
+            <tr><th scope="row">Pericardial effusion</th><td>0.633</td><td>0.641</td><td>0.635</td><td>0.672</td></tr>
+            <tr><th scope="row">Calcification</th><td>0.579</td><td>0.614</td><td>0.680</td><td>0.688</td></tr>
+            <tr><th scope="row">Lung nodule</th><td>0.609</td><td>0.647</td><td>0.673</td><td>0.673</td></tr>
+            <tr><th scope="row">Emphysema</th><td>0.535</td><td>0.586</td><td>0.676</td><td>0.772</td></tr>
+            <tr><th scope="row">Bronchiectasis</th><td>0.610</td><td>0.679</td><td>0.615</td><td>0.784</td></tr>
+            <tr><th scope="row">Consolidation</th><td>0.644</td><td>0.657</td><td>0.724</td><td>0.723</td></tr>
+            <tr><th scope="row">Fibrotic sequela</th><td>0.645</td><td>0.756</td><td>0.737</td><td>0.826</td></tr>
+            <tr><th scope="row">Pleural effusion</th><td>0.790</td><td>0.813</td><td>0.852</td><td>0.902</td></tr>
+            <tr><th scope="row">Overall</th><td>0.613</td><td>0.650</td><td>0.665</td><td>0.723</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <figure class="chart columns" data-src="tumor-dice" data-min="0.4" data-max="0.8" data-ticks="0.4,0.5,0.6,0.7,0.8">
+        <figcaption>
+          <h3>Highest Dice across all eight tumor types</h3>
+          <p>Tumor segmentation Dice, higher is better</p>
+        </figcaption>
+        <table>
+          <thead><tr><th scope="col">Tumor</th><th scope="col" data-tone="1">Real data only</th><th scope="col" data-tone="2">+ DiffTumor</th><th scope="col" data-tone="3">+ FreeTumor</th><th scope="col" data-ours>+ RadWorld</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Nasopharynx</th><td>0.576</td><td>0.590</td><td>0.598</td><td>0.629</td></tr>
+            <tr><th scope="row">Head and neck</th><td>0.632</td><td>0.653</td><td>0.654</td><td>0.675</td></tr>
+            <tr><th scope="row">Lung</th><td>0.625</td><td>0.651</td><td>0.691</td><td>0.723</td></tr>
+            <tr><th scope="row">Liver</th><td>0.599</td><td>0.700</td><td>0.703</td><td>0.730</td></tr>
+            <tr><th scope="row">Pancreas</th><td>0.487</td><td>0.541</td><td>0.535</td><td>0.588</td></tr>
+            <tr><th scope="row">Colorectum</th><td>0.438</td><td>0.476</td><td>0.476</td><td>0.531</td></tr>
+            <tr><th scope="row">Kidney</th><td>0.729</td><td>0.762</td><td>0.764</td><td>0.783</td></tr>
+            <tr><th scope="row">Bladder</th><td>0.673</td><td>0.726</td><td>0.724</td><td>0.764</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <figure class="chart columns" data-src="report" data-bar="14">
+        <figcaption>
+          <h3>Highest scores across all report metrics and regions</h3>
+          <p>Textual similarity (BLEU-2, ROUGE-L, METEOR) and clinical accuracy (GREEN) of generated reports, higher is better</p>
+        </figcaption>
+        <table>
+          <thead><tr><th scope="col">Region</th><th scope="col" data-tone="1">Real data only</th><th scope="col" data-tone="2">+ GenerateCT</th><th scope="col" data-tone="3">+ MedSyn</th><th scope="col" data-ours>+ RadWorld</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" data-panel="BLEU-2" data-min="0.1" data-max="0.4" data-ticks="0.1,0.2,0.3,0.4">Chest</th><td>0.215</td><td>0.263</td><td>0.264</td><td>0.270</td></tr>
+            <tr><th scope="row">Abdomen</th><td>0.320</td><td>0.340</td><td>0.342</td><td>0.358</td></tr>
+            <tr><th scope="row">Pelvis</th><td>0.193</td><td>0.252</td><td>0.250</td><td>0.258</td></tr>
+            <tr><th scope="row" data-panel="ROUGE-L" data-min="0.25" data-max="0.45" data-ticks="0.25,0.35,0.45">Chest</th><td>0.311</td><td>0.320</td><td>0.316</td><td>0.324</td></tr>
+            <tr><th scope="row">Abdomen</th><td>0.413</td><td>0.426</td><td>0.429</td><td>0.442</td></tr>
+            <tr><th scope="row">Pelvis</th><td>0.373</td><td>0.377</td><td>0.372</td><td>0.388</td></tr>
+            <tr><th scope="row" data-panel="METEOR" data-min="0.25" data-max="0.45" data-ticks="0.25,0.35,0.45">Chest</th><td>0.322</td><td>0.336</td><td>0.339</td><td>0.352</td></tr>
+            <tr><th scope="row">Abdomen</th><td>0.373</td><td>0.399</td><td>0.395</td><td>0.410</td></tr>
+            <tr><th scope="row">Pelvis</th><td>0.424</td><td>0.428</td><td>0.429</td><td>0.435</td></tr>
+            <tr><th scope="row" data-panel="GREEN" data-min="0.2" data-max="0.8" data-ticks="0.2,0.4,0.6,0.8">Chest</th><td>0.266</td><td>0.274</td><td>0.288</td><td>0.314</td></tr>
+            <tr><th scope="row">Abdomen</th><td>0.421</td><td>0.442</td><td>0.446</td><td>0.501</td></tr>
+            <tr><th scope="row">Pelvis</th><td>0.665</td><td>0.686</td><td>0.690</td><td>0.741</td></tr>
+          </tbody>
+        </table>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== translation -->
+<section id="translation" class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Translation</p>
+      <h2>Translate across modalities, sequences and contrast phases</h2>
+      <p class="section-sub">Generate a missing CT, MRI sequence or contrast phase from the scans you have. The real scan of the same patient is shown for comparison.</p>
+    </div>
+
+    <div class="explorer">
+      <div class="explorer-stage" data-group="translation"></div>
+    </div>
+
+    <div class="evidence stack">
+      <figure class="chart columns" data-src="psnr" data-min="20" data-max="28" data-ticks="20,22,24,26,28">
+        <figcaption>
+          <h3>Outperforms specialized models in image fidelity</h3>
+          <p>Peak signal-to-noise ratio (PSNR, dB) of the whole volume, higher is better</p>
+        </figcaption>
+        <table>
+          <thead><tr><th scope="col">Setting</th><th scope="col" data-tone="1">ResViT</th><th scope="col" data-tone="2">pGAN</th><th scope="col" data-tone="3">MMGAN</th><th scope="col" data-ours>RadWorld</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">CBCT to CT</th><td>23.4</td><td>23.7</td><td>23.8</td><td>26.4</td></tr>
+            <tr><th scope="row">MR to CT</th><td>21.3</td><td>22.4</td><td>22.8</td><td>24.8</td></tr>
+            <tr><th scope="row">T1, T2, FLAIR to T1CE</th><td>22.0</td><td>21.3</td><td>22.5</td><td>24.3</td></tr>
+            <tr><th scope="row">Non-contrast to venous phase</th><td>22.7</td><td>25.7</td><td>25.0</td><td>26.3</td></tr>
+            <tr><th scope="row">Non-contrast to arterial phase</th><td>20.8</td><td>26.2</td><td>24.4</td><td>27.2</td></tr>
+          </tbody>
+        </table>
+      </figure>
+    </div>
+    <div class="evidence even">
+      <figure class="chart columns" data-src="t1ce" data-min="0" data-max="1" data-ticks="0,0.2,0.4,0.6,0.8,1.0">
+        <figcaption>
+          <h3>Synthetic T1CE preserves segmentation information</h3>
+          <p>Post-treatment glioma, Dice against segmentation with the real T1CE</p>
+        </figcaption>
+        <table>
+          <thead><tr><th scope="col">Region</th><th scope="col" data-tone="1">Zero imputation</th><th scope="col" data-tone="3">MMGAN</th><th scope="col" data-ours>RadWorld</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Enhancing tumor</th><td>0.497</td><td>0.386</td><td>0.802</td></tr>
+            <tr><th scope="row">Tumor core</th><td>0.508</td><td>0.398</td><td>0.862</td></tr>
+            <tr><th scope="row">Whole tumor</th><td>0.805</td><td>0.793</td><td>0.919</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <figure class="chart columns" data-src="lesion" data-min="0.6" data-max="0.9" data-ticks="0.6,0.7,0.8,0.9">
+        <figcaption>
+          <h3>Synthetic contrast raised reader accuracy at every experience level</h3>
+          <p>Radiologists classifying liver cases as normal, benign or malignant</p>
+        </figcaption>
+        <table>
+          <thead><tr><th scope="col">Readers</th><th scope="col" data-tone="1">Non-contrast CT only</th><th scope="col" data-ours>+ synthetic contrast CT</th><th scope="col" data-tone="3">+ acquired contrast CT</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Junior</th><td>0.750</td><td>0.792</td><td>0.833</td></tr>
+            <tr><th scope="row">Mid-level</th><td>0.775</td><td>0.833</td><td>0.850</td></tr>
+            <tr><th scope="row">Senior</th><td>0.792</td><td>0.833</td><td>0.867</td></tr>
+            <tr><th scope="row">All readers</th><td>0.772</td><td>0.819</td><td>0.850</td></tr>
+          </tbody>
+        </table>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== treatment -->
+<section id="treatment" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Treatment</p>
+      <h2>Virtual post-treatment CT supports survival prediction</h2>
+      <p class="section-sub">For liver cancer treated with chemoembolization (TACE), RadWorld generates a virtual post-treatment CT from the pre-treatment CT and treatment details. In two independent cohorts, the virtual CT predicted progression-free survival nearly as well as the real follow-up CT.</p>
+    </div>
+
+    <div class="feature">
+      <div class="tace-grid">
+        <span class="tace-col">Pre-TACE CT</span>
+        <span class="tace-col">Real post-TACE CT</span>
+        <span class="tace-col ours">Virtual post-TACE CT</span>
+        <img src="assets/img/tace/p1_pre.webp" alt="Pre-TACE CT, patient 1" width="440" height="439" loading="lazy">
+        <img src="assets/img/tace/p1_post.webp" alt="Real post-TACE CT, patient 1" width="440" height="439" loading="lazy">
+        <img src="assets/img/tace/p1_virtual.webp" alt="Virtual post-TACE CT generated by RadWorld, patient 1" width="440" height="440" loading="lazy">
+        <img src="assets/img/tace/p2_pre.webp" alt="Pre-TACE CT, patient 2" width="440" height="439" loading="lazy">
+        <img src="assets/img/tace/p2_post.webp" alt="Real post-TACE CT, patient 2" width="440" height="439" loading="lazy">
+        <img src="assets/img/tace/p2_virtual.webp" alt="Virtual post-TACE CT generated by RadWorld, patient 2" width="440" height="440" loading="lazy">
+      </div>
+
+      <figure class="chart columns" data-src="cindex" data-min="0" data-max="0.8" data-ticks="0,0.2,0.4,0.6,0.8">
+        <figcaption>
+          <h3>Improves survival prediction, comparable to real <span class="nowrap">post-TACE CT</span></h3>
+          <p>C-index for progression-free survival, higher is better</p>
+        </figcaption>
+        <table>
+          <thead><tr><th scope="col">Cohort</th><th scope="col" data-tone="1">Pre-TACE CT only</th><th scope="col" data-tone="2">+ patient and procedural variables</th><th scope="col" data-tone="3">+ real post-TACE CT</th><th scope="col" data-ours>+ virtual post-TACE CT</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Cohort A</th><td>0.577</td><td>0.595</td><td>0.732</td><td>0.727</td></tr>
+            <tr><th scope="row">Cohort B</th><td>0.571</td><td>0.595</td><td>0.726</td><td>0.721</td></tr>
+          </tbody>
+        </table>
+      </figure>
+    </div>
+
+    <div class="evidence km-row">
+      <figure class="km" data-cohort="FHHMU">
+        <figcaption>
+          <h3>Cohort A</h3>
+          <p>Progression-free survival of risk groups predicted from virtual post-TACE CT</p>
+        </figcaption>
+        <p class="km-stat">Hazard ratio 2.73, <i>P</i>&nbsp;&lt;&nbsp;0.0001</p>
+      </figure>
+      <figure class="km" data-cohort="FAHJU">
+        <figcaption>
+          <h3>Cohort B</h3>
+          <p>Progression-free survival of risk groups predicted from virtual post-TACE CT</p>
+        </figcaption>
+        <p class="km-stat">Hazard ratio 2.45, <i>P</i>&nbsp;&lt;&nbsp;0.0001</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== citation -->
+<section id="citation" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Citation</p>
+      <h2>Cite RadWorld</h2>
+    </div>
+    <div class="cite-grid">
+      <div class="bibtex">
+        <pre id="bibtex-text">@article{ye2026radworld,
+  title   = {A World Foundation Model for 3D Tomographic Medical Imaging},
+  author  = {Ye, Jin and Ma, Chenglong and Zhang, Lu and others},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</pre>
+        <button type="button" class="copy-btn" id="bibtex-copy">Copy</button>
+      </div>
+      <div class="contact">
+        <h3>Contact</h3>
+        <ul>
+          <li><span>Jin Ye</span><span>jin.ye@monash.edu</span></li>
+          <li><span>Yuanfeng Ji</span><span>yfj@stanford.edu</span></li>
+          <li><span>Jianfei Cai</span><span>jianfei.cai@monash.edu</span></li>
+          <li><span>Junjun He</span><span>hejunjun@pjlab.org.cn</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <p>RadWorld · A World Foundation Model for 3D Tomographic Medical Imaging</p>
+    <details>
+      <summary>Image credits</summary>
+      <p>The real scans and inputs on this page, including the scans that synthetic tumors were added to, are adapted from these public datasets and shared under their licenses. Collections from The Cancer Imaging Archive are used under the <a href="https://www.cancerimagingarchive.net/data-usage-policies-and-restrictions/" target="_blank" rel="noopener">TCIA data usage policy</a>.</p>
+      <ul id="data-credits"></ul>
+    </details>
+  </div>
+</footer>
+
+<dialog class="render3d" id="render3d" aria-label="3D rendering">
+  <div class="render3d-head"><span data-role="title">3D rendering</span><button type="button" data-role="close" aria-label="Close">×</button></div>
+  <div class="render3d-canvas-wrap"><canvas></canvas><div class="render3d-status">Loading…</div></div>
+  <div class="controls"><div class="group" data-role="presets"></div><span>Drag to rotate. Scroll to zoom.</span></div>
+</dialog>
+
+<script>
+  // Module scripts and fetch do not run from file:// URLs, so say how to preview the page.
+  if (location.protocol === 'file:') {
+    var msg = '<div class="pending-box"><b>Interactive content needs a web server</b>' +
+      'In this folder run <code>python3 tools/serve.py 8000</code> and open http://localhost:8000</div>';
+    document.querySelectorAll('[data-group]').forEach(function (el) { el.classList.add('viewer'); el.innerHTML = msg; });
+    var t = document.getElementById('turing-app');
+    if (t) t.insertAdjacentHTML('beforeend', '<div class="viewer" style="margin-top:12px">' + msg + '</div>');
+  }
+</script>
+</body>
+</html>
