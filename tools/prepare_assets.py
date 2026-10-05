@@ -119,6 +119,14 @@ TUMOR_TYPES = [  # folder, label, modality
     ("pancreatic_tumor", "Pancreatic tumor", "CT"),
 ]
 TURING_PER_CLASS = 2      # per tumor type: this many real and this many synthetic
+# Reader-study answers (one JSON per reader and tumor type). The quiz shows, per tumor type, the
+# synthetic cases that most of the six radiologists judged real and real cases that they all judged
+# real, so every case looks like a convincing scan. Only datasets that allow redistribution.
+READER_RESULTS = TUM / "结果收集_v2"
+READERS = ["初级1", "初级2", "中级1", "中级2", "高级1", "高级2"]
+READER_JSON = {"bladder_tumor": "bladder_tumor_viewer.json", "colon_cancer_primaries": "colon_cancer_primaries_viewer.json",
+               "kidney_tumor": "kidney_tumor_viewer.json", "liver_tumor": "liver_tumor_viewer.json",
+               "lung_tumor": "lung_tumor_dual_window_viewer.json", "pancreatic_tumor": "pancreatic_tumor_viewer.json"}
 
 # Original vs RadWorld pairs (tumor region re-synthesized), outside the reader set, picked by eye
 # from the candidate sheets for image quality: (folder, label, file in best_tumor_cases, window).
@@ -189,10 +197,12 @@ EXTRA_CASES = [
      "window": "mediastinum", "windows": ["mediastinum", "lung"], "credit": "Coltea-Lung-CT-100W case CH24092019, CC BY-SA 4.0"},
     {"group": "translation", "layout": "compare", "id": "ct_venous", "label": "Non-contrast to venous phase", "source": "Coltea-Lung-CT-100W",
      "text": "Venous-phase CT generated from non-contrast CT. The real venous phase, aligned to the input, is shown for comparison.",
-     "panes": [{"file": str(DEMO_DATA / "ct_venous/case01_source.nii.gz"), "kind": "ct", "title": "Input non-contrast CT"},
-               {"file": str(SO / "ct_venous/case01.nii.gz"), "kind": "ct", "title": "RadWorld venous phase", "render3d": True},
-               {"file": str(AL / "ct_venous_case01_reference.nii.gz"), "kind": "ct", "title": "Real venous phase"}],
-     "window": "mediastinum", "windows": ["mediastinum", "lung"], "credit": "Coltea-Lung-CT-100W case SG20102015, CC BY-SA 4.0"},
+     # case02 (EM31082020): the closest match to its real venous phase among the three demo cases
+     # (MAE 94 HU inside the body, against 121 HU for case01, whose coronal field of view is narrow)
+     "panes": [{"file": str(DEMO_DATA / "ct_venous/case02_source.nii.gz"), "kind": "ct", "title": "Input non-contrast CT"},
+               {"file": str(SO / "ct_venous/case02.nii.gz"), "kind": "ct", "title": "RadWorld venous phase", "render3d": True},
+               {"file": str(AL / "ct_venous_case02_reference.nii.gz"), "kind": "ct", "title": "Real venous phase"}],
+     "window": "mediastinum", "windows": ["mediastinum", "lung"], "credit": "Coltea-Lung-CT-100W case EM31082020, CC BY-SA 4.0"},
 ]
 
 # ---- CT generated from organ label maps (m2i_organ demo). The label maps were made from WORD CT
@@ -720,24 +730,35 @@ def crop_box(mask, inplane=192, zmin_len=24, zmax_len=96, zmargin=8):
     return slice(i0, i0 + inplane), slice(j0, j0 + inplane), slice(z0, z1)
 
 
+def reader_votes(folder):
+    """Number of the six readers who judged each case real, keyed by encoded file name."""
+    votes = {}
+    for reader in READERS:
+        for key, answer in json.loads((READER_RESULTS / reader / READER_JSON[folder]).read_text()).items():
+            votes[f"{key}.nii.gz"] = votes.get(f"{key}.nii.gz", 0) + (answer["reality"] == "真实")
+    return votes
+
+
 def build_turing(man_turing):
     cases = []
     for folder, label, modality in TUMOR_TYPES:
         rows = list(csv.DictReader(open(TUM / f"human_check_cases/mapping_files/{folder}_mapping.csv")))
-        picked = {"real": [], "gen": []}
-        for r in sorted(rows, key=lambda r: r["encoded_filename"]):
-            ds = r["identifier"].split("/")[2]
-            if ds not in ALLOWED_DATASETS or len(picked[r["source"]]) >= TURING_PER_CLASS:
-                continue
-            picked[r["source"]].append((r, ds))
+        votes = reader_votes(folder)
         for src in ("real", "gen"):
-            for r, ds in picked[src]:
+            pool = [r for r in rows if r["source"] == src and r["identifier"].split("/")[2] in ALLOWED_DATASETS]
+            pool.sort(key=lambda r: (-votes.get(r["encoded_filename"], 0), r["encoded_filename"]))
+            taken = 0
+            for r in pool:
+                if taken >= TURING_PER_CLASS:
+                    break
+                ds = r["identifier"].split("/")[2]
                 fn = r["encoded_filename"]
                 img, zooms, _ = canonical(TUM / f"human_check_cases/{folder}/images/{fn}")
                 mask, _, _ = canonical(TUM / f"human_check_cases/{folder}/masks/{fn}")
                 mask = (mask > 0).astype(np.uint8)
                 if mask.sum() == 0:
                     continue
+                taken += 1
                 si, sj, sk = crop_box(mask)
                 img, mask = img[si, sj, sk], mask[si, sj, sk]
                 if folder == "bladder_tumor":
@@ -762,7 +783,7 @@ def build_turing(man_turing):
                     "source": DATASET_LABEL.get(ds, ds), "license": DATASET_LICENSE[ds],
                     "k": base64.b64encode(f"{cid}:{truth}".encode()).decode(),
                 })
-                print(f"turing/{cid}: {truth:9s} {ds:28s} {u8.shape} {(vb + mb) // 1024} KB")
+                print(f"turing/{cid}: {truth:9s} judged real by {votes.get(fn, 0)}/6  {ds:28s} {u8.shape} {(vb + mb) // 1024} KB")
     return {
         "cases": cases,
         "reference": {

@@ -117,6 +117,96 @@
    },
    "bytes": 1773326
   },
+  "rep_covid": {
+   "url": "assets/vol/report/rep_covid.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.2891,
+    1.2891,
+    2.625
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 4611295
+  },
+  "rep_effusions": {
+   "url": "assets/vol/report/rep_effusions.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4648,
+    1.4648,
+    2.6719
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 5284444
+  },
+  "rep_gallbladder": {
+   "url": "assets/vol/report/rep_gallbladder.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4062,
+    1.4062,
+    3.4277
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 4775048
+  },
   "pretrain_ct_0": {
    "url": "assets/vol/extra/pretrain_ct_0.nii.gz",
    "dims": [
@@ -605,9 +695,9 @@
     128
    ],
    "spacing": [
-    1.3828,
-    1.3828,
-    2.3906
+    1.9492,
+    1.9492,
+    1.9688
    ],
    "encoding": {
     "type": "piecewise",
@@ -625,7 +715,7 @@
     ],
     "unit": "HU"
    },
-   "bytes": 2820268
+   "bytes": 2782002
   },
   "ct_venous_1": {
    "url": "assets/vol/extra/ct_venous_1.nii.gz",
@@ -635,9 +725,9 @@
     128
    ],
    "spacing": [
-    1.3828,
-    1.3828,
-    2.3906
+    1.9492,
+    1.9492,
+    1.9688
    ],
    "encoding": {
     "type": "piecewise",
@@ -655,7 +745,7 @@
     ],
     "unit": "HU"
    },
-   "bytes": 2884208
+   "bytes": 2860655
   },
   "ct_venous_2": {
    "url": "assets/vol/extra/ct_venous_2.nii.gz",
@@ -665,9 +755,9 @@
     128
    ],
    "spacing": [
-    1.3828,
-    1.3828,
-    2.3906
+    1.9492,
+    1.9492,
+    1.9688
    ],
    "encoding": {
     "type": "piecewise",
@@ -685,7 +775,7 @@
     ],
     "unit": "HU"
    },
-   "bytes": 2746172
+   "bytes": 2737790
   },
   "m2i_a_0": {
    "url": "assets/vol/extra/m2i_a_0.nii.gz",
@@ -1624,96 +1714,6 @@
     "unit": "HU"
    },
    "bytes": 2061855
-  },
-  "rep_covid": {
-   "url": "assets/vol/report/rep_covid.nii.gz",
-   "dims": [
-    256,
-    256,
-    128
-   ],
-   "spacing": [
-    1.2891,
-    1.2891,
-    2.625
-   ],
-   "encoding": {
-    "type": "piecewise",
-    "raw": [
-     0,
-     40,
-     220,
-     255
-    ],
-    "val": [
-     -1000,
-     -200,
-     300,
-     1000
-    ],
-    "unit": "HU"
-   },
-   "bytes": 4611295
-  },
-  "rep_effusions": {
-   "url": "assets/vol/report/rep_effusions.nii.gz",
-   "dims": [
-    256,
-    256,
-    128
-   ],
-   "spacing": [
-    1.4648,
-    1.4648,
-    2.6719
-   ],
-   "encoding": {
-    "type": "piecewise",
-    "raw": [
-     0,
-     40,
-     220,
-     255
-    ],
-    "val": [
-     -1000,
-     -200,
-     300,
-     1000
-    ],
-    "unit": "HU"
-   },
-   "bytes": 5284444
-  },
-  "rep_gallbladder": {
-   "url": "assets/vol/report/rep_gallbladder.nii.gz",
-   "dims": [
-    256,
-    256,
-    128
-   ],
-   "spacing": [
-    1.4062,
-    1.4062,
-    3.4277
-   ],
-   "encoding": {
-    "type": "piecewise",
-    "raw": [
-     0,
-     40,
-     220,
-     255
-    ],
-    "val": [
-     -1000,
-     -200,
-     300,
-     1000
-    ],
-    "unit": "HU"
-   },
-   "bytes": 4775048
   }
  },
  "groups": {
@@ -1988,7 +1988,7 @@
       "mediastinum",
       "lung"
      ],
-     "credit": "Coltea-Lung-CT-100W case SG20102015, CC BY-SA 4.0",
+     "credit": "Coltea-Lung-CT-100W case EM31082020, CC BY-SA 4.0",
      "panes": [
       {
        "vol": "ct_venous_0",

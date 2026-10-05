@@ -90,7 +90,7 @@ answering unseen quiz cases, dialogs closing after a drag, two 3D volumes stacki
 | Whole-volume generation | `pretrain` and `pretrain_mr` demos, seeds 1995, 7 and 42, best case per region picked by eye |
 | Reports to CT | report-guided demo outputs of the code release (`outputs/t2i_chest`, `outputs/t2i_abdomen`), cases kept only when the output visibly shows the main findings. Their prompts are dataset reports that may not be redistributed, so the page lists only the main findings, written by the authors (`RELEASE_REPORT_CASES` in `tools/prepare_assets.py`) |
 | Translation | `cbct2ct`, `mr2ct`, `ct_arterial` and `ct_venous` demo outputs, with the acquired scan of the same patient resampled onto the model grid by `tools/model_grid.py` |
-| Visual Turing test | cases from the reader study, from datasets that allow redistribution |
+| Visual Turing test | cases from the reader study, from datasets that allow redistribution. Per tumor type, the synthetic cases that most of the six readers judged real and real cases that all of them judged real (`reader_votes` in `tools/prepare_assets.py`) |
 | Treatment simulation | image panel cropped from Figure 5f of the paper |
 | Hero strip | sweeps through gallery volumes (`build_teaser`) and a 3D rendering (`tools/capture_3d_teaser.py`) |
 
@@ -108,13 +108,14 @@ can show the full input text next to the generated volume.
 
 ## Deploying
 
-Any static host works. Deploy `index.html`, `assets/` and `data/`. The `tools/` folder is only needed
-to rebuild the assets and refers to local source folders, so it can stay out of the public copy.
-The deployed files are about 140 MB, mostly volumes, and no file is larger than 6 MB.
-GitHub Pages is the simplest option. For readers in mainland China, a custom domain on GitHub
-Pages is usually reachable, and a mirror on a mainland host needs an ICP filing.
-Before going public: fill the links, set the canonical URL and an absolute
-`og:image` in `index.html`, and run `python3 tools/check_numbers.py`.
+The site is served by GitHub Pages from the `main` branch of this repository, at
+https://yejin0111.github.io/RadWorld-homepage/. Every push to `main` redeploys it within a minute or two. `.nojekyll` makes Pages
+serve the files as they are, without a Jekyll build. The deployed files are about 120 MB, mostly
+volumes, and no file is larger than 6 MB. If the address changes (for example a custom domain),
+update the canonical link, `og:url`, `og:image` and `twitter:image` in `index.html`.
+
+Before announcing the page: fill the links in `assets/js/site-config.js` (arXiv, code, weights) and
+run the three checks above.
 
 ## Data on this page
 
