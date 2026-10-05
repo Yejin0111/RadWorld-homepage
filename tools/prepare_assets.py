@@ -227,11 +227,28 @@ OWN_REPORT_CASES = [  # id, tab label, region, sample file (relative to SERVER_O
     ("rep_mass", "Lung cancer", "chest", "homepage_gen3/reports_chest_v3/lung_mass_s3.nii.gz", "lung", ["lung", "mediastinum"], 0.78),
 ]
 
+# Report-guided CT from the code release: outputs of scripts/demo.sh (t2i_chest, t2i_abdomen),
+# copied from the release folder on the server to SERVER_OUT/release_outputs. Their prompts are
+# dataset reports that may not be redistributed, so the page lists only the main findings, in our
+# own words, and never the report text.
+RELEASE_OUT = SERVER_OUT / "release_outputs/outputs"
+RELEASE_REPORT_CASES = [  # id, tab label, release case, window, windows, axial level (0 = inferior), main findings
+    ("rep_covid", "Pneumonia", "t2i_chest/case04", "lung", ["lung", "mediastinum", "bone"], 0.5,
+     "Patchy ground-glass opacities at the periphery of both lower lobes, consistent with COVID-19 pneumonia."),
+    ("rep_effusions", "Pleural effusions", "t2i_chest/case02", "mediastinum", ["mediastinum", "lung", "bone"], 0.55,
+     "Pleural effusions on both sides, larger on the right. Patchy and band-like opacities in both lungs. "
+     "Calcified plaques in the aorta and coronary arteries."),
+    ("rep_gallbladder", "Distended gallbladder", "t2i_abdomen/case08", "abdomen", ["abdomen", "bone"], 0.68,
+     "Distended gallbladder with a thickened wall and no stones. Diverticulosis of the colon."),
+]
+# Reviewed but not shown: the other release cases, whose main findings are too subtle to see at a glance
+# (for example t2i_abdomen/case01, enlarged liver, and case15, right hydronephrosis).
+
 # Tab order per group (ids not listed keep their build order, after the listed ones).
 TAB_ORDER = {
     "generation": ["pretrain_ct", "gen_abdomen", "gen_hn", "gen_pelvis", "pretrain_mr"],
     "translation": ["cbct2ct", "mr2ct", "cbct2ct_ab", "mr2ct_ab", "ct_phase", "ct_venous"],
-    "report": ["rep_cardiomegaly", "rep_effusion", "rep_pneumonia", "rep_mass", "rep_emphysema", "rep_pericardial"],
+    "report": ["rep_covid", "rep_effusions", "rep_gallbladder"],
 }
 
 # Placeholders for settings whose outputs are only on the GPU server.
@@ -607,6 +624,29 @@ def build_own_reports(man):
         print(f"own report {cid}: {man.volumes[vkey]['bytes'] // 1024} KB")
 
 
+def build_release_reports(man):
+    for cid, label, case, win, windows, level, findings in RELEASE_REPORT_CASES:
+        path = RELEASE_OUT / f"{case}.nii.gz"
+        if not path.exists():
+            print(f"release report {cid}: missing {path}")
+            continue
+        data, zooms, _ = canonical(path)
+        enc, u8 = encoding_ct(), enc_ct(data)
+        nx, ny, nz = u8.shape
+        cross = [nx // 2, ny // 2, int(round(level * (nz - 1)))]
+        w = WINDOWS[win]
+        vkey = man.add_volume(cid, u8, zooms, enc, ROOT / f"assets/vol/report/{cid}.nii.gz")
+        posters = {pl: rel(save_webp(render(u8, enc, (w["lo"], w["hi"]), pl, cross, zooms),
+                                     ROOT / f"assets/img/poster/report/{cid}_{pl}.webp")) for pl in ("axial", "coronal", "sagittal")}
+        man.add_case("report", "triplanar", {
+            "id": cid, "label": label, "summary": findings, "inputLabel": "Input: radiology report (main findings)",
+            "note": "The full report text is not shown. RadWorld generated the whole 3D volume from the report.",
+            "panes": [{"vol": vkey, "title": "RadWorld, generated from the report", "posters": posters, "render3d": True}],
+            "window": win, "windows": windows, "cross": cross,
+        })
+        print(f"release report {cid}: {man.volumes[vkey]['bytes'] // 1024} KB")
+
+
 def reader_identifiers():
     ids = set()
     for f in (TUM / "human_check_cases/mapping_files").glob("*.csv"):
@@ -738,7 +778,7 @@ def build_teaser(man):
     items = [  # volume key, window, plane
         ("pretrain_ct_0", "mediastinum", "axial"),
         ("pretrain_mr_0", "auto", "axial"),
-        ("rep_mass", "lung", "axial"),
+        ("rep_effusions", "mediastinum", "axial"),
         ("mr2ct_radworld", "bone", "axial"),
     ]
     axis = {"axial": 2, "coronal": 1, "sagittal": 0}
@@ -812,7 +852,7 @@ def main():
                     g["cases"] = [c for c in g["cases"] if not c.get("extra")]
 
     if run("report"):
-        build_own_reports(man)  # the CT-RATE based build_report() is kept for reference but not shown
+        build_release_reports(man)  # build_own_reports() and the CT-RATE build_report() are kept for reference
     if run("mr2ct"):
         build_mr2ct(man)
     if run("word") and INCLUDE_WORD:

@@ -217,7 +217,7 @@ async def run_engine(p, name, url, quick):
         await wait_loaded(pg, rp)
         ok, means = await canvases_have_image(pg, rp)
         check(f"{tag}: report case loads automatically and draws three planes", ok and len(means) == 3)
-        check(f"{tag}: report text is shown", "Trachea" in await pg.locator(f"{rp} .case-text").inner_text())
+        check(f"{tag}: report findings are shown", "ground-glass" in await pg.locator(f"{rp} .case-text").inner_text())
         before = await pg.locator(f"{rp} [data-role=slice-label]").inner_text()
         await pg.locator(f"{rp} [data-role=slice]").evaluate("(el) => { el.value = String(Number(el.max) - 5); el.dispatchEvent(new Event('input', { bubbles: true })); }")
         await pg.wait_for_timeout(200)

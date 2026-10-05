@@ -88,7 +88,7 @@ answering unseen quiz cases, dialogs closing after a drag, two 3D volumes stacki
 | Section | Source |
 |---|---|
 | Whole-volume generation | `pretrain` and `pretrain_mr` demos, seeds 1995, 7 and 42, best case per region picked by eye |
-| Reports to CT | report prompts written by the authors (`tools/server/reports_chest_v2.json`, `reports_chest_v3.json`), four samples each, cases kept only when the output shows what the report describes |
+| Reports to CT | report-guided demo outputs of the code release (`outputs/t2i_chest`, `outputs/t2i_abdomen`), cases kept only when the output visibly shows the main findings. Their prompts are dataset reports that may not be redistributed, so the page lists only the main findings, written by the authors (`RELEASE_REPORT_CASES` in `tools/prepare_assets.py`) |
 | Translation | `cbct2ct`, `mr2ct`, `ct_arterial` and `ct_venous` demo outputs, with the acquired scan of the same patient resampled onto the model grid by `tools/model_grid.py` |
 | Visual Turing test | cases from the reader study, from datasets that allow redistribution |
 | Treatment simulation | image panel cropped from Figure 5f of the paper |

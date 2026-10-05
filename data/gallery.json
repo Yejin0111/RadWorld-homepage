@@ -37,126 +37,6 @@
   }
  },
  "volumes": {
-  "rep_cardiomegaly": {
-   "url": "assets/vol/report/rep_cardiomegaly.nii.gz",
-   "dims": [
-    256,
-    256,
-    128
-   ],
-   "spacing": [
-    1.4258,
-    1.4258,
-    2.4141
-   ],
-   "encoding": {
-    "type": "piecewise",
-    "raw": [
-     0,
-     40,
-     220,
-     255
-    ],
-    "val": [
-     -1000,
-     -200,
-     300,
-     1000
-    ],
-    "unit": "HU"
-   },
-   "bytes": 4940582
-  },
-  "rep_effusion": {
-   "url": "assets/vol/report/rep_effusion.nii.gz",
-   "dims": [
-    256,
-    256,
-    128
-   ],
-   "spacing": [
-    1.4258,
-    1.4258,
-    2.4141
-   ],
-   "encoding": {
-    "type": "piecewise",
-    "raw": [
-     0,
-     40,
-     220,
-     255
-    ],
-    "val": [
-     -1000,
-     -200,
-     300,
-     1000
-    ],
-    "unit": "HU"
-   },
-   "bytes": 5041003
-  },
-  "rep_pneumonia": {
-   "url": "assets/vol/report/rep_pneumonia.nii.gz",
-   "dims": [
-    256,
-    256,
-    128
-   ],
-   "spacing": [
-    1.4258,
-    1.4258,
-    2.4141
-   ],
-   "encoding": {
-    "type": "piecewise",
-    "raw": [
-     0,
-     40,
-     220,
-     255
-    ],
-    "val": [
-     -1000,
-     -200,
-     300,
-     1000
-    ],
-    "unit": "HU"
-   },
-   "bytes": 4251224
-  },
-  "rep_mass": {
-   "url": "assets/vol/report/rep_mass.nii.gz",
-   "dims": [
-    256,
-    256,
-    128
-   ],
-   "spacing": [
-    1.4258,
-    1.4258,
-    2.4141
-   ],
-   "encoding": {
-    "type": "piecewise",
-    "raw": [
-     0,
-     40,
-     220,
-     255
-    ],
-    "val": [
-     -1000,
-     -200,
-     300,
-     1000
-    ],
-    "unit": "HU"
-   },
-   "bytes": 5480386
-  },
   "mr2ct_mr": {
    "url": "assets/vol/translation/mr2ct_input_mr.nii.gz",
    "dims": [
@@ -1744,6 +1624,96 @@
     "unit": "HU"
    },
    "bytes": 2061855
+  },
+  "rep_covid": {
+   "url": "assets/vol/report/rep_covid.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.2891,
+    1.2891,
+    2.625
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 4611295
+  },
+  "rep_effusions": {
+   "url": "assets/vol/report/rep_effusions.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4648,
+    1.4648,
+    2.6719
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 5284444
+  },
+  "rep_gallbladder": {
+   "url": "assets/vol/report/rep_gallbladder.nii.gz",
+   "dims": [
+    256,
+    256,
+    128
+   ],
+   "spacing": [
+    1.4062,
+    1.4062,
+    3.4277
+   ],
+   "encoding": {
+    "type": "piecewise",
+    "raw": [
+     0,
+     40,
+     220,
+     255
+    ],
+    "val": [
+     -1000,
+     -200,
+     300,
+     1000
+    ],
+    "unit": "HU"
+   },
+   "bytes": 4775048
   }
  },
  "groups": {
@@ -2065,27 +2035,27 @@
    "layout": "triplanar",
    "cases": [
     {
-     "id": "rep_cardiomegaly",
-     "label": "Cardiomegaly",
-     "summary": "Trachea and both main bronchi are patent. The heart is enlarged. Calcified atherosclerotic plaques are present in the walls of the thoracic aorta and coronary arteries. No pericardial or pleural effusion. Both lungs are clear, with no consolidation, mass or nodule. No enlarged lymph nodes in the mediastinum or hila. Degenerative changes are seen in the thoracic spine.",
-     "inputLabel": "Input: radiology report",
-     "note": "Report written by the authors for this demonstration. RadWorld generated the whole 3D volume from it.",
+     "id": "rep_covid",
+     "label": "Pneumonia",
+     "summary": "Patchy ground-glass opacities at the periphery of both lower lobes, consistent with COVID-19 pneumonia.",
+     "inputLabel": "Input: radiology report (main findings)",
+     "note": "The full report text is not shown. RadWorld generated the whole 3D volume from the report.",
      "panes": [
       {
-       "vol": "rep_cardiomegaly",
+       "vol": "rep_covid",
        "title": "RadWorld, generated from the report",
        "posters": {
-        "axial": "assets/img/poster/report/rep_cardiomegaly_axial.webp",
-        "coronal": "assets/img/poster/report/rep_cardiomegaly_coronal.webp",
-        "sagittal": "assets/img/poster/report/rep_cardiomegaly_sagittal.webp"
+        "axial": "assets/img/poster/report/rep_covid_axial.webp",
+        "coronal": "assets/img/poster/report/rep_covid_coronal.webp",
+        "sagittal": "assets/img/poster/report/rep_covid_sagittal.webp"
        },
        "render3d": true
       }
      ],
-     "window": "mediastinum",
+     "window": "lung",
      "windows": [
-      "mediastinum",
       "lung",
+      "mediastinum",
       "bone"
      ],
      "cross": [
@@ -2095,19 +2065,19 @@
      ]
     },
     {
-     "id": "rep_effusion",
-     "label": "Pleural effusion",
-     "summary": "Trachea and both main bronchi are patent. Mediastinal vascular structures are of normal calibre and heart size is normal. No pericardial effusion. There is a moderate right pleural effusion measuring 35 mm in thickness, with compressive atelectasis in the adjacent right lower lobe. A small left pleural effusion is also present. No mass or nodule is seen in either lung. No pathologically enlarged lymph nodes in the mediastinum or hila. Upper abdominal organs included in the scan are unremarkable.",
-     "inputLabel": "Input: radiology report",
-     "note": "Report written by the authors for this demonstration. RadWorld generated the whole 3D volume from it.",
+     "id": "rep_effusions",
+     "label": "Pleural effusions",
+     "summary": "Pleural effusions on both sides, larger on the right. Patchy and band-like opacities in both lungs. Calcified plaques in the aorta and coronary arteries.",
+     "inputLabel": "Input: radiology report (main findings)",
+     "note": "The full report text is not shown. RadWorld generated the whole 3D volume from the report.",
      "panes": [
       {
-       "vol": "rep_effusion",
+       "vol": "rep_effusions",
        "title": "RadWorld, generated from the report",
        "posters": {
-        "axial": "assets/img/poster/report/rep_effusion_axial.webp",
-        "coronal": "assets/img/poster/report/rep_effusion_coronal.webp",
-        "sagittal": "assets/img/poster/report/rep_effusion_sagittal.webp"
+        "axial": "assets/img/poster/report/rep_effusions_axial.webp",
+        "coronal": "assets/img/poster/report/rep_effusions_coronal.webp",
+        "sagittal": "assets/img/poster/report/rep_effusions_sagittal.webp"
        },
        "render3d": true
       }
@@ -2121,65 +2091,36 @@
      "cross": [
       128,
       128,
-      51
+      70
      ]
     },
     {
-     "id": "rep_pneumonia",
-     "label": "Pneumonia",
-     "summary": "Trachea and both main bronchi are open. Consolidation areas with air bronchograms are observed in the lower lobes of both lungs, more prominent on the right, consistent with pneumonia. Ground-glass densities are seen around the consolidations. Minimal pleural effusion on the right. Heart size is normal. No pericardial effusion. No lymph nodes in pathological size and appearance in the mediastinum.",
-     "inputLabel": "Input: radiology report",
-     "note": "Report written by the authors for this demonstration. RadWorld generated the whole 3D volume from it.",
+     "id": "rep_gallbladder",
+     "label": "Distended gallbladder",
+     "summary": "Distended gallbladder with a thickened wall and no stones. Diverticulosis of the colon.",
+     "inputLabel": "Input: radiology report (main findings)",
+     "note": "The full report text is not shown. RadWorld generated the whole 3D volume from the report.",
      "panes": [
       {
-       "vol": "rep_pneumonia",
+       "vol": "rep_gallbladder",
        "title": "RadWorld, generated from the report",
        "posters": {
-        "axial": "assets/img/poster/report/rep_pneumonia_axial.webp",
-        "coronal": "assets/img/poster/report/rep_pneumonia_coronal.webp",
-        "sagittal": "assets/img/poster/report/rep_pneumonia_sagittal.webp"
+        "axial": "assets/img/poster/report/rep_gallbladder_axial.webp",
+        "coronal": "assets/img/poster/report/rep_gallbladder_coronal.webp",
+        "sagittal": "assets/img/poster/report/rep_gallbladder_sagittal.webp"
        },
        "render3d": true
       }
      ],
-     "window": "lung",
+     "window": "abdomen",
      "windows": [
-      "lung",
-      "mediastinum"
+      "abdomen",
+      "bone"
      ],
      "cross": [
       128,
       128,
-      57
-     ]
-    },
-    {
-     "id": "rep_mass",
-     "label": "Lung cancer",
-     "summary": "Trachea and both main bronchi are open. A spiculated mass measuring 45 x 38 mm is observed in the upper lobe of the right lung, consistent with primary lung cancer. Lymph nodes up to 18 mm in short axis are observed in the right hilar and subcarinal regions. No pleural effusion. Heart size is normal.",
-     "inputLabel": "Input: radiology report",
-     "note": "Report written by the authors for this demonstration. RadWorld generated the whole 3D volume from it.",
-     "panes": [
-      {
-       "vol": "rep_mass",
-       "title": "RadWorld, generated from the report",
-       "posters": {
-        "axial": "assets/img/poster/report/rep_mass_axial.webp",
-        "coronal": "assets/img/poster/report/rep_mass_coronal.webp",
-        "sagittal": "assets/img/poster/report/rep_mass_sagittal.webp"
-       },
-       "render3d": true
-      }
-     ],
-     "window": "lung",
-     "windows": [
-      "lung",
-      "mediastinum"
-     ],
-     "cross": [
-      128,
-      128,
-      99
+      86
      ]
     }
    ]
@@ -2452,8 +2393,8 @@
    "still": "assets/img/teaser/pretrain_mr_0_still.webp"
   },
   {
-   "src": "assets/img/teaser/rep_mass.webp",
-   "still": "assets/img/teaser/rep_mass_still.webp"
+   "src": "assets/img/teaser/rep_effusions.webp",
+   "still": "assets/img/teaser/rep_effusions_still.webp"
   },
   {
    "src": "assets/img/teaser/mr2ct_radworld.webp",
