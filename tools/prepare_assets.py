@@ -794,9 +794,9 @@ def build_turing(man_turing):
 
 
 def build_teaser(man):
-    """Animated sweeps (WebP) through volumes already in the manifest. The first teaser item, a
-    rotating 3D rendering, comes from tools/capture_3d_teaser.py."""
+    """Animated sweeps (WebP) through volumes already in the manifest, one per teaser item."""
     items = [  # volume key, window, plane
+        ("gen_abdomen_0", "abdomen", "axial"),
         ("pretrain_ct_0", "mediastinum", "axial"),
         ("pretrain_mr_0", "auto", "axial"),
         ("rep_effusions", "mediastinum", "axial"),

@@ -2,7 +2,8 @@
 follows the manuscript style rules (no semicolons, no em dashes).
 
 Usage: python tools/check_numbers.py
-Exit code 1 if a number is not found in the LaTeX sources or a style rule is broken.
+Exit code 1 if a number is not found in the LaTeX sources (or the text of the figure PDFs) or a style rule
+is broken. Needs pdftotext (poppler).
 """
 import html
 import json
@@ -31,6 +32,10 @@ tex = ""
 for f in sorted(files):
     tex += re.sub(r"(?<!\\)%[^\n]*", "", f.read_text(encoding="utf-8", errors="ignore")) + "\n"
 tex = tex.replace("{,}", ",").replace("\\%", "%")
+# text printed inside the figures counts too (for example the treatment details of Figure 5f)
+import subprocess
+for pdf in sorted((OV / "resources/figures").glob("figure*.pdf")):
+    tex += "\n" + subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True).stdout
 tex_numbers = set(re.findall(r"\d[\d,]*\.?\d*", tex))
 
 # ---- page text (visible prose only), plus text the scripts write at run time
@@ -61,7 +66,7 @@ runtime += [str(v) for v in data["reference"].values() if not isinstance(v, list
 runtime += [str(x) for v in data["reference"].values() if isinstance(v, list) for x in v]
 body = re.sub(r"(?s)<(script|style|svg|pre)[^>]*>.*?</\1>", " ", page)
 # chart tables are checked cell by cell against their exact sources by tools/check_charts.py
-body = re.sub(r"(?s)<table>.*?</table>", " ", body)
+body = re.sub(r"(?s)<table[^>]*>.*?</table>", " ", body)
 body = re.sub(r"(?s)<head>.*?</head>", " ", body)
 body = re.sub(r"<!--.*?-->", " ", body, flags=re.S)
 text = html.unescape(re.sub(r"<[^>]+>", " ", body))
@@ -102,6 +107,8 @@ captions = [str(c.get(k, "")) for g in gallery["groups"].values() for c in g["ca
             for k in ("label", "text", "summary", "note", "inputLabel")]
 captions += [p.get("title", "") for g in gallery["groups"].values() for c in g["cases"] for p in c.get("panes", [])]
 captions += [c["type"] + " " + c["modality"] for c in data["cases"]]
+showcase = json.loads((ROOT / "data/showcase.json").read_text())  # the Generation slides
+captions += [c["label"] + " " + " ".join(c["input"].get("tags", [])) + " " + c["input"].get("text", "") for g in showcase.values() for c in g]
 shown = html.unescape(re.sub(r"<[^>]+>", " ", shown)) + " " + " ".join(captions) + " " + " ".join(runtime)
 names = [(n, re.search(r".{0,40}" + re.escape(n) + r".{0,30}", shown).group(0)) for n in DATASET_NAMES
          if re.search(r"(?<![\w-])" + re.escape(n), shown)]

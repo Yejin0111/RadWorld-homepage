@@ -1,11 +1,13 @@
-// Page bootstrap: applies site-config.js, fills the BibTeX entry, draws the charts, and mounts the
-// section viewers and the visual Turing test.
+// Page bootstrap: applies site-config.js, fills the BibTeX entry, draws the world-model figure, the
+// carousels and the charts, fills the Generation slides and mounts the visual Turing test.
 
-import { mountGroup, escapeHTML } from './viewer.js';
-import { open3D, initRender3D } from './render3d.js';
+import { escapeHTML } from './viewer.js';
 import { mountTuring } from './turing.js';
 import { renderCharts } from './charts.js';
 import { renderKM } from './km.js';
+import { initCarousels } from './carousel.js';
+import { initConcept } from './concept.js';
+import { initShowcase } from './showcase.js';
 
 const cfg = window.RADWORLD_SITE || { status: 'preprint', links: {} };
 const links = { ...(cfg.links || {}) };
@@ -35,7 +37,10 @@ const DATASETS = {
   'PANORAMA': { license: 'CC BY-NC 4.0', url: 'https://panorama.grand-challenge.org/' },
   'Coltea-Lung-CT-100W': { license: 'CC BY-SA 4.0', url: 'https://github.com/ristea/cycle-transformer' },
   'WORD': { license: 'GPL-3.0, research use only', url: 'https://github.com/HiLab-git/WORD' },
+  'BraTS 2024 post-treatment glioma': { license: 'CC BY-NC 4.0', url: 'https://www.synapse.org/Synapse:syn53708249/wiki/627500' },
 };
+// Images on the page that come from the paper's figures rather than from data/gallery.json
+const FIGURE_SOURCES = ['BraTS 2024 post-treatment glioma'];  // T1CE slide (Extended Data Figure 5a)
 
 function applyConfig() {
   document.documentElement.dataset.status = cfg.status === 'published' ? 'published' : 'preprint';
@@ -117,39 +122,13 @@ function setupNav() {
   byId.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
 }
 
-// Each capability section has its own viewer. Every viewer waits for a click before downloading
-// volumes, and once any volume has loaded, switching tabs inside a viewer loads the new case directly.
-let anyLoaded = false;
-
-function setupExplorer(root, gallery) {
-  const stage = root.querySelector('.explorer-stage');
-  if (!stage) return;
-  const tabs = [...root.querySelectorAll('.cap-tabs [data-cap]')];
-  let mounted = null;
-  const show = (cap) => {
-    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.cap === cap)));
-    if (mounted) mounted.destroy();
-    stage.dataset.group = cap;
-    mounted = mountGroup(stage, gallery, cap, {
-      open3D,
-      autoload: anyLoaded,
-      onAnyLoaded: () => { anyLoaded = true; },
-    });
-  };
-  tabs.forEach((t) => {
-    if (!((gallery.groups[t.dataset.cap] || {}).cases || []).length) t.hidden = true;
-    t.addEventListener('click', () => show(t.dataset.cap));
-  });
-  const first = tabs.find((t) => !t.hidden);
-  show(first ? first.dataset.cap : stage.dataset.group);
-}
-
 function fillCredits(gallery, turing) {
   const ul = document.getElementById('data-credits');
   if (!ul) return;
   const used = new Set();
   for (const g of Object.values(gallery.groups || {})) for (const c of g.cases) if (c.source) used.add(c.source);
   for (const c of (turing && turing.cases) || []) used.add(c.source);
+  FIGURE_SOURCES.forEach((n) => used.add(n));
   const items = [...used].filter((n) => DATASETS[n]).sort((a, b) => a.localeCompare(b));
   ul.innerHTML = items.map((n) => `<li><a href="${DATASETS[n].url}" target="_blank" rel="noopener">${escapeHTML(n)}</a>, ${licenseLinks(DATASETS[n].license)}</li>`).join('');
 }
@@ -167,21 +146,14 @@ async function main() {
   setupBibtex();
   setupMotion();
   setupNav();
+  initConcept();
+  initCarousels();
   renderCharts();
   renderKM();
-  initRender3D();
+  initShowcase();
 
-  let gallery;
-  try {
-    gallery = await (await fetch('data/gallery.json')).json();
-  } catch {
-    document.querySelectorAll('.explorer-stage').forEach((stage) => {
-      stage.classList.add('viewer');
-      stage.innerHTML = '<div class="pending-box"><b>Interactive viewers need a web server</b>Open this page through http (for example <code>python3 tools/serve.py</code>), not as a local file.</div>';
-    });
-    return;
-  }
-  document.querySelectorAll('.explorer').forEach((root) => setupExplorer(root, gallery));
+  let gallery = { groups: {} };
+  try { gallery = await (await fetch('data/gallery.json')).json(); } catch { /* credits only */ }
 
   let turing = null;
   try { turing = await (await fetch('data/turing.json')).json(); } catch { /* optional */ }

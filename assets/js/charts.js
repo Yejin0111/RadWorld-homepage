@@ -14,6 +14,15 @@
 //   that cell give the panel its own scale (one panel per metric). data-bar="14" allows thinner bars
 //   before the chart switches to the narrow layout.
 //
+//   data-by="method" draws one panel per row (one metric each, own scale) and one bar per method, for
+//   a single setting compared across methods (the legend names the methods).
+//
+// Lines           <figure class="chart lines" data-min="0" data-max="1" data-ticks="...">
+//   one line per method over the rows of the table: categories evenly spaced (default), or numbers on
+//   a linear axis with data-x="linear" and data-xticks="0,20,40". data-panel on a row starts a panel,
+//   with its own scale as for grouped columns, and data-xtitle names the x axis. Several tables with
+//   data-variant="..." give one switch per table (for example Recall@8 and Recall@16).
+//
 // Charts inside an element with data-same-bars share one bar width, set by the chart with the
 // narrowest groups, so a chart with fewer groups gets more space between them instead of wider bars.
 //
@@ -76,7 +85,7 @@ function withTip(target, data, anchor) {
 function tipOf(r, series, panel) {
   return {
     title: r.label,
-    sub: panel || '',
+    sub: r.full || panel || '',
     rows: r.values.map((v, k) => ({ name: series[k].name, text: v.text, tone: series[k].tone, ours: series[k].ours })),
   };
 }
@@ -149,6 +158,7 @@ function readSeries(table) {
 function readRows(table) {
   return [...table.tBodies[0].rows].map((tr) => ({
     label: tr.cells[0].textContent.trim(),
+    full: tr.cells[0].dataset.full || '',  // full name of an abbreviated label, shown in the tooltip
     panel: tr.cells[0].dataset.panel || '',
     scale: tr.cells[0].dataset.max ? scaleOf(tr.cells[0]) : null,
     values: [...tr.cells].slice(1).map((td) => ({ text: td.textContent.trim(), value: parseFloat(td.textContent) })),
@@ -203,12 +213,15 @@ function xLabel(r) {
 // chart uses the narrow layout, so all charts on a phone look alike.
 const NARROW = 400;
 
+// data-narrow on a figure lowers that limit on wide screens, for a chart in a small card next to others
+// (on phones every chart keeps the narrow layout).
 function watchWidth(fig, need) {
   const apply = () => {
     const cs = getComputedStyle(fig);
     const w = fig.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
     if (!w) return;
-    const narrow = w < Math.max(need.stacked, NARROW);
+    const limit = fig.dataset.narrow && window.innerWidth > 720 ? Number(fig.dataset.narrow) : NARROW;
+    const narrow = w < Math.max(need.stacked, limit);
     fig.classList.toggle('is-narrow', narrow);
     fig.classList.toggle('stack-panels', !narrow && w < need.side);
   };
@@ -232,22 +245,24 @@ function narrowAxis(ticks, y, lead) {
 }
 
 // narrow layout of grouped columns: a label line, then one bar per method (values in the tooltip).
-// One axis at the bottom, or one under each panel when the panels have their own scales.
-function narrowColumns(series, panels, shared) {
+// One axis at the bottom, or one under each panel when the panels have their own scales. Charts by
+// method name each bar instead, in a column aligned with the axis.
+function narrowColumns(series, panels, shared, byMethod) {
   const box = el('div', 'm-chart');
   for (const p of panels) {
     const { y } = p;
     if (p.title) box.appendChild(el('div', 'm-panel-title', p.title));
     for (const r of p.rows) {
       const g = el('div', 'm-group');
-      const data = tipOf(r, series, p.title);
+      const data = byMethod ? { ...tipOf(r, series), title: p.title } : tipOf(r, series, p.title);
       describe(g, data);
       withTip(g, data, () => g);
-      g.appendChild(el('div', 'm-label', r.label));
+      if (r.label !== p.title) g.appendChild(el('div', 'm-label', r.label));
       r.values.forEach((v, k) => {
         const s = series[k];
-        const row = el('div', 'm-row' + (s.ours ? ' ours' : ''));
+        const row = el('div', 'm-row' + (s.ours ? ' ours' : '') + (byMethod ? ' named' : ''));
         if (s.tone) row.dataset.tone = s.tone;
+        if (byMethod) row.appendChild(el('span', 'm-name', s.name));
         const track = el('span', 'm-track');
         const fill = el('i', 'm-fill');
         fill.style.width = `${y(v.value).toFixed(2)}%`;
@@ -257,9 +272,9 @@ function narrowColumns(series, panels, shared) {
       });
       box.appendChild(g);
     }
-    if (!shared) box.appendChild(narrowAxis(p.ticks, p.y, false));
+    if (!shared) box.appendChild(narrowAxis(p.ticks, p.y, byMethod));
   }
-  if (shared) box.appendChild(narrowAxis(shared.ticks, shared.y, false));
+  if (shared) box.appendChild(narrowAxis(shared.ticks, shared.y, byMethod));
   return box;
 }
 
@@ -302,6 +317,7 @@ function columns(fig, table) {
   const series = readSeries(table);
   const rows = readRows(table);
   const shared = rows.some((r) => r.scale) ? null : scaleOf(fig);
+  const byMethod = fig.dataset.by === 'method';
 
   const panels = [];
   for (const r of rows) {
@@ -314,7 +330,7 @@ function columns(fig, table) {
     const { ticks, y } = p;
     const panel = el('div', 'v-panel');
     panel.style.flexGrow = String(p.rows.length);
-    if (p.title) panel.appendChild(el('div', 'v-panel-title', p.title));
+    if (p.title && !byMethod) panel.appendChild(el('div', 'v-panel-title', p.title));  // by method: the metric sits under its bars
     const body = el('div', 'v-body');
     body.appendChild(yAxis(ticks, y));
     const area = el('div', 'v-area');
@@ -322,7 +338,7 @@ function columns(fig, table) {
     const labels = el('div', 'v-xlabels');
     for (const r of p.rows) {
       const group = el('div', 'v-group');
-      const data = tipOf(r, series, p.title);
+      const data = byMethod ? { ...tipOf(r, series), title: p.title } : tipOf(r, series, p.title);
       describe(group, data);
       r.values.forEach((v, k) => {
         const s = series[k];
@@ -333,13 +349,13 @@ function columns(fig, table) {
       });
       withTip(group, data, () => group);
       area.appendChild(group);
-      labels.appendChild(xLabel(r));
+      labels.appendChild(byMethod ? el('span', 'v-xlabel metric', p.title) : xLabel(r));
     }
     body.appendChild(area);
     panel.append(body, labels);
     plot.appendChild(panel);
   }
-  table.after(legend(series), plot, narrowColumns(series, panels, shared));
+  table.after(legend(series), plot, narrowColumns(series, panels, shared, byMethod));
   // each group needs room for its bars, plus the y axis. data-bar lowers the minimum bar width for
   // charts with many groups (for example 13 abnormalities), so they keep the vertical layout on desktop.
   const perGroup = series.length * (Number(fig.dataset.bar) || 18) + 16;
@@ -389,6 +405,139 @@ function lollipop(fig, table) {
   watchWidth(fig, { stacked: need, side: need });
 }
 
+// ---------------------------------------------------------------- lines (one line per method)
+const NS = 'http://www.w3.org/2000/svg';
+
+function svg(tag, attrs) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  return e;
+}
+
+function linePanel(fig, series, p) {
+  const linear = fig.dataset.x === 'linear';
+  const xs = p.rows.map((r, i) => (linear ? parseFloat(r.label) : i));
+  const x0 = linear ? Math.min(...xs) : 0;
+  const x1 = linear ? Math.max(...xs) : p.rows.length - 1;
+  // percent across the plot: categories sit in the middle of equal slots, numbers on a linear axis
+  const X = (v) => (linear ? ((v - x0) / (x1 - x0)) * 100 : ((v + 0.5) / p.rows.length) * 100);
+
+  const panel = el('div', 'l-panel');
+  if (p.title) panel.appendChild(el('div', 'v-panel-title', p.title));
+  const body = el('div', 'v-body');
+  body.appendChild(yAxis(p.ticks, p.y));
+  const area = el('div', 'v-area l-area');
+  gridLines(area, p.ticks, p.y);
+  const plot = svg('svg', { class: 'l-svg', 'aria-hidden': 'true' });
+  area.appendChild(plot);
+  const guide = el('i', 'l-guide');
+  guide.hidden = true;
+  area.appendChild(guide);
+  body.appendChild(area);
+
+  const labels = el('div', 'l-xlabels');
+  const ticks = linear ? (fig.dataset.xticks || '').split(',').filter(Boolean).map((t) => [Number(t), t]) : p.rows.map((r, i) => [i, r.label]);
+  for (const [v, t] of ticks) {
+    const s = el('span', '', t);
+    s.style.left = `${X(v).toFixed(2)}%`;
+    labels.appendChild(s);
+  }
+  panel.append(body, labels);
+  if (fig.dataset.xtitle) panel.appendChild(el('div', 'l-xtitle', fig.dataset.xtitle));
+
+  const draw = () => {
+    const W = area.clientWidth, H = area.clientHeight;
+    if (!W || !H) return;
+    labels.classList.toggle('sparse', !linear && W / p.rows.length < 36);
+    plot.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    plot.textContent = '';
+    // RadWorld last, so it is drawn on top
+    const order = series.map((s, k) => k).sort((a, b) => Number(series[a].ours) - Number(series[b].ours));
+    for (const k of order) {
+      const s = series[k];
+      const pts = p.rows.map((r, i) => [(X(xs[i]) / 100) * W, H - (p.y(r.values[k].value) / 100) * H]);
+      const attrs = { class: 'l-line' + (s.ours ? ' ours' : ''), points: pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ') };
+      if (s.tone) attrs['data-tone'] = s.tone;
+      plot.appendChild(svg('polyline', attrs));
+      if (!linear) {
+        for (const [x, y] of pts) {
+          const c = { class: 'l-dot' + (s.ours ? ' ours' : ''), cx: x.toFixed(1), cy: y.toFixed(1), r: s.ours ? 4 : 3.2 };
+          if (s.tone) c['data-tone'] = s.tone;
+          plot.appendChild(svg('circle', c));
+        }
+      }
+    }
+  };
+  if ('ResizeObserver' in window) new ResizeObserver(draw).observe(area);
+  else window.addEventListener('resize', draw);
+  draw();
+
+  // hover or tap: the values of every method at the nearest point
+  const nearest = (clientX) => {
+    const rc = area.getBoundingClientRect();
+    const pct = ((clientX - rc.left) / rc.width) * 100;
+    let best = 0;
+    xs.forEach((v, i) => { if (Math.abs(X(v) - pct) < Math.abs(X(xs[best]) - pct)) best = i; });
+    return best;
+  };
+  const show = (e) => {
+    const i = nearest(e.clientX);
+    const r = p.rows[i];
+    guide.hidden = false;
+    guide.style.left = `${X(xs[i]).toFixed(2)}%`;
+    const head = linear ? `${fig.dataset.xtitle || ''} ${r.label}`.trim() : `${r.label} ${fig.dataset.xunit || ''}`.trim();
+    showTip({ ...tipOf(r, series, p.title), title: head }, e.clientX, e.clientY);
+  };
+  area.addEventListener('pointermove', show);
+  area.addEventListener('pointerdown', show);
+  area.addEventListener('pointerleave', () => { guide.hidden = true; hideTip(); });
+  area.tabIndex = 0;
+  area.setAttribute('role', 'img');
+  const last = p.rows[p.rows.length - 1];
+  area.setAttribute('aria-label', `${p.title ? `${p.title}: ` : ''}${series.map((s, k) => `${s.name} from ${p.rows[0].values[k].text} to ${last.values[k].text}`).join(', ')}`);
+  return panel;
+}
+
+function lines(fig) {
+  const tables = [...fig.querySelectorAll('table')];
+  const series = readSeries(tables[0]);
+  const bodies = tables.map((table, n) => {
+    const rows = readRows(table);
+    const shared = rows.some((r) => r.scale) ? null : scaleOf(fig);
+    const panels = [];
+    for (const r of rows) {
+      if (!panels.length || r.panel) panels.push({ title: r.panel, rows: [], ...(r.scale || shared) });
+      panels[panels.length - 1].rows.push(r);
+    }
+    const box = el('div', 'l-plot');
+    box.style.setProperty('--panels', panels.length);
+    box.dataset.variant = table.dataset.variant || '';
+    for (const p of panels) box.appendChild(linePanel(fig, series, p));
+    box.hidden = n > 0;
+    return box;
+  });
+  const head = el('div', 'chart-legend-row');
+  head.appendChild(legend(series));
+  if (tables.length > 1) {  // one switch per table, for example the retrieval threshold
+    const sw = el('div', 'chart-variants');
+    sw.setAttribute('role', 'group');
+    sw.setAttribute('aria-label', 'Show');
+    tables.forEach((t, n) => {
+      const b = el('button', '', t.dataset.variant);
+      b.type = 'button';
+      b.setAttribute('aria-pressed', String(n === 0));
+      b.addEventListener('click', () => {
+        bodies.forEach((x, m) => { x.hidden = m !== n; });
+        sw.querySelectorAll('button').forEach((x, m) => x.setAttribute('aria-pressed', String(m === n)));
+        hideTip();
+      });
+      sw.appendChild(b);
+    });
+    head.appendChild(sw);
+  }
+  tables[tables.length - 1].after(head, ...bodies);
+}
+
 // ---------------------------------------------------------------- one bar width for a block of charts
 const synced = new WeakSet();
 
@@ -417,6 +566,7 @@ export function renderCharts(root = document) {
     const table = fig.querySelector('table');
     if (!table || !table.tBodies.length) return;
     if (fig.classList.contains('columns')) columns(fig, table);
+    else if (fig.classList.contains('lines')) lines(fig);
     else if (fig.classList.contains('lollipop')) lollipop(fig, table);
     else bars(fig, table);
     fig.classList.add('has-bars');

@@ -1,2 +1,0 @@
-NiiVue 0.69.0 (https://github.com/niivue/niivue), BSD-2-Clause license.
-File: dist/niivue.umd.js from the npm package @niivue/niivue@0.69.0.

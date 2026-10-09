@@ -1,0 +1,521 @@
+{
+ "generation": [
+  {
+   "id": "pretrain_ct",
+   "label": "Chest CT",
+   "input": {
+    "kind": "request",
+    "tags": [
+     "CT",
+     "Head and neck",
+     "Chest",
+     "Abdomen"
+    ]
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/pretrain_ct_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 23
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/pretrain_ct_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 18
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/pretrain_ct_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 17
+    }
+   }
+  },
+  {
+   "id": "gen_abdomen",
+   "label": "Abdomen and pelvis CT",
+   "input": {
+    "kind": "request",
+    "tags": [
+     "CT",
+     "Chest",
+     "Abdomen",
+     "Pelvis"
+    ]
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/gen_abdomen_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 22
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/gen_abdomen_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 18
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/gen_abdomen_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 17
+    }
+   }
+  },
+  {
+   "id": "gen_hn",
+   "label": "Head and neck CT",
+   "input": {
+    "kind": "request",
+    "tags": [
+     "CT",
+     "Head and neck",
+     "Chest"
+    ]
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/gen_hn_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 31
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/gen_hn_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 24
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/gen_hn_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 17
+    }
+   }
+  },
+  {
+   "id": "gen_pelvis",
+   "label": "Pelvis CT",
+   "input": {
+    "kind": "request",
+    "tags": [
+     "CT",
+     "Chest",
+     "Abdomen",
+     "Pelvis"
+    ]
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/gen_pelvis_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 10
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/gen_pelvis_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 18
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/gen_pelvis_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 17
+    }
+   }
+  },
+  {
+   "id": "pretrain_mr",
+   "label": "Brain MRI (T1CE)",
+   "input": {
+    "kind": "request",
+    "tags": [
+     "T1CE MRI",
+     "Head and neck"
+    ]
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/pretrain_mr_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 17
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/pretrain_mr_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 19
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/pretrain_mr_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 17
+    }
+   }
+  }
+ ],
+ "report": [
+  {
+   "id": "rep_calcification",
+   "label": "Calcified plaques",
+   "input": {
+    "kind": "report",
+    "text": "There are calcified atherosclerotic plaques in the walls of the thoracic aorta and the coronary arteries."
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/rep_calcification_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 28,
+     "arrows": [
+      [
+       0.6967,
+       0.3169,
+       0.6128,
+       0.368
+      ]
+     ]
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/rep_calcification_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 25
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/rep_calcification_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 12
+    }
+   }
+  },
+  {
+   "id": "rep_hernia",
+   "label": "Hiatal hernia",
+   "input": {
+    "kind": "report",
+    "text": "There is a small sliding hiatal hernia at the lower end of the esophagus."
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/rep_hernia_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 7,
+     "arrows": [
+      [
+       0.6688,
+       0.3651,
+       0.595,
+       0.43
+      ]
+     ]
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/rep_hernia_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 23
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/rep_hernia_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 13
+    }
+   }
+  },
+  {
+   "id": "rep_pericardial",
+   "label": "Pericardial effusion",
+   "input": {
+    "kind": "report",
+    "text": "There is a mild pericardial effusion, up to 12 mm thick."
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/rep_pericardial_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 16,
+     "arrows": [
+      [
+       0.202,
+       0.244,
+       0.2787,
+       0.3054
+      ],
+      [
+       0.723,
+       0.3651,
+       0.6492,
+       0.43
+      ]
+     ]
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/rep_pericardial_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 24
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/rep_pericardial_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 19
+    }
+   }
+  },
+  {
+   "id": "rep_heart",
+   "label": "Enlarged heart",
+   "input": {
+    "kind": "report",
+    "text": "The heart is markedly enlarged."
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/rep_heart_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 16,
+     "arrows": [
+      [
+       0.2818,
+       0.2983,
+       0.3585,
+       0.3597
+      ]
+     ]
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/rep_heart_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 28
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/rep_heart_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 24
+    }
+   }
+  }
+ ],
+ "mask": [
+  {
+   "id": "m2i_a",
+   "label": "Abdomen and pelvis 1",
+   "input": {
+    "kind": "mask"
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/m2i_a_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 29,
+     "overlay": {
+      "src": "assets/img/views/m2i_a_axial_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "mask": {
+      "src": "assets/img/views/m2i_a_input_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     }
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/m2i_a_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 19,
+     "overlay": {
+      "src": "assets/img/views/m2i_a_coronal_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     }
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/m2i_a_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 17,
+     "overlay": {
+      "src": "assets/img/views/m2i_a_sagittal_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     }
+    }
+   }
+  },
+  {
+   "id": "m2i_b",
+   "label": "Abdomen and pelvis 2",
+   "input": {
+    "kind": "mask"
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/m2i_b_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 30,
+     "overlay": {
+      "src": "assets/img/views/m2i_b_axial_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "mask": {
+      "src": "assets/img/views/m2i_b_input_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     }
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/m2i_b_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 25,
+     "overlay": {
+      "src": "assets/img/views/m2i_b_coronal_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     }
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/m2i_b_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 17,
+     "overlay": {
+      "src": "assets/img/views/m2i_b_sagittal_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     }
+    }
+   }
+  }
+ ]
+}

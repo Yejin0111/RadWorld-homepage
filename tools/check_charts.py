@@ -64,21 +64,27 @@ def page_charts():
             continue
         title = html.unescape(re.sub(r"<[^>]+>", "", re.search(r"<h3>(.*?)</h3>", fig, re.S).group(1))).strip()
         sub = html.unescape(re.sub(r"<[^>]+>", "", re.search(r"<figcaption>.*?<p>(.*?)</p>", fig, re.S).group(1))).strip()
-        head = [html.unescape(re.sub(r"<[^>]+>", "", c)).strip() for c in re.findall(r"<th[^>]*>(.*?)</th>", re.search(r"<thead>(.*?)</thead>", fig, re.S).group(1), re.S)]
-        rows, panel = [], ""
-        for attrs, inner in re.findall(r"<tr([^>]*)>(.*?)</tr>", re.search(r"<tbody>(.*?)</tbody>", fig, re.S).group(1), re.S):
-            cells = re.findall(r"<t([hd])([^>]*)>(.*?)</t[hd]>", inner, re.S)
-            new_panel = re.search(r'data-panel="([^"]*)"', cells[0][1])
-            panel = new_panel.group(1) if new_panel else panel
-            group = re.search(r'data-group="([^"]*)"', attrs)
-            rows.append({
-                "label": html.unescape(re.sub(r"<[^>]+>", "", cells[0][2])).strip(),
-                "panel": panel,
-                "group": group.group(1) if group else "",
-                "values": [c[2].strip() for c in cells[1:]],
-            })
-        note = re.search(r'<p class="chart-note">(.*?)</p>', fig, re.S)
-        charts[key.group(1)] = {"title": title, "sub": sub, "head": head, "rows": rows}
+        variants = {}
+        for tattrs, table in re.findall(r"<table([^>]*)>(.*?)</table>", fig, re.S):
+            head = [html.unescape(re.sub(r"<[^>]+>", "", c)).strip() for c in re.findall(r"<th[^>]*>(.*?)</th>", re.search(r"<thead>(.*?)</thead>", table, re.S).group(1), re.S)]
+            rows, panel = [], ""
+            for attrs, inner in re.findall(r"<tr([^>]*)>(.*?)</tr>", re.search(r"<tbody>(.*?)</tbody>", table, re.S).group(1), re.S):
+                cells = re.findall(r"<t([hd])([^>]*)>(.*?)</t[hd]>", inner, re.S)
+                new_panel = re.search(r'data-panel="([^"]*)"', cells[0][1])
+                panel = new_panel.group(1) if new_panel else panel
+                group = re.search(r'data-group="([^"]*)"', attrs)
+                full = re.search(r'data-full="([^"]*)"', cells[0][1])
+                rows.append({
+                    "label": html.unescape(re.sub(r"<[^>]+>", "", cells[0][2])).strip(),
+                    "full": full.group(1) if full else "",
+                    "panel": panel,
+                    "group": group.group(1) if group else "",
+                    "values": [c[2].strip() for c in cells[1:]],
+                })
+            name = re.search(r'data-variant="([^"]*)"', tattrs)
+            variants[name.group(1) if name else ""] = {"head": head, "rows": rows}
+        first = next(iter(variants.values()))
+        charts[key.group(1)] = {"title": title, "sub": sub, "head": first["head"], "rows": first["rows"], "variants": variants}
     return charts
 
 
@@ -130,24 +136,32 @@ if c:
         expect("FID", f"{r['panel']} {r['label']}", r["values"], [fid.get((block, region_of(r["label"]), m)) for m in order])
     expect("FID", "row count", len(c["rows"]), 8)
 
-# ---- Extended Data Table: tumor segmentation, real only and the +2x setting of each generator
-TUMOR = {"Nasopharynx": "StructSeg2019", "Head and neck": "HECKTOR2025", "Lung": "MSD-Lung", "Liver": "LiTS",
-         "Pancreas": "MSD-Pancreas", "Colorectum": "MSD-Colon", "Kidney": "KiTS2023", "Bladder": "FedBCa"}
+# ---- Extended Data Table: tumor segmentation, real only and the +2x setting of each generator. Rows use
+# the table's abbreviations (as in Figure 3b), and each full name, shown in the tooltip, is the one of
+# the Results text.
+FULL = {"NPC": "Nasopharyngeal carcinoma", "HNSCC": "Head and neck squamous cell carcinoma",
+        "NSCLC": "Non-small cell lung cancer", "HCC": "Hepatocellular carcinoma",
+        "PDAC": "Pancreatic ductal adenocarcinoma", "CRC": "Colorectal cancer",
+        "RCC": "Renal cell carcinoma", "BLCA": "Bladder cancer"}
 c = chart("tumor-dice")
 if c:
-    seg = {}
+    seg, order = {}, []
     for r in tex_table("tumor_segmentation"):
-        m = re.search(r"\(([^)]+)\)", " ".join(r[:2]))
+        m = re.search(r"([A-Z]+) \(([^)]+)\)", " ".join(r[:2]))
         if m and len(r) >= 9:
             seg[m.group(1)] = r[-7:]  # Real, +1x Diff, +2x Diff, +1x Free, +2x Free, +1x RW, +2x RW
+            order.append(m.group(1))
     expect("tumor Dice", "series", c["head"][1:], ["Real data only", "+ DiffTumor", "+ FreeTumor", "+ RadWorld"])
+    expect("tumor Dice", "cancers, in the order of the table", [r["label"] for r in c["rows"]], order)
     for r in c["rows"]:
-        src = seg.get(TUMOR.get(r["label"]))
+        src = seg.get(r["label"])
         if not src:
             problems.append(f"tumor {r['label']} not in the segmentation table")
             continue
         expect("tumor Dice", r["label"], r["values"], [src[0], src[2], src[4], src[6]])
-    expect("tumor Dice", "tumor types", [r["label"] for r in c["rows"]], list(TUMOR))
+        expect("tumor Dice", f"{r['label']} full name", r["full"], FULL.get(r["label"]))
+        if r["full"] and r["full"].lower() not in re.sub(r"\s+", " ", RESULTS).lower():
+            problems.append(f"tumor Dice: full name not in the Results text: {r['full']}")
 
 # ---- Extended Data Table: classification AUC, the 12 abnormalities and the order of Figure 3a, plus the
 # Average row as Overall. Figure 3a sorts the abnormalities by mean AUC over its five settings.
@@ -192,25 +206,82 @@ if c:
         b, k = block(regions.get(r["label"], r["label"])), metrics.index(r["panel"]) if r["panel"] in metrics else None
         expect("report generation", f"{r['panel']} {r['label']}", r["values"], [b[m][k] for m in methods] if k is not None else None)
 
-# ---- Extended Data Table: translation, 3D volume-wise block, PSNR
-c = chart("psnr")
-if c:
-    rows = tex_table("modality_transfer")
-    i3d = next(i for i, r in enumerate(rows) if r[0].startswith("@@3D"))
-    psnr, task = {}, None
-    for r in rows[i3d + 1:]:
-        if len(r) < 6:
-            continue
-        if r[0]:
-            task = r[0]
-        psnr[(task, r[1])] = (r[3], r[5])  # MAE, PSNR, SSIM, MS-SSIM
-    tasks = {"CBCT to CT": "CBCT to CT", "MR to CT": "MR to CT", "T1, T2, FLAIR to T1CE": "T1CE",
-             "Non-contrast to venous phase": "Venous", "Non-contrast to arterial phase": "Arterial"}
-    order = ["ResViT", "pGAN", "MMGAN", "RadWorld"]
-    expect("PSNR", "series", c["head"][1:], order)
+# ---- Translation, whole-volume MAE, PSNR and MS-SSIM by method. CBCT, MR and T1CE: the 3D block of the
+# Extended Data Table. The contrast phases are pooled as in Figure 4a, so they come from its source data.
+import csv
+rows = tex_table("modality_transfer")
+i3d = next(i for i, r in enumerate(rows) if r[0].startswith("@@3D"))
+vol, task = {}, None
+for r in rows[i3d + 1:]:
+    if len(r) < 6:
+        continue
+    if r[0]:
+        task = r[0]
+    vol[(task, r[1])] = {"MAE ↓": r[2], "PSNR (dB) ↑": r[3], "MS-SSIM ↑": r[5]}  # MAE, PSNR, SSIM, MS-SSIM
+TR_ORDER = ["ResViT", "pGAN", "MMGAN", "RadWorld"]
+METRICS = ["MAE ↓", "PSNR (dB) ↑", "MS-SSIM ↑"]
+fig4a = {r["method"]: r for r in csv.DictReader(open(OV / "resources/codes/figure4/data/modality_transfer/ct_phase/summary_by_model.csv"))}
+pooled = {m: {"MAE ↓": f"{float(fig4a[k]['MAE_3D']):.3f}", "PSNR (dB) ↑": f"{float(fig4a[k]['PSNR_3D']):.1f}",
+              "MS-SSIM ↑": f"{float(fig4a[k]['MS_SSIM_3D']):.4f}"}
+          for m, k in zip(TR_ORDER, ["ResViT", "P2P", "MMGAN", "Ours"])}
+
+
+def tr_task(key):
+    return next(t for t in {k for k, _ in vol} if key in t)
+
+
+for chart_key, setting in (("tr-cbct", "CBCT to CT"), ("tr-mr2ct", "MR to CT"), ("tr-t1ce", "T1CE"), ("tr-phase", None)):
+    c = chart(chart_key)
+    if not c:
+        continue
+    expect(chart_key, "series", c["head"][1:], TR_ORDER)
+    expect(chart_key, "metrics", [(r["panel"], r["label"]) for r in c["rows"]], [(m, m) for m in METRICS])
     for r in c["rows"]:
-        key = next(t for t in {k for k, _ in psnr} if tasks[r["label"]] in t)
-        expect("PSNR", r["label"], r["values"], [psnr[(key, m)][0] for m in order])
+        want = [pooled[m][r["label"]] for m in TR_ORDER] if setting is None else [vol[(tr_task(setting), m)][r["label"]] for m in TR_ORDER]
+        expect(chart_key, r["label"], r["values"], want)
+
+# ---- Hounsfield-unit profiles of Extended Data Figure 5b,c (rounded to whole HU), and the title's claim:
+# RadWorld closer to the real CT than MMGAN along the line
+QUAL = OV / "resources/codes/figure4/data/modality_transfer_qualitative"
+for chart_key, f in (("hu-cbct", QUAL / "cbct2ct/2ABC137/2ABC137_line_profile_z52.csv"), ("hu-mr2ct", QUAL / "mr2ct/1HNA124/1HNA124_line_profile_z80.csv")):
+    c = chart(chart_key)
+    if not c:
+        continue
+    src = list(csv.DictReader(open(f)))
+    expect(chart_key, "series", c["head"][1:], ["Real CT", "MMGAN", "RadWorld"])
+    page_rows = [[r["label"]] + r["values"] for r in c["rows"]]
+    want_rows = [[x["index"], str(round(float(x["GT"]))), str(round(float(x["MMGAN"]))), str(round(float(x["Ours"])))] for x in src]
+    expect(chart_key, "profile length", len(page_rows), len(want_rows))
+    for got, want in [(g, w) for g, w in zip(page_rows, want_rows) if g != w][:3]:
+        expect(chart_key, f"position {want[0]}", got, want)
+    gap = lambda k: sum(abs(float(x[k]) - float(x["GT"])) for x in src) / len(src)  # noqa: E731
+    if not gap("Ours") < gap("MMGAN"):
+        problems.append(f"{chart_key}: title claim fails, RadWorld {gap('Ours'):.0f} HU from the real CT, MMGAN {gap('MMGAN'):.0f} HU")
+
+# ---- Figure 2c and Extended Data Figure 2 source data: Recall@8 and Recall@16 for pools of 32 to 1,024
+# candidates, report (i2t) and real-scan (i2i) retrieval. Pool 128 at Recall@8 is also checked against
+# the Results text below.
+c = chart("report-recall")
+REC = OV / "resources/codes/figure2/data/generation-quality-recall"
+if c:
+    model = {"MedSyn": "MedSyn", "GenerateCT": "GenerateCT", "RadWorld": "Gen3D"}
+    panels = {"Chest, Image → Report": ("CT-RATE", "i2t"), "Chest, Image → Image": ("CT-RATE", "i2i"),
+              "Abdomen, Image → Report": ("Merlin", "i2t"), "Abdomen, Image → Image": ("Merlin", "i2i")}
+    pools = ["32", "64", "128", "256", "512", "1,024"]
+    expect("report recall", "variants", list(c["variants"]), ["Recall@8", "Recall@16"])
+    for name, v in c["variants"].items():
+        k = name.split("@")[1]
+        expect("report recall", f"{name} series", v["head"][1:], ["MedSyn", "GenerateCT", "RadWorld"])
+        expect("report recall", f"{name} panels and pools", [(r["panel"], r["label"]) for r in v["rows"]], [(pn, pl) for pn in panels for pl in pools])
+        for r in v["rows"]:
+            ds, kind = panels[r["panel"]]
+            src = {x["model"]: float(x[f"recall@{k}_mean"]) for x in csv.DictReader(open(REC / ds / kind / "summary_by_model_recall.csv"))
+                   if x["pool_size"] == r["label"].replace(",", "")}
+            expect("report recall", f"{name} {r['panel']} {r['label']}", r["values"], [f"{src[model[m]]:.3f}" for m in v["head"][1:]])
+        for r in v["rows"]:  # the title's claim holds at every pool size
+            vals = [float(x) for x in r["values"]]
+            if not vals[2] > max(vals[:2]):
+                problems.append(f"report recall: RadWorld not highest in {name} {r['panel']} {r['label']}: {vals}")
 
 # ---- Extended Data Table: BraTS2024 segmentation with the recovered T1CE, all six subregions
 c = chart("t1ce")
@@ -241,11 +312,19 @@ def claim(chart_key, text, ok):
             problems.append(f"{chart_key}: title claim '{text}' fails for {label}: {values}")
 
 
-ours = {"fid": "RadWorld", "organ-dice": "RadWorld", "cls-auc": "+ RadWorld", "tumor-dice": "+ RadWorld",
-        "report": "+ RadWorld", "psnr": "RadWorld", "t1ce": "RadWorld", "lesion": "+ synthetic contrast CT",
+ours = {"fid": "RadWorld", "organ-dice": "RadWorld", "cls-auc": "+ RadWorld",
+        "tumor-dice": "+ RadWorld", "report": "+ RadWorld", "tr-cbct": "RadWorld", "tr-mr2ct": "RadWorld",
+        "tr-phase": "RadWorld", "tr-t1ce": "RadWorld", "t1ce": "RadWorld", "lesion": "+ synthetic contrast CT",
         "cindex": "+ virtual post-TACE CT"}
 claim("fid", "lowest FID in every benchmark", lambda v, k: all(v[k] < x for i, x in enumerate(v) if i != k))
-for key in ("organ-dice", "tumor-dice", "report", "psnr", "t1ce"):
+for key in ("tr-cbct", "tr-mr2ct", "tr-phase", "tr-t1ce"):  # best on every metric: lowest MAE, highest PSNR and MS-SSIM
+    if key in charts:
+        for r in charts[key]["rows"]:
+            v = [float(x) for x in r["values"]]
+            best = min(v) if r["label"].startswith("MAE") else max(v)
+            if v[-1] != best or v.count(best) > 1:
+                problems.append(f"{key}: title claim fails for {r['label']}: {v}")
+for key in ("organ-dice", "tumor-dice", "report", "t1ce"):
     claim(key, "RadWorld highest in every row", lambda v, k: all(v[k] > x for i, x in enumerate(v) if i != k))
 claim("cls-auc", "better than real-only training for every abnormality", lambda v, k: v[k] > v[0])
 if "cls-auc" in charts:
@@ -267,6 +346,17 @@ def phrase(pattern, n):
         return [None] * n
     return list(m.groups())
 
+
+rec = phrase(r"On CT-RATE, RadWorld achieved Recall@8 values of ([\d.]+) for report retrieval and ([\d.]+) for real-scan retrieval\. "
+             r"These exceeded the strongest baseline values of ([\d.]+) and ([\d.]+).*?On Merlin, RadWorld reached ([\d.]+) and ([\d.]+), "
+             r"compared with ([\d.]+) and ([\d.]+) for the strongest baseline", 8)
+c = chart("report-recall")
+if c and "Recall@8" in c["variants"]:
+    got = {r["panel"]: [float(v) for v in r["values"]] for r in c["variants"]["Recall@8"]["rows"] if r["label"] == "128"}
+    for k, panel in enumerate(["Chest, Image → Report", "Chest, Image → Image", "Abdomen, Image → Report", "Abdomen, Image → Image"]):
+        v = got.get(panel, [])
+        want = [rec[k], rec[2 + k]] if k < 2 else [rec[4 + k - 2], rec[6 + k - 2]]
+        expect("report recall", f"{panel}, 128 candidates (Results text)", [f"{v[2]:.3f}", f"{max(v[:2]):.3f}"] if v else None, want)
 
 lesion = phrase(r"overall accuracy from ([\d.]+) \(95\\% CI[^)]*\) with NCCT alone to ([\d.]+) \(95\\% CI[^)]*\), compared with ([\d.]+) \(95\\% CI[^)]*\) with acquired CECT", 3)
 c = chart("lesion")
@@ -311,6 +401,16 @@ for k, cohort in enumerate(("FHHMU", "FAHJU")):
     h3 = re.search(r"<h3>(.*?)</h3>", fig.group(0)).group(1) if fig else None
     expect("KM", f"{cohort} card title", COHORT.get(h3), cohort)
     expect("KM", f"{cohort} hazard ratio in data/km.json", [f"{v:.2f}" for v in km[cohort]["hr"]], want)
+
+# ---- treatment details of the two TACE patients: as printed in Figure 5f (age and sex left out)
+import subprocess
+fig5 = re.sub(r"\s+", " ", subprocess.run(["pdftotext", "-raw", str(OV / "resources/figures/figure5.pdf"), "-"],
+                                         capture_output=True, text=True).stdout)
+printed = re.findall(r"Chemo regimen: (.*?)\. Lipiodol dose: (.*?)\. Target artery: (.*?)\.\.\.", fig5)
+shown = [[html.unescape(re.sub(r"<[^>]+>", "", d)).strip() for d in re.findall(r"<dd>(.*?)</dd>", block, re.S)]
+         for block in re.findall(r'<div class="tace-rx".*?</dl>', PAGE, re.S)]
+want = [[re.sub(r" of (\d)", r" \1", chemo).capitalize(), dose, artery.capitalize()] for chemo, dose, artery in printed]
+expect("TACE", "treatment details (Figure 5f)", shown, want)
 
 called_real = phrase(r"classified as real in ([\d.]+)\\% of assessments", 1)[0]
 m = re.search(r'<p class="turing-stat"><b>([\d.]+)%</b>', PAGE)

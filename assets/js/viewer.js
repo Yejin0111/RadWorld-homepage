@@ -263,9 +263,10 @@ class CaseView {
   build(host) {
     const d = this.def;
     const wrap = document.createElement('div');
-    wrap.className = 'case' + (d.summary || d.textHTML ? ' with-text' : '');
+    const side = this.opts.summary !== false && (d.summary || d.textHTML);
+    wrap.className = 'case' + (side ? ' with-text' : '');
 
-    if (d.summary || d.textHTML) {
+    if (side) {
       const side = document.createElement('div');
       side.className = 'case-text';
       side.innerHTML = `<div class="label">${escapeHTML(d.inputLabel || 'Input')}</div>` +
@@ -276,7 +277,8 @@ class CaseView {
 
     const stage = document.createElement('div');
     stage.className = 'stage';
-    const lead = [d.text, this.layout === 'triplanar' ? d.panes[0].title : ''].filter(Boolean).join(' · ');
+    // in a carousel slide the heading above already says what the case shows (opts.compact)
+    const lead = [this.opts.compact ? '' : d.text, this.layout === 'triplanar' ? d.panes[0].title : ''].filter(Boolean).join(' · ');
     if (lead) {
       const p = document.createElement('p');
       p.className = 'case-credit';
@@ -503,14 +505,21 @@ class CaseView {
  * @param {HTMLElement} root
  * @param {object} gallery   data/gallery.json
  * @param {string} groupKey  key in gallery.groups (may be absent if only pending items exist)
- * @param {object} opts      { pendingGroups: [...], showPending: bool, open3D: fn }
+ * @param {object} opts      { cases: [{ id, label }], summary: bool, compact: bool, autoload: bool,
+ *                           pendingGroups: [...], showPending: bool, open3D: fn }
+ *                           cases picks cases of the group, in that order, with their tab labels.
  */
 export function mountGroup(root, gallery, groupKey, opts = {}) {
   const group = gallery.groups[groupKey] || { layout: 'compare', cases: [] };
+  let cases = group.cases;
+  if (opts.cases) {
+    const byId = new Map(cases.map((c) => [c.id, c]));
+    cases = opts.cases.filter((c) => byId.has(c.id)).map((c) => ({ ...byId.get(c.id), label: c.label || byId.get(c.id).label }));
+  }
   const pending = opts.showPending
     ? (gallery.pending || []).filter((p) => (opts.pendingGroups || [groupKey]).includes(p.group))
     : [];
-  const items = group.cases.map((c) => ({ kind: 'case', def: c })).concat(pending.map((p) => ({ kind: 'pending', def: p })));
+  const items = cases.map((c) => ({ kind: 'case', def: c })).concat(pending.map((p) => ({ kind: 'pending', def: p })));
   if (!items.length) { root.hidden = true; return null; }
 
   root.classList.add('viewer');
@@ -552,6 +561,7 @@ export function mountGroup(root, gallery, groupKey, opts = {}) {
   select(0);
   return {
     select,
+    load() { if (current) current.load(); },
     destroy() {
       if (current) current.destroy();
       current = null;

@@ -2385,6 +2385,10 @@
  },
  "teaser": [
   {
+   "src": "assets/img/teaser/gen_abdomen_0.webp",
+   "still": "assets/img/teaser/gen_abdomen_0_still.webp"
+  },
+  {
    "src": "assets/img/teaser/pretrain_ct_0.webp",
    "still": "assets/img/teaser/pretrain_ct_0_still.webp"
   },

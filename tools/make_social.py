@@ -28,7 +28,7 @@ d.text((66, 350), "Pretrained on 232,781 curated CT and MRI scans", font=font(26
 d.text((66, 388), "from 152 datasets across 23 countries", font=font(26), fill=(85, 91, 107))
 d.text((66, 520), "Browse generated 3D volumes and take the visual Turing test", font=font(24), fill=(72, 72, 120))
 
-tiles = ["assets/img/teaser/render3d_abdomen_bone_still.webp",
+tiles = ["assets/img/teaser/gen_abdomen_0_still.webp",
          "assets/img/poster/extra/pretrain_ct_0_axial.webp",
          "assets/img/poster/translation/mr2ct_mr2ct_radworld_axial.webp",
          "assets/img/poster/extra/pretrain_mr_0_axial.webp"]
