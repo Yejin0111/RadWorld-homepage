@@ -6,8 +6,12 @@ import { mountTuring } from './turing.js';
 import { renderCharts } from './charts.js';
 import { renderKM } from './km.js';
 import { initCarousels } from './carousel.js';
-import { initConcept } from './concept.js';
 import { initShowcase } from './showcase.js';
+import { initPresentation } from './presentation.js';
+import { initOverview } from './overview.js';
+import { initGenerationReel } from './generation-reel.js';
+import { initTranslationInputs } from './translation-input.js';
+import { initStorySections } from './story-sections.js';
 
 const cfg = window.RADWORLD_SITE || { status: 'preprint', links: {} };
 const links = { ...(cfg.links || {}) };
@@ -146,11 +150,15 @@ async function main() {
   setupBibtex();
   setupMotion();
   setupNav();
-  initConcept();
+  initPresentation();
+  initOverview();
   initCarousels();
   renderCharts();
   renderKM();
+  initStorySections();
   initShowcase();
+  initGenerationReel();
+  initTranslationInputs();
 
   let gallery = { groups: {} };
   try { gallery = await (await fetch('data/gallery.json')).json(); } catch { /* credits only */ }

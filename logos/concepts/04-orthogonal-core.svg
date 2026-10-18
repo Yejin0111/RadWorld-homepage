@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">RadWorld — Orthogonal Core</title>
+  <desc id="desc">Three broad intersecting section planes define one open architectural volume. Their shared negative space suggests an angular R, while a projecting diagonal plane gives the emblem its distinctive silhouette.</desc>
+  <g id="icon">
+    <path fill="#778ab4" d="M88 176 160 218V316L256 372V448L88 352Z"/>
+    <path fill="#b4c0e4" d="M352 218 424 176V320L348 364 396 448H314L238 318 352 252Z"/>
+    <path fill="#dce4ff" d="M88 176 256 80 424 176 352 218 256 162 160 218Z"/>
+  </g>
+</svg>

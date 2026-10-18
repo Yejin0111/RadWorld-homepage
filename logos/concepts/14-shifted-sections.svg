@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">RadWorld — shifted sections</title>
+  <desc id="desc">Three soft black sectional modules turn around a shared, offset opening. Separate rounded sections assemble into one compact abstract mark.</desc>
+  <g transform="translate(256 256) scale(1.2) translate(-256 -256)">
+  <g id="icon" fill="#000">
+    <path d="M146 104H248C274 104 290 120 290 146V174C290 194 278 206 258 206H234C214 206 202 194 202 174V168C202 158 196 152 186 152H146C130 152 120 142 120 128S130 104 146 104Z"/>
+    <path d="M352 160C370 160 382 172 382 190V234C382 243 386 248 394 248 408 248 416 258 416 272V308C416 328 404 340 384 340H352C332 340 320 328 320 308V282C320 271 314 266 304 266H302C287 266 278 258 278 246S287 226 302 226H314C324 226 328 220 328 210V186C328 170 338 160 352 160Z"/>
+    <path d="M130 224C148 224 160 236 160 254V282C160 294 166 300 178 300H248C268 300 280 312 280 332V368C280 388 266 400 246 400H144C120 400 104 384 104 360V252C104 234 114 224 130 224Z"/>
+  </g>
+  </g>
+</svg>

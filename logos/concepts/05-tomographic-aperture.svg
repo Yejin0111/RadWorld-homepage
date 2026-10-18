@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">RadWorld — tomographic aperture</title>
+  <desc id="desc">Three broad curved cross-sections form one asymmetric spatial body. An airy curved aperture opens through the surfaces toward the lower right.</desc>
+  <defs>
+    <mask id="aperture" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+      <path fill="#fff" d="M0 0H512V512H0Z"/>
+      <path fill="#000" d="M192 147C241 118 306 137 324 180 344 227 317 262 277 285 309 311 350 337 409 365L367 410C307 370 264 338 235 302 212 273 214 250 244 224 268 202 281 194 270 180 254 159 224 163 199 181Z"/>
+    </mask>
+  </defs>
+  <g id="icon" mask="url(#aperture)">
+    <path fill="#dce4ff" d="M102 127C156 75 241 57 307 77 370 96 408 139 421 193L375 223C364 181 335 149 292 136 238 119 176 132 132 170Z"/>
+    <path fill="#b4c0e4" d="M91 203C146 153 224 137 286 156 349 175 392 220 406 278L361 309C349 263 316 230 272 216 218 199 156 212 110 249Z"/>
+    <path fill="#778ab4" d="M93 280C143 234 214 220 270 237 328 255 371 298 387 354 345 402 284 435 223 433 158 430 110 397 96 346 91 328 90 303 93 280Z"/>
+  </g>
+</svg>

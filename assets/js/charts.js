@@ -355,13 +355,39 @@ function columns(fig, table) {
     panel.append(body, labels);
     plot.appendChild(panel);
   }
-  table.after(legend(series), plot, narrowColumns(series, panels, shared, byMethod));
+  const switchMetrics = fig.hasAttribute('data-metric-switcher');
+  const narrow = switchMetrics ? el('div', 'm-chart') : narrowColumns(series, panels, shared, byMethod);
+  if (switchMetrics) {
+    const controls = el('div', 'report-metric-switcher');
+    controls.setAttribute('role', 'group');
+    controls.setAttribute('aria-label', 'Report quality metric');
+    const views = panels.map((p, index) => {
+      const compact = narrowColumns(series, [p], shared, byMethod);
+      compact.className = 'report-metric-compact';
+      narrow.appendChild(compact);
+      const vertical = plot.children[index];
+      const button = el('button', '', p.title);
+      button.type = 'button';
+      controls.appendChild(button);
+      button.addEventListener('click', () => select(index));
+      return { button, vertical, compact };
+    });
+    function select(index) {
+      views.forEach((view, i) => {
+        view.button.setAttribute('aria-pressed', String(i === index));
+        view.vertical.hidden = view.compact.hidden = i !== index;
+      });
+    }
+    select(0);
+    table.before(controls);
+  }
+  table.after(legend(series), plot, narrow);
   // each group needs room for its bars, plus the y axis. data-bar lowers the minimum bar width for
   // charts with many groups (for example 13 abnormalities), so they keep the vertical layout on desktop.
   const perGroup = series.length * (Number(fig.dataset.bar) || 18) + 16;
   const panelNeed = (p) => p.rows.length * perGroup + 38;
   const stacked = Math.max(...panels.map(panelNeed));
-  watchWidth(fig, { stacked, side: panels.reduce((sum, p) => sum + panelNeed(p), 0) + 20 * (panels.length - 1) });
+  watchWidth(fig, { stacked, side: switchMetrics ? stacked : panels.reduce((sum, p) => sum + panelNeed(p), 0) + 20 * (panels.length - 1) });
 }
 
 // ---------------------------------------------------------------- vertical lollipops (one comparison)

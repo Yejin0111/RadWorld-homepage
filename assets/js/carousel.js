@@ -27,8 +27,11 @@ function setup(car) {
   const tabs = [...car.querySelectorAll('.carousel-tabs [role="tab"]')];
   const steps = [...car.querySelectorAll('[data-step]')];
   const count = car.querySelector('.carousel-count');
+  const dots = [...car.querySelectorAll('[data-carousel-index]')];
   const id = car.id || 'carousel';
-  let index = 0;
+  const autoDelay = Number(car.dataset.autoplay) || 0;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let index = 0, lastAdvance = performance.now();
 
   slides.forEach((s, i) => {
     s.id = s.id || `${id}-slide-${i + 1}`;
@@ -59,7 +62,8 @@ function setup(car) {
   };
 
   const go = (i, { focus = false, silent = false } = {}) => {
-    index = Math.max(0, Math.min(slides.length - 1, i));
+    index = autoDelay ? ((i % slides.length) + slides.length) % slides.length : Math.max(0, Math.min(slides.length - 1, i));
+    lastAdvance = performance.now();
     track.style.transform = `translateX(${-100 * index}%)`;
     slides.forEach((s, k) => {
       const on = k === index;
@@ -73,8 +77,9 @@ function setup(car) {
     });
     steps.forEach((b) => {
       const to = index + Number(b.dataset.step);
-      b.disabled = to < 0 || to > slides.length - 1;
+      b.disabled = !autoDelay && (to < 0 || to > slides.length - 1);
     });
+    dots.forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.carouselIndex) === index)));
     if (count) count.textContent = `${index + 1} / ${slides.length}`;
     if (focus && tabs[index]) tabs[index].focus();
     revealTab();
@@ -95,6 +100,7 @@ function setup(car) {
   if (tablist) tablist.addEventListener('scroll', atEnd, { passive: true });
 
   tabs.forEach((t, i) => t.addEventListener('click', () => go(i)));
+  dots.forEach((b) => b.addEventListener('click', () => go(Number(b.dataset.carouselIndex))));
   steps.forEach((b) => b.addEventListener('click', () => go(index + Number(b.dataset.step))));
   if (tablist) {
     tablist.addEventListener('keydown', (e) => {
@@ -126,6 +132,18 @@ function setup(car) {
   sync();
   go(0, { silent: true });
   atEnd();
+  if (autoDelay) {
+    // Manual selection restarts the interval, without disabling automatic cycling.
+    car.addEventListener('click', () => { lastAdvance = performance.now(); });
+    const timer = setInterval(() => {
+      if (!car.isConnected) { clearInterval(timer); return; }
+      const rect = car.getBoundingClientRect();
+      const paused = document.hidden || reduced.matches || start || rect.bottom < 0 || rect.top > innerHeight || car.querySelector('details[open]');
+      car.dataset.playback = paused ? 'paused' : 'playing';
+      if (paused) { lastAdvance = performance.now(); return; }
+      if (performance.now() - lastAdvance >= autoDelay) go(index + 1);
+    }, 200);
+  }
   car.classList.add('is-ready');
   return { go };
 }

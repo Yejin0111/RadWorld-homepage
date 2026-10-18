@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">RadWorld — Tomographic World</title>
+  <desc id="desc">Three broad, ascending scan strata form a spherical world, expressing a shared three-dimensional foundation for radiologic imaging.</desc>
+  <defs>
+    <clipPath id="world-boundary">
+      <circle cx="256" cy="256" r="184"/>
+    </clipPath>
+  </defs>
+  <g id="icon" clip-path="url(#world-boundary)">
+    <path fill="#b4c0e4" d="M42 42H470V171C330 182 190 270 42 250Z"/>
+    <path fill="#98a7ce" d="M42 277C190 297 330 209 470 198V268C330 279 190 367 42 347Z"/>
+    <path fill="#7e8db4" d="M42 374C190 394 330 306 470 295V470H42Z"/>
+  </g>
+</svg>

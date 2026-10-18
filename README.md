@@ -1,7 +1,7 @@
 # RadWorld project page
 
 Static project page for *A World Foundation Model for 3D Tomographic Medical Imaging*.
-Plain HTML, CSS and JavaScript. No build step, no external CDN and no web fonts, so the page
+Plain HTML, CSS and JavaScript. No build step or external CDN. The Inter font is bundled locally, so the page
 also loads in mainland China.
 
 ## Preview
@@ -27,34 +27,28 @@ The page fetches its data and the quiz volumes, so opening `index.html` as a fil
 |---|---|
 | Links, preprint or published state, arXiv id, journal details | `assets/js/site-config.js` |
 | Page text | `index.html` |
-| Styles | `assets/css/style.css` |
+| Presentation and typography | `assets/css/cosmos.css` |
+| Viewer and chart base styles | `assets/css/style.css` |
 | Which volumes appear, windows, captions | `tools/prepare_assets.py` (then rebuild) |
-| World-model figure under the title | `index.html` (`figure.wm`), images from `tools/make_concept.py` |
+| Model overview and task selector | `assets/js/overview.js`, `assets/css/overview.css` |
+| Hero animation controls and benchmark disclosures | `assets/js/presentation.js` |
 | Generation slides (cases, inputs, views) | `tools/make_views.py`, which writes `data/showcase.json` |
 | Translation slide images | `tools/make_translation.py` |
 
-The hero shows the title, the authors and links, then the world-model figure: five kinds of clinical
-information (a radiology report, an organ mask, a tumor mask, a source modality, a pre-treatment CT
-with procedural variables), RadWorld, the scan it generated from each, and what the scans are for. The
-images are plain scans, without the figures' arrows or zoomed views. They come from the paper's figures
-where it has them (Figures 2e, 2f, 4b and 5f). The organ-mask pair is the page's own case.
-`assets/js/concept.js` draws the RadWorld band (the learned distribution as ridgelines, one picked
-point per input, as in Figure 1b) and the arrows. Below 720 px the band runs down the middle, with the
-inputs on its left and the scans on its right, and the ridgelines turn with it. The strip of generated
-scans follows.
+The presentation follows the layout rhythm of the [Cosmos 3 project page](https://research.nvidia.com/labs/cosmos-lab/cosmos3/): a wide animated hero with an eight-tile scan grid, a model overview, task demos, results and resources. All imagery is RadWorld's own existing material. The hero keeps margins comparable to the reference. It shows a 4×2 grid on desktop and 2×3 on phones, with a pause button and static images when reduced motion is requested. Inter is served from `assets/fonts/InterVariable.woff2`; its SIL Open Font License is included in `assets/fonts/OFL.txt`.
 
-Generation, Translation and Treatment are carousels (`assets/js/carousel.js`): numbered tabs, previous
-and next buttons (beside the slide on wide screens, next to the tabs on phones), swipe on phones and the
-arrow keys on the tabs. On wide screens a carousel keeps the height of its tallest slide, so the page
-does not move when the slide changes. Each slide is one task with the same layout as the others:
+The model overview has five task tabs, connected clinical inputs and generated scans. The mask task includes both organ and tumor examples. On phones only the selected input/output pair appears. Arrow keys, Home and End move between tasks; Explore examples activates the corresponding generation slide or scrolls to translation/treatment. The tumor example links to the synthetic-data benchmarks. The central scan planes are decorative, not an architecture diagram.
+
+Generation, Translation and Treatment remain carousels (`assets/js/carousel.js`) with task tabs, previous and next buttons, swipe on phones and arrow keys. Their height follows the selected slide (`data-fit="slide"`). Quantitative results are preserved in native disclosure panels so visitors can focus on the examples first. The research team and complete affiliations appear near the end of the page.
+
 - Generation (`assets/js/showcase.js`): the input (the request, a sentence of the report or the organ
-  mask) and three views of the generated volume, case chips above, the task's chart below. Each view
+  mask) and three views of the generated volume, case chips above, the task's expandable chart below. Each view
   opens on a chosen slice and steps through the volume as the pointer moves across it (dragging on
   touch screens). CT is shown over its whole range (-1000 to 1000 HU), without a window. The report
   cases are the four of Figure 2e, opening on the figure's slice with its arrows, and keep the figure's
   window, which their findings need. On the organ-mask slide the mask is blended onto the CT while the pointer is on a view (a tap
   on touch screens), and the input card shows the mask at the same axial slice.
-- Translation: input, RadWorld and the real scan at one slice, then two charts side by side whose
+- Translation: input, RadWorld and the real scan at one slice, then an expandable panel with two charts side by side whose
   titles, legends and plots line up: whole-volume MAE, PSNR and MS-SSIM against the specialized models,
   and one chart of what the translation is for (Hounsfield-unit profile, reader study or segmentation).
 
@@ -92,6 +86,7 @@ python3 tools/prepare_assets.py         # volumes, posters, teaser, data/gallery
 python3 tools/prepare_assets.py --only report,teaser   # rebuild part of it
 python3 tools/make_social.py            # 1200x630 social preview
 python3 tools/make_concept.py           # images of the world-model figure (paper figures, Figure 2f volumes, TACE crops)
+python3 tools/make_hero.py              # additional animated sweeps from existing display sprites (Pillow)
 python3 tools/make_views.py             # Generation slides: slice sprites, Figure 2e arrows, mask overlays, data/showcase.json
 python3 tools/make_translation.py       # Translation slides: slices of Figure 4b and Extended Data Figure 5
 python3 tools/build_km.py               # data/km.json, Kaplan-Meier curves of Figure 5e (needs the Overleaf folder)

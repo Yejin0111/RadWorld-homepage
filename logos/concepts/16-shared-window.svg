@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">RadWorld — Shared Window</title>
+  <desc id="desc">A continuous rounded modular silhouette surrounds one shared open window, with staggered shoulders giving the form a gentle rotational rhythm.</desc>
+  <g id="icon" fill="#000" transform="translate(256 256) scale(1.2) translate(-256 -256)">
+    <path fill-rule="evenodd" d="M224 104H328Q360 104 360 136V168Q360 184 376 184H384Q416 184 416 216V304Q416 336 384 336H344Q328 336 328 352V376Q328 408 296 408H208Q176 408 176 376V344Q176 328 160 328H136Q104 328 104 296V208Q104 176 136 176H176Q192 176 192 160V136Q192 104 224 104ZM240 196Q208 196 208 228V280Q208 312 240 312H284Q316 312 316 280V228Q316 196 284 196Z"/>
+  </g>
+</svg>

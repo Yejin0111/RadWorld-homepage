@@ -1,0 +1,86 @@
+[
+  {
+    "volume": "gen_abdomen_0",
+    "plane": "axial",
+    "label": "Abdomen and pelvis CT",
+    "src": "assets/img/hero/gen_abdomen_0_axial.webp",
+    "still": "assets/img/hero/gen_abdomen_0_axial_still.webp"
+  },
+  {
+    "volume": "pretrain_ct_0",
+    "plane": "axial",
+    "label": "Chest CT",
+    "src": "assets/img/hero/pretrain_ct_0_axial.webp",
+    "still": "assets/img/hero/pretrain_ct_0_axial_still.webp"
+  },
+  {
+    "volume": "pretrain_mr_0",
+    "plane": "axial",
+    "label": "Brain MRI",
+    "src": "assets/img/hero/pretrain_mr_0_axial.webp",
+    "still": "assets/img/hero/pretrain_mr_0_axial_still.webp"
+  },
+  {
+    "volume": "rep_effusions",
+    "plane": "axial",
+    "label": "Report-guided chest CT",
+    "src": "assets/img/hero/rep_effusions_axial.webp",
+    "still": "assets/img/hero/rep_effusions_axial_still.webp"
+  },
+  {
+    "volume": "mr2ct_radworld",
+    "plane": "axial",
+    "label": "CT translated from MRI",
+    "src": "assets/img/hero/mr2ct_radworld_axial.webp",
+    "still": "assets/img/hero/mr2ct_radworld_axial_still.webp"
+  },
+  {
+    "volume": "gen_pelvis_0",
+    "plane": "axial",
+    "label": "Pelvis CT",
+    "src": "assets/img/hero/gen_pelvis_0_axial.webp",
+    "still": "assets/img/hero/gen_pelvis_0_axial_still.webp"
+  },
+  {
+    "volume": "rep_covid",
+    "plane": "axial",
+    "label": "Report-guided chest CT",
+    "src": "assets/img/hero/rep_covid_axial.webp",
+    "still": "assets/img/hero/rep_covid_axial_still.webp"
+  },
+  {
+    "volume": "rep_gallbladder",
+    "plane": "axial",
+    "label": "Report-guided abdominal CT",
+    "src": "assets/img/hero/rep_gallbladder_axial.webp",
+    "still": "assets/img/hero/rep_gallbladder_axial_still.webp"
+  },
+  {
+    "volume": "gen_hn_0",
+    "plane": "coronal",
+    "label": "Head and neck CT, coronal",
+    "src": "assets/img/hero/gen_hn_0_coronal.webp",
+    "still": "assets/img/hero/gen_hn_0_coronal_still.webp"
+  },
+  {
+    "volume": "pretrain_mr_0",
+    "plane": "coronal",
+    "label": "Brain MRI, coronal",
+    "src": "assets/img/hero/pretrain_mr_0_coronal.webp",
+    "still": "assets/img/hero/pretrain_mr_0_coronal_still.webp"
+  },
+  {
+    "volume": "gen_abdomen_0",
+    "plane": "coronal",
+    "label": "Abdomen and pelvis CT, coronal",
+    "src": "assets/img/hero/gen_abdomen_0_coronal.webp",
+    "still": "assets/img/hero/gen_abdomen_0_coronal_still.webp"
+  },
+  {
+    "volume": "mr2ct_radworld",
+    "plane": "coronal",
+    "label": "CT translated from MRI, coronal",
+    "src": "assets/img/hero/mr2ct_radworld_coronal.webp",
+    "still": "assets/img/hero/mr2ct_radworld_coronal_still.webp"
+  }
+]

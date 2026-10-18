@@ -1,0 +1,15 @@
+# Generation axial reel
+
+The Generation section keeps its heading and one-sentence description. Its main presentation is a compact Apple Cover Flow style ring of axial examples, using `data/showcase.json` without new images or dependencies. `assets/js/generation-reel.js` and `assets/css/generation-reel.css` implement it.
+
+One center card faces forward; two cards on each side recede, rotate and dim. The desktop card width is 30vw, bounded at 210–330px; phones use 56vw, capped at 240px. All eleven generation, report and mask examples form a circular sequence. Previous/next, dots, side-card clicks, keyboard arrows/Home/End and mouse/touch dragging select examples. Five-second automatic advances start by default while visible, without an Auto-loop switch. Manual selection restarts the interval. Dragging and opening an input pause advances until the interaction finishes. Hovering the reel or leaving focus on its controls does not silently pause cycling. Offscreen and hidden-page states pause playback. Reduced motion disables slice playback and automatic advances.
+
+Only axial slices appear in the main reel. The center and adjacent cards cycle through the existing axial sprite frames; offscreen and background playback stops. A corner badge opens scan conditions or the original report excerpt. Mask-guided examples instead show the existing CT/mask composite directly over their generated CT, enabled by default. Keep the base and overlay on exactly the same axial sprite frame during loading and animation. The corner Condition button on mask examples toggles the mask with aria-pressed and an updated image description. Opening a text input stops automatic advances and slice playback; changing cards closes it. Keep source labels and generated-image accessible descriptions. Do not add coronal/sagittal views to the reel.
+
+Keep Generation focused on its heading, description and axial reel. Remove both the original input/quantitative disclosure and the subsequent Performance tabs. Do not relocate the FID, report-recall or organ-Dice charts to Results. The existing unrelated results sections remain in place.
+
+Validation: syntax checks and git diff check; browser checks at 1280, 737, 390 and 320px; ring wrap in both directions, dot selection, dragging, keyboard navigation, input disclosure, automatic advancement. No document horizontal overflow.
+
+Terminology matches the overview: Scan generation, Report-to-volume generation and Mask-to-volume generation. The section description reads “A shared paradigm for scan generation, report-to-volume generation and mask-to-volume generation.” Keep the heading “Generate virtual 3D CT and MRI volumes.”
+
+All three corner badges display Condition, in the same compact styling. Preserve full input names in accessible labels and tooltips: scan conditions, radiology report, organ mask. Scan/report badges disclose their conditions; mask badges retain the direct overlay toggle.

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">RadWorld — Open Cell</title>
+  <desc id="desc">A single softly squared black mass surrounds an open central cell. Two rounded modular ends leave an asymmetric opening at the upper right.</desc>
+  <g transform="translate(256 256) scale(1.2) translate(-256 -256)">
+  <g id="icon" fill="#000000">
+    <path d="M194 110H280C300 110 314 124 314 144V164C314 184 300 198 280 198H224C208 198 198 208 198 224V288C198 304 208 314 224 314H288C304 314 314 304 314 288V266C314 250 324 240 340 240H376C392 240 402 250 402 266V318C402 372 372 402 318 402H194C140 402 110 372 110 318V194C110 140 140 110 194 110Z"/>
+  </g>
+  </g>
+</svg>

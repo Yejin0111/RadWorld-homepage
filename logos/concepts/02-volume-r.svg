@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">RadWorld — volume R</title>
+  <desc id="desc">An isometric radiologic volume with two tomographic scan planes and an R cut into its front face.</desc>
+  <g id="icon">
+    <path fill="#f0f0f0" d="M256 64 416 156 256 248 96 156Z"/>
+    <path fill="#7e8db4" fill-rule="evenodd" d="M96 156 256 248V432L96 340ZM96 220 256 312V324L96 232ZM96 272 256 364V376L96 284Z"/>
+    <path fill="#b4c0e4" fill-rule="evenodd" transform="matrix(1 -.575 0 1 256 248)" d="M0 0H160V184H0ZM28 28H82C112 28 128 43 128 68 128 87 119 101 102 107L132 156H99L73 112H58V156H28ZM58 53V87H80C93 87 99 81 99 70 99 59 93 53 80 53Z"/>
+  </g>
+</svg>

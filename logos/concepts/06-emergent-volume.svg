@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">RadWorld — Emergent Volume</title>
+  <desc id="desc">Four substantial, spatially staggered sections assemble into one open sculptural volume. An oblique R emerges from the open core, supporting column, and extended lower section.</desc>
+  <g id="icon">
+    <path fill="#dce4ff" fill-rule="evenodd" d="M104 118 240 58Q256 50 272 58L408 118Q420 124 420 138V190L260 270 92 186V138Q92 124 104 118ZM260 118 170 158 260 202 350 158Z"/>
+    <path fill="#b4c0e4" d="M92 210 164 246V402L92 366Z"/>
+    <path fill="#778ab4" d="M188 258 260 294 420 214V274L278 350 188 306Z"/>
+    <path fill="#b4c0e4" d="M276 352 338 318 420 390 346 432Z"/>
+  </g>
+</svg>

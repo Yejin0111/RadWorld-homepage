@@ -1,0 +1,7 @@
+RadWorld — Organic R
+Mode: built-in image_gen, transparent-background edit.
+Reference: concepts/07-organic-core.png
+Output: concepts/08-organic-r.png
+
+Prompt:
+Edit this RadWorld logo. The user likes this exact organic volumetric style, soft sculptural surfaces, quiet periwinkle palette, and internal aperture. Preserve that visual identity, material treatment, delicately folded inner surface, and smooth generous curves. Make ONE targeted conceptual change: the body itself must now clearly read as a capital R, while remaining an elegant organic three-dimensional volume. Reshape the left side into a substantial upright stem, shape the upper aperture into the bowl/counter of R, and open the lower-right portion of the closed loop so a graceful diagonal leg grows outward from the middle junction. The R should be formed by the volume's silhouette and negative space, NOT a separate letter placed inside/on the symbol. A viewer should recognize R at 32px; keep it sophisticated, soft, and sculptural, not typographic or blocky. Stay very close to the source's curved asymmetry and broad continuous folded surfaces, simply articulate an upright left stem, upper bowl, and lower-right leg. ONE icon centered at similar scale and padding, transparent background and genuine transparent cutouts, no text, no wordmark, no extra shapes, no outline, no drop shadow, no tiled background, no frame. Maintain the source's pale blue-grey and darker slate inner face. Clean edges, finished premium brand mark, no stray blue pixels.
