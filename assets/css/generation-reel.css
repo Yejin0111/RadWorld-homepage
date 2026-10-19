@@ -60,3 +60,13 @@
 }
 
 @media (max-width: 359px) { .gen-reel-dots button { width: 11px; } .gen-reel-controls { padding-inline: 4px; } }
+
+/* Shared foundation statement introduces the three capability demonstrations. */
+.capabilities-intro { max-width: 800px; margin: 0 auto 56px; padding-bottom: 48px; border-bottom: 1px solid #292c34; text-align: center; }
+.capabilities-intro h2 { margin: 0 0 18px; font-size: clamp(28px,2.65vw,35.328px); font-weight: 600; line-height: 1.22; letter-spacing: -.02em; text-wrap: balance; }
+.capabilities-intro h2 span { color: var(--accent); }
+.capabilities-intro .section-sub { max-width: 730px; margin: 0 auto; color: var(--muted); font-size: 15px; line-height: 24px; text-wrap: pretty; }
+@media (max-width: 640px) {
+  .capabilities-intro { margin-bottom: 40px; padding-bottom: 36px; }
+  .capabilities-intro .section-sub { font-size: 14px; }
+}

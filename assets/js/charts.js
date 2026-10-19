@@ -48,8 +48,14 @@ function tooltip() {
 
 // data: { title, sub, rows: [{ name, text, tone, ours }] }. Each row is a colour key, the method
 // and its value, laid out as a grid so every method gets its own line.
-function showTip(data, x, y) {
+function showTip(data, x, y, source) {
   const t = tooltip();
+  // The shared tooltip is attached to body, outside any chart-scoped palette.
+  // Resolve colours from the hovered/focused chart so keys match its bars.
+  const palette = getComputedStyle(source);
+  for (const name of ['--tone-1', '--tone-2', '--tone-3', '--rw']) {
+    t.style.setProperty(name, palette.getPropertyValue(name));
+  }
   t.textContent = '';
   const head = el('div', 'tip-head');
   head.appendChild(el('b', '', data.title));
@@ -72,11 +78,11 @@ function showTip(data, x, y) {
 function hideTip() { if (tip) tip.hidden = true; }
 
 function withTip(target, data, anchor) {
-  target.addEventListener('pointermove', (e) => showTip(data, e.clientX, e.clientY));
+  target.addEventListener('pointermove', (e) => showTip(data, e.clientX, e.clientY, target));
   target.addEventListener('pointerleave', hideTip);
   target.addEventListener('focus', () => {
     const rc = anchor().getBoundingClientRect();
-    showTip(data, rc.right, rc.top);
+    showTip(data, rc.right, rc.top, target);
   });
   target.addEventListener('blur', hideTip);
 }

@@ -9,3 +9,5 @@ The shared `.scan-comparison` caps each card at 330 px, keeps all three equal, a
 Automatic cycling starts by default every five seconds, wraps back to the first example and continues after manual navigation with a fresh interval. There is no visible Auto-loop toggle. Offscreen, hidden-page and reduced-motion states pause cycling.
 
 The shared centered story format now places the original treatment details in a native disclosure beneath the three scan cards. Image captions are centered. Opening details pauses case cycling for reading; original regimens and unwrapped drug lines are preserved.
+
+The description specifies conditioning on pre-treatment CT and TACE details for hepatocellular carcinoma. The three headings are Pre-treatment CT, Virtual post-treatment CT and Acquired post-treatment CT. The middle subtitle identifies RadWorld as the generator. Original case images, values and treatment details remain intact.

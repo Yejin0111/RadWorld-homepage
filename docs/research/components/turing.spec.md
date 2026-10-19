@@ -11,3 +11,5 @@ Verified: preview load; no pre-test statistics; start; slice adjustment; coronal
 Preview and quiz share `--turing-image-width` (330 px desktop, 290 px phone), preventing a size jump on Start. The intro reserves a square frame while its volume loads; active planes keep their original physical aspect ratio.
 
 Expert rows appear as Junior, Senior, then All radiologists. The aggregate is separated as a summary row, rather than placed between seniority groups. Both expert-only and completed-test views share this ordering.
+
+The intro invites visitors to explore ten tumor scans and view expert performance. Expert-only results are titled Radiologist reader study. The completion comparison says: “Your score is based on this ten-case demo. Radiologist results come from the full reader study.” All cases, values, scoring and interaction behavior are unchanged.

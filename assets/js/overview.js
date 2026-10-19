@@ -7,7 +7,7 @@ const TASKS = [
     output: 'Generated CT / MRI', image: 'assets/img/concept/out_report.webp',
     outputViews: spriteViews('assets/img/views/rep_pericardial', [16, 24, 19]),
     alt: 'Generated CT showing the findings described in a radiology report',
-    caption: 'Generate 3D CT volumes from findings described in a radiology report.',
+    caption: 'Generate CT volumes reflecting report-described findings.',
     setting: '“There is a mild pericardial effusion, up to 12 mm thick.”',
   },
   {
@@ -17,7 +17,7 @@ const TASKS = [
     output: 'Generated CT / MRI', image: 'assets/img/concept/out_mask.webp',
     outputViews: spriteViews('assets/img/views/m2i_a', [29, 19, 17]),
     alt: 'Generated CT matching the supplied organ mask',
-    caption: 'Generate 3D CT volumes from organ or tumor segmentation masks.',
+    caption: 'Generate CT volumes consistent with supplied segmentation masks.',
     setting: 'Organ / tumor segmentation mask.',
   },
   {
@@ -25,7 +25,7 @@ const TASKS = [
     inputImage: 'assets/img/concept/in_source.webp', inputAlt: 'Acquired source scan for modality translation',
     output: 'Target modality', image: 'assets/img/concept/out_source.webp',
     alt: 'Generated target modality from the acquired source scan',
-    caption: 'Translate a scan into another modality, MRI sequence or contrast phase.',
+    caption: 'Condition on an available scan to generate a target modality, MRI sequence or contrast phase.',
     setting: 'Head and neck MRI → CT.',
   },
   {
@@ -131,12 +131,12 @@ function setupOverview(component) {
   const tasks = pretraining ? PRETRAINING_EXAMPLES : TASKS;
   const heading = pretraining
     ? 'The human body.<br><span>A shared generative foundation.</span>'
-    : 'Any task in <span>one paradigm.</span>';
+    : 'Many tasks.<br><span>One generative framework.</span>';
   const description = pretraining
-    ? 'RadWorld learns a shared generative prior across anatomical regions and imaging modalities through foundation pretraining on 3D CT and MRI volumes.'
-    : 'Many CT and MRI tasks can be reframed as image-to-image transformations, or more broadly, transitions between imaging states. RadWorld uses a shared generative prior to model these transitions within a unified framework.';
+    ? 'Pretrained on 232,781 curated scans from 152 datasets across 23 countries, RadWorld learns a shared generative prior across anatomical regions and imaging modalities.'
+    : 'CT and MRI tasks differ in the information available and the examination required. RadWorld brings scan generation, imaging translation and treatment simulation into a common formulation: generate a target 3D volume from the supplied conditions.';
   component.innerHTML = `
-    ${pretraining ? '' : `<a class="hero-scroll mo-next-story" href="#${uid}-title" aria-label="Continue to task adaptation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>`}
+    ${component.previousElementSibling?.matches('.model-overview') ? `<a class="hero-scroll mo-next-story" href="#${uid}-title" aria-label="Continue to ${pretraining ? 'foundation pretraining' : 'the unified framework'}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>` : ''}
     <section class="mo-story mo-story-${pretraining ? 'foundation' : 'adaptation'}" aria-labelledby="${uid}-title">
     <header class="mo-heading mo-task-heading">
       <h2 id="${uid}-title">${heading}</h2>

@@ -10,6 +10,8 @@ Keep Generation focused on its heading, description and axial reel. Remove both 
 
 Validation: syntax checks and git diff check; browser checks at 1280, 737, 390 and 320px; ring wrap in both directions, dot selection, dragging, keyboard navigation, input disclosure, automatic advancement. No document horizontal overflow.
 
-Terminology matches the overview: Scan generation, Report-to-volume generation and Mask-to-volume generation. The section description reads “A shared paradigm for scan generation, report-to-volume generation and mask-to-volume generation.” Keep the heading “Generate virtual 3D CT and MRI volumes.”
+Terminology matches the overview: Scan generation, Report-to-volume generation and Mask-to-volume generation. The section description reads “Generate CT and MRI volumes, and guide CT synthesis with radiology reports or segmentation masks.” Keep the heading “Generate virtual 3D CT and MRI volumes.”
 
 All three corner badges display Condition, in the same compact styling. Preserve full input names in accessible labels and tooltips: scan conditions, radiology report, organ mask. Scan/report badges disclose their conditions; mask badges retain the direct overlay toggle.
+
+Capabilities opens at the existing #generation anchor with “One foundation. Task-specific adaptation.” The second line uses the shared pale-blue accent; typography and 730px copy width match the model overview. Copy: “Task-specific conditioning and partial fine-tuning adapt the pretrained model to different inputs and target examinations.” A quiet divider separates this short transition from the Generation heading and reel. No speed, zero-shot or all-task claims are added.

@@ -95,7 +95,7 @@ export function mountTuring(root, data, windows) {
     order = [];
     busy = false;
     root.innerHTML = `<div class="turing-card turing-experts">
-      ${comparisonFigure(expertRows(), 'Expert performance', 'Classification of real and generated scans in the reader study.')}
+      ${comparisonFigure(expertRows(), 'Radiologist reader study', 'Classification of real and generated tumor scans in the full reader study.')}
       <button type="button" class="turing-start" data-role="start">Take the test <span aria-hidden="true">↗</span></button>
       <button type="button" class="turing-score-back" data-role="exit">Back to preview</button>
     </div>`;
@@ -196,7 +196,7 @@ export function mountTuring(root, data, windows) {
         <p class="turing-score-caption">Correct answers</p>
         <button type="button" class="turing-start" data-role="again">Try again <span aria-hidden="true">↗</span></button>
         <button type="button" class="turing-score-back" data-role="exit">Back to preview</button>
-        ${comparisonFigure(comparison, 'You and the radiologists', 'Your 10-case demo; radiologist values from the reader study.')}
+        ${comparisonFigure(comparison, 'Your score and the reader study', 'Your score is based on this ten-case demo. Radiologist results come from the full reader study.')}
       </div>`;
     root.querySelector('[data-role="again"]').addEventListener('click', start);
     root.querySelector('[data-role="exit"]').addEventListener('click', reset);

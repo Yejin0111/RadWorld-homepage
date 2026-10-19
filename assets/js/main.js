@@ -20,7 +20,7 @@ if (!links.arxiv && cfg.arxivId) links.arxiv = `https://arxiv.org/abs/${cfg.arxi
 const TITLE = 'A World Foundation Model for 3D Tomographic Medical Imaging';
 const AUTHORS = [
   'Ye, Jin', 'Ma, Chenglong', 'Zhang, Lu', 'Su, Yanzhou', 'Liu, Jiyao', 'Li, Wei', 'Wu, Yicheng',
-  'Chen, Zhihao', 'Shan, Hongming', 'Chen, Zhaolin', 'Zhuang, Bohan', 'Qiao, Yu', 'Zhang, Junjie',
+  'Chen, Zhihao', 'Chen, Yirong', 'Shan, Hongming', 'Chen, Zhaolin', 'Zhuang, Bohan', 'Qiao, Yu', 'Zhang, Junjie',
   'He, Junjun', 'Cai, Jianfei', 'Ji, Yuanfeng',
 ];
 
@@ -58,7 +58,7 @@ function applyConfig() {
       a.classList.add('is-disabled');
       a.setAttribute('aria-disabled', 'true');
       a.title = 'Available soon';
-      a.insertAdjacentHTML('beforeend', '<span class="soon">soon</span>');
+      a.insertAdjacentHTML('beforeend', `<span class="soon">${a.classList.contains('resource-entry') ? 'Coming soon' : 'soon'}</span>`);
     }
   });
 }
