@@ -113,7 +113,10 @@ function setupMotion() {
 // Highlight the section in view in the top bar.
 function setupNav() {
   const navLinks = [...document.querySelectorAll('.topnav a[href^="#"]')];
-  const byId = new Map(navLinks.map((a) => [a.getAttribute('href').slice(1), a]));
+  const byId = new Map(navLinks.flatMap((a) => {
+    const ids = a.dataset.navSections?.split(/\s+/) || [a.getAttribute('href').slice(1)];
+    return ids.map((id) => [id, a]);
+  }));
   if (!('IntersectionObserver' in window)) return;
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {

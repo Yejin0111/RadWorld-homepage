@@ -36,8 +36,7 @@
     </a>
     <nav class="topnav" aria-label="Sections">
       <a href="#overview">Overview</a>
-      <a href="#generation">Capabilities</a>
-      <a href="#turing">Turing test</a>
+      <a href="#generation" data-nav-sections="generation translation treatment turing">Explore</a>
       <a href="#synthetic">Applications</a>
       <a href="#citation">Resources</a>
     </nav>
@@ -91,33 +90,28 @@
 
 <section id="overview" class="section overview-section">
   <div class="container">
-  <div class="model-overview">
-    <h2>Many tasks.<br>One generative framework.</h2>
-    <p>CT and MRI tasks differ in the information available and the examination required. RadWorld brings scan generation, imaging translation and treatment simulation into a common formulation: generate a target 3D volume from the supplied conditions.</p>
-  </div>
   <div class="model-overview" data-overview="pretraining">
     <h2>The human body.<br>A shared generative foundation.</h2>
     <p>Pretrained on 232,781 curated scans from 152 datasets across 23 countries, RadWorld learns a shared generative prior across anatomical regions and imaging modalities.</p>
+  </div>
+  <div class="model-overview">
+    <h2>Many tasks.<br>One generative framework.</h2>
+    <p>CT and MRI tasks differ in the information available and the examination required. RadWorld brings scan generation, imaging translation and treatment simulation into a common formulation: generate a target 3D volume from the supplied conditions.</p>
   </div></div>
-  <a class="hero-scroll section-next" href="#generation" aria-label="Continue to Capabilities"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+  <a class="hero-scroll section-next" href="#generation" aria-label="Continue to Generation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
 </section>
 
-<section id="generation" class="section section-alt" aria-labelledby="capabilities-title">
+<section id="generation" class="section section-alt" aria-labelledby="generation-title">
   <div class="container">
-    <header class="capabilities-intro">
-      <p class="kicker">Capabilities</p>
-      <h2 id="capabilities-title">One foundation.<br><span>Task-specific adaptation.</span></h2>
-      <p class="section-sub">Task-specific conditioning and partial fine-tuning adapt the pretrained model to different inputs and target examinations.</p>
-    </header>
     <div class="section-head">
       <p class="kicker">Generation</p>
-      <h2>Generate virtual 3D CT and MRI volumes.</h2>
+      <h2 id="generation-title">Generate virtual 3D CT and MRI volumes.</h2>
       <p class="section-sub">Generate CT and MRI volumes, and guide CT synthesis with radiology reports or segmentation masks.</p>
     </div>
 
     <div class="gen-reel" data-generation-reel aria-label="Generation gallery"></div>
   </div>
-  <a class="hero-scroll section-next" href="#translation" aria-label="Continue to Modality translation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+  <a class="hero-scroll section-next" href="#translation" aria-label="Continue to Translation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
 </section>
 
 <section id="translation" class="section">

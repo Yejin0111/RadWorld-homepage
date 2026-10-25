@@ -38,7 +38,7 @@ h1, h2, h3 { font-family: var(--font-ui); font-weight: 600; }
 .topbar-inner { height: 64px; gap: 32px; }
 .brand { font-size: 18px; font-weight: 600; letter-spacing: -.5px; }
 .brand-symbol { display: block; flex: 0 0 auto; width: 36px; height: 36px; object-fit: contain; }
-.topnav { justify-content: flex-end; gap: 12px; }
+.topnav { min-width: 0; justify-content: safe flex-end; gap: 12px; }
 .topnav a { font-size: 14px; font-weight: 500; padding: 8px 7px; color: #b5b5bf; border-radius: 0; }
 .topnav a:hover { background: none; color: #fff; }
 .topnav a[aria-current="true"] { color: var(--accent); font-weight: 400; }
