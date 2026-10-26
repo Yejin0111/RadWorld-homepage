@@ -12,6 +12,7 @@ import { initOverview } from './overview.js';
 import { initGenerationReel } from './generation-reel.js';
 import { initTranslationInputs } from './translation-input.js';
 import { initScanSweeps } from './scan-sweeps.js';
+import { initScanZoom } from './scan-zoom.js';
 import { initStorySections } from './story-sections.js';
 
 const cfg = window.RADWORLD_SITE || { status: 'preprint', links: {} };
@@ -160,6 +161,7 @@ async function main() {
   initGenerationReel();
   initTranslationInputs();
   initScanSweeps();
+  initScanZoom();
 
   let gallery = { groups: {} };
   try { gallery = await (await fetch('data/gallery.json')).json(); } catch { /* credits only */ }

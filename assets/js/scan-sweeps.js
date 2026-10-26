@@ -2,7 +2,8 @@
 // (tools/make_sweeps.py) gives, per slide, one sprite sheet per pane over the same slices. Each pane
 // first shows its still (the key slice of the paper's figure); once a slide is in view its sprites
 // load, and all its panes step through the slices together, back and forth from the key slice. A
-// slide out of view, a hidden tab or reduced motion keeps the stills.
+// slide out of view, a hidden tab or reduced motion keeps the stills. The enlarged view of a slide
+// (assets/js/scan-zoom.js) adds panes with the same data attributes, which step with the slide's own.
 
 const STEP_MS = 90;  // as the hero sweeps
 
@@ -20,9 +21,13 @@ export async function initScanSweeps(root = document) {
   for (const el of panes) {
     const slide = el.dataset.sweepSlide;
     if (!data[slide]) continue;
-    if (!groups.has(slide)) groups.set(slide, { info: data[slide], panes: [], tick: 0, visible: false, loaded: false });
+    if (!groups.has(slide)) groups.set(slide, { slide, info: data[slide], panes: [], tick: 0, visible: false, loaded: false });
     groups.get(slide).panes.push(el);
   }
+
+  // the slide's panes, with those of its enlarged view while that is open
+  const panesOf = (g) => [...g.panes, ...document.querySelectorAll(`.scan-zoom[open] .tr-sweep[data-sweep-slide="${g.slide}"]`)];
+  const zoomed = (g) => document.querySelector(`.scan-zoom[open][data-slide="${g.slide}"]`);
 
   const frame = (g, el) => {
     const sp = g.info.panes[el.dataset.sweepPane];
@@ -43,14 +48,17 @@ export async function initScanSweeps(root = document) {
       img.src = sp.sprite;
       return (img.decode ? img.decode() : Promise.resolve()).catch(() => null);
     }));
-    g.panes.forEach((el) => { frame(g, el); el.classList.add('is-ready'); });
+    panesOf(g).forEach((el) => { frame(g, el); el.classList.add('is-ready'); });
   };
 
   // a source switch (the T1CE slide's T1 / T2 / FLAIR buttons) keeps the pane on the same slice
   root.addEventListener('sweep-pane', (e) => {
     const el = e.target.closest?.('.tr-sweep');
     const g = el && groups.get(el.dataset.sweepSlide);
-    if (g && g.loaded) frame(g, el);
+    if (!g) return;
+    if (!g.loaded) { load(g); return; }
+    frame(g, el);
+    el.classList.add('is-ready');
   });
 
   const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
@@ -69,13 +77,13 @@ export async function initScanSweeps(root = document) {
   setInterval(() => {
     if (document.hidden || reduced.matches) return;
     for (const g of groups.values()) {
-      if (!g.visible || !g.loaded) continue;
+      if (!(g.visible || zoomed(g)) || !g.loaded) continue;
       g.tick += 1;
-      g.panes.forEach((el) => frame(g, el));
+      panesOf(g).forEach((el) => frame(g, el));
     }
   }, STEP_MS);
   // with reduced motion the panes hold the key slice
   reduced.addEventListener('change', () => {
-    for (const g of groups.values()) { g.tick = 0; if (g.loaded) g.panes.forEach((el) => frame(g, el)); }
+    for (const g of groups.values()) { g.tick = 0; if (g.loaded) panesOf(g).forEach((el) => frame(g, el)); }
   });
 }

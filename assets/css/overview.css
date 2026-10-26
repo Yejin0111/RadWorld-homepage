@@ -107,8 +107,8 @@
 .model-overview[data-overview="pretraining"] .mo-port { cursor: default; }
 .model-overview[data-overview="pretraining"] .mo-details { min-height: 0; }
 .model-overview .mo-port.is-active { color: var(--text, #f0f0f0); opacity: 1; }
-.model-overview .mo-port:not(.is-active):hover,
 .model-overview .mo-port:not(.is-active):focus-visible { opacity: .6; }
+@media (hover: hover) { .model-overview .mo-port:not(.is-active):hover { opacity: .6; } }
 .model-overview .mo-port-content { flex: 0 0 var(--mo-volume-height); width: var(--mo-volume-width); max-width: 100%; height: var(--mo-volume-height); min-width: 0; overflow: visible; background: transparent; }
 .model-overview .mo-port-content img {
   display: block;
@@ -244,7 +244,7 @@
   .model-overview .mo-port { gap: 8px; }
   .model-overview .mo-port-content img { height: 100%; }
   .model-overview .mo-port-label { font-size: 13px; line-height: 18px; }
-  .model-overview .mo-port-label small { font-size: 10px; line-height: 14px; }
+  .model-overview .mo-port-label small { font-size: 11px; line-height: 15px; }
   .model-overview .mo-input-type { font-size: 11px; line-height: 20px; }
   .model-overview .mo-input-type span:first-child { font-size: 14px; }
   .model-overview .mo-caption { font-size: 13px; line-height: 19px; }
@@ -256,7 +256,7 @@
   .model-overview .mo-token-stage { justify-self: center; font-size: 11px; line-height: 16px; }
   .model-overview .mo-token-stage .mo-token-grid { grid-template-columns: repeat(6,11px); gap: 3px; }
   .model-overview .mo-token-stage .mo-token-grid i { width: 11px; height: 11px; }
-  .model-overview .mo-token-stage small { font-size: 10px; }
+  .model-overview .mo-token-stage small { font-size: 11px; }
 }
 @media (min-width: 600px) and (max-width: 679px) {
   .model-overview { --mo-pretrain-core: 180px; }
@@ -283,7 +283,7 @@
   .model-overview .mo-port:not(.is-active) { display: none; }
   .model-overview[data-overview="pretraining"] .mo-ports { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 4px; }
   .model-overview[data-overview="pretraining"] .mo-port { height: 130px; }
-  .model-overview[data-overview="pretraining"] .mo-port-label { font-size: 10px; line-height: 14px; }
+  .model-overview[data-overview="pretraining"] .mo-port-label { font-size: 11px; line-height: 14px; }
   .model-overview[data-overview="pretraining"] .mo-port-content { flex-basis: 88px; height: 88px; }
 }
 @media (max-width: 519px) {

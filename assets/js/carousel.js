@@ -133,12 +133,13 @@ function setup(car) {
   go(0, { silent: true });
   atEnd();
   if (autoDelay) {
-    // Manual selection restarts the interval, without disabling automatic cycling.
+    // Manual selection restarts the interval, without disabling automatic cycling. An open detail or a
+    // data-hold on the carousel (an enlarged view, assets/js/scan-zoom.js) holds the current slide.
     car.addEventListener('click', () => { lastAdvance = performance.now(); });
     const timer = setInterval(() => {
       if (!car.isConnected) { clearInterval(timer); return; }
       const rect = car.getBoundingClientRect();
-      const paused = document.hidden || reduced.matches || start || rect.bottom < 0 || rect.top > innerHeight || car.querySelector('details[open]');
+      const paused = document.hidden || reduced.matches || start || rect.bottom < 0 || rect.top > innerHeight || car.querySelector('details[open]') || car.dataset.hold;
       car.dataset.playback = paused ? 'paused' : 'playing';
       if (paused) { lastAdvance = performance.now(); return; }
       if (performance.now() - lastAdvance >= autoDelay) go(index + 1);

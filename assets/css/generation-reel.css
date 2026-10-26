@@ -26,7 +26,8 @@
 .gen-reel-input { position: absolute; inset: 0; pointer-events: none; }
 .gen-reel-input summary, .gen-reel-mask-toggle { position: absolute; bottom: 15px; left: 15px; z-index: 2; display: grid; place-items: center; min-width: 54px; height: 34px; padding: 0 11px; background: #191a20d9; border: 1px solid #777783; border-radius: 9px; color: #eef0f8; font-family: inherit; font-size: 12px; line-height: 18px; font-weight: 500; cursor: pointer; list-style: none; pointer-events: auto; backdrop-filter: blur(8px); }
 .gen-reel-input summary::-webkit-details-marker { display: none; }
-.gen-reel-input summary:hover, .gen-reel-input[open] summary, .gen-reel-mask-toggle:hover, .gen-reel-mask-toggle[aria-pressed="true"] { border-color: var(--accent); background: #303440e6; }
+.gen-reel-input[open] summary, .gen-reel-mask-toggle[aria-pressed="true"] { border-color: var(--accent); background: #303440e6; }
+@media (hover: hover) { .gen-reel-input summary:hover, .gen-reel-mask-toggle:hover { border-color: var(--accent); background: #303440e6; } }
 .gen-reel-input-panel { position: absolute; inset: auto 0 0; padding: 25px 22px 76px; background: linear-gradient(180deg, #161820f2, #161820); border-top: 1px solid #494f62; pointer-events: auto; }
 .gen-reel-input-panel > p { margin: 0 0 12px; color: var(--accent); font-size: 11px; }
 .gen-reel-input-panel blockquote { margin: 0; color: #e0e2eb; font-size: 14px; line-height: 1.65; }
@@ -37,7 +38,7 @@
 .gen-reel-controls { display: flex; align-items: center; gap: 5px; width: fit-content; max-width: 100%; margin: 8px auto 0; padding: 7px 10px; border: 1px solid #38383f; border-radius: 999px; background: #1a1a1df0; }
 .gen-reel-arrow { display: grid; place-items: center; flex: 0 0 26px; width: 26px; height: 28px; padding: 0; border: 0; border-radius: 50%; background: none; color: #a6a8b7; cursor: pointer; }
 .gen-reel-arrow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; }
-.gen-reel-arrow:hover { color: #fff; background: #363640; }
+@media (hover: hover) { .gen-reel-arrow:hover { color: #fff; background: #363640; } }
 .gen-reel-dots { display: flex; align-items: center; gap: 0; }
 .gen-reel-dots button { display: grid; place-items: center; width: 23px; height: 28px; padding: 0; border: 0; border-radius: 999px; background: none; cursor: pointer; }
 .gen-reel-dots button span { display: block; width: 7px; height: 7px; border-radius: 50%; background: #66666f; transition: width .2s, background .2s; }
@@ -46,7 +47,10 @@
 .gen-reel :is(button, summary, [tabindex]):focus-visible, .gen-reel-controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 640px) {
   .gen-reel { --gen-card-width: min(56vw,240px); }
-  .gen-reel-viewport { perspective: 750px; height: calc(var(--gen-card-width) + 85px); }
+  /* room for a title on two lines; the cards beside show no caption, which would run into it */
+  .gen-reel-viewport { perspective: 750px; height: calc(var(--gen-card-width) + 106px); }
+  .gen-reel-caption h3 { text-wrap: balance; }
+  .gen-reel-card:not(.is-current) .gen-reel-caption { opacity: 0; }
   .gen-reel-image { border-radius: 14px; }
   .gen-reel-controls { gap: 0; padding: 6px; }
   .gen-reel-dots button { width: 15px; }
@@ -74,3 +78,27 @@
 /* Translation and Treatment slides: synchronised sweeps over the still (assets/js/scan-sweeps.js) */
 .tr-sweep { position: absolute; inset: 0; background-repeat: no-repeat; opacity: 0; transition: opacity .25s; pointer-events: none; }
 .tr-sweep.is-ready { opacity: 1; }
+
+/* Phones: a tap on a scan of these slides enlarges it (assets/js/scan-zoom.js); a corner mark says so */
+@media (max-width: 760px) {
+  .scan-comparison .gen-reel-image { cursor: zoom-in; }
+  .scan-comparison .gen-reel-image::after { content: ''; position: absolute; top: 6px; right: 6px; z-index: 2; width: 20px; height: 20px; border-radius: 6px; background: #121216b3 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d6d8e4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 4h5v5M9 20H4v-5M20 4l-6 6M4 20l6-6'/%3E%3C/svg%3E") center / 12px no-repeat; pointer-events: none; }
+}
+.scan-zoom { width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: max(14px, env(safe-area-inset-top, 0px)) 16px max(20px, env(safe-area-inset-bottom, 0px)); border: 0; background: #0b0b0e; color: var(--text); }
+.scan-zoom[open] { display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.scan-zoom::backdrop { background: #000c; }
+.scan-zoom:focus { outline: none; }
+html:has(.scan-zoom[open]) { overflow: hidden; }
+.scan-zoom-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: min(100%, 560px); margin: 0 auto; }
+.scan-zoom-setting { margin: 0; color: var(--muted); font-size: 13px; }
+.scan-zoom-close { display: grid; place-items: center; width: 40px; height: 40px; margin-right: -8px; border: 0; border-radius: 50%; background: none; color: #d0d0da; font: inherit; font-size: 26px; line-height: 1; cursor: pointer; }
+.scan-zoom-stage { position: relative; width: min(100%, 560px, calc(100dvh - 240px)); aspect-ratio: 1; margin: 0 auto; background: #030304; border: 1px solid #38383f; border-radius: 16px; overflow: hidden; touch-action: pan-y; }
+.scan-zoom-pane { position: absolute; inset: 0; }
+.scan-zoom-pane img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.scan-zoom-caption { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 8px; margin: 0; text-align: center; font-size: 14px; line-height: 1.5; }
+.scan-zoom-caption strong { font-weight: 500; }
+.scan-zoom-caption span { color: var(--muted); }
+.scan-zoom-tabs { display: flex; gap: 2px; width: min(100%, 420px); margin: 0 auto; padding: 3px; border: 1px solid #383842; border-radius: 999px; }
+.scan-zoom-tabs button { flex: 1; min-width: 0; min-height: 40px; padding: 6px 4px; border: 0; border-radius: 999px; background: none; color: var(--muted); font: inherit; font-size: 12px; white-space: nowrap; cursor: pointer; }
+.scan-zoom-tabs button[aria-pressed="true"] { background: #30323c; color: var(--text); }
+.scan-zoom :is(button):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

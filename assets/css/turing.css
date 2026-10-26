@@ -17,7 +17,7 @@
 #turing .turing-intro-actions .turing-start { margin-top: 0; }
 #turing .turing-intro-actions > button { height: 46px; min-height: 46px; padding-block: 0; }
 #turing .turing-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 20px; border: 1px solid #454552; border-radius: 999px; background: transparent; color: #d0d0da; font: inherit; font-size: 13px; font-weight: 400; cursor: pointer; }
-#turing .turing-secondary:hover { border-color: #8d95ab; background: #1c1e25; color: var(--text); }
+@media (hover: hover) { #turing .turing-secondary:hover { border-color: #8d95ab; background: #1c1e25; color: var(--text); } }
 #turing .turing-intro > .fineprint { width: 100%; text-align: center; margin: 12px 0 0; font-size: 11px; color: #898996; }
 
 #turing .turing-test { justify-self: center; width: min(100%,var(--turing-image-width)); min-width: 0; margin-inline: auto; }
@@ -42,10 +42,10 @@
 #turing .answer > p { font-size: 12px; }
 #turing .turing-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 330px; width: 100%; margin-inline: auto; }
 #turing .turing-choices button { min-height: 46px; padding: 12px 16px; border: 1px solid #454552; border-radius: 10px; background: #19191f; color: var(--text); font-size: 14px; font-weight: 500; }
-#turing .turing-choices button:hover:not(:disabled) { border-color: var(--accent); background: #282c38; }
+@media (hover: hover) { #turing .turing-choices button:hover:not(:disabled) { border-color: var(--accent); background: #282c38; } }
 #turing .answer > .fineprint { font-size: 11px; color: #898996; }
 #turing .answer > .turing-exit { width: fit-content; margin: 0 auto; padding: 4px 6px; border: 0; background: none; color: #9999a7; font-size: 11px; font-weight: 400; text-align: center; }
-#turing .answer > .turing-exit:hover { color: var(--text); text-decoration: underline; }
+@media (hover: hover) { #turing .answer > .turing-exit:hover { color: var(--text); text-decoration: underline; } }
 #turing :is(button,summary,input):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
 /* One centered score, with an aggregate reader-study comparison at the end. */
@@ -56,7 +56,7 @@
 #turing .turing-score span { color: #858593; font-size: 30px; font-weight: 400; letter-spacing: -.025em; }
 #turing .turing-score-caption { margin: 16px 0 12px; color: var(--muted); font-size: 13px; }
 #turing .turing-score-back { margin-top: 16px; padding: 4px 6px; border: 0; background: none; color: #9999a7; font: inherit; font-size: 11px; cursor: pointer; }
-#turing .turing-score-back:hover { color: var(--text); text-decoration: underline; }
+@media (hover: hover) { #turing .turing-score-back:hover { color: var(--text); text-decoration: underline; } }
 
 #turing .turing-comparison { width: 100%; max-width: 560px; margin: 44px auto 0; padding-top: 28px; border-top: 1px solid #303038; }
 #turing .turing-comparison figcaption { margin-bottom: 24px; text-align: center; }
@@ -78,7 +78,8 @@
 #turing .turing-experts .turing-comparison { margin: 0 0 12px; padding: 0; border: 0; }
 
 @media (max-width: 480px) {
-  #turing .turing-comparison-row { grid-template-columns: 108px minmax(0,1fr) 38px; gap: 10px; font-size: 11px; }
+  #turing .turing-comparison-row { grid-template-columns: 132px minmax(0,1fr) 38px; gap: 10px; font-size: 11px; }
+  #turing .slice-group .slice-count { display: none; }  /* the image corner shows the slice */
   #turing { --turing-image-width: 290px; }
   #turing .turing-intro-actions { flex-direction: column; width: min(100%,290px); }
   #turing .turing-intro-actions > button { width: 100%; }
