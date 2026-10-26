@@ -1,86 +1,194 @@
 [
   {
-    "volume": "gen_abdomen_0",
+    "volume": "head_ct",
+    "source": "Library/CloudStorage/Dropbox/\u5e94\u7528/Overleaf/Gen3D/resources/codes/figure1/data/visualization/modality_transfer/1HNA124_ct.nii.gz",
     "plane": "axial",
-    "label": "Abdomen and pelvis CT",
-    "src": "assets/img/hero/gen_abdomen_0_axial.webp",
-    "still": "assets/img/hero/gen_abdomen_0_axial_still.webp"
+    "label": "Head CT",
+    "slices": [
+      72,
+      114
+    ],
+    "range": [
+      -1000,
+      1300
+    ],
+    "src": "assets/img/hero/head_ct_axial.webp",
+    "still": "assets/img/hero/head_ct_axial_still.webp"
   },
   {
-    "volume": "pretrain_ct_0",
-    "plane": "axial",
-    "label": "Chest CT",
-    "src": "assets/img/hero/pretrain_ct_0_axial.webp",
-    "still": "assets/img/hero/pretrain_ct_0_axial_still.webp"
-  },
-  {
-    "volume": "pretrain_mr_0",
-    "plane": "axial",
-    "label": "Brain MRI",
-    "src": "assets/img/hero/pretrain_mr_0_axial.webp",
-    "still": "assets/img/hero/pretrain_mr_0_axial_still.webp"
-  },
-  {
-    "volume": "rep_effusions",
-    "plane": "axial",
-    "label": "Report-guided chest CT",
-    "src": "assets/img/hero/rep_effusions_axial.webp",
-    "still": "assets/img/hero/rep_effusions_axial_still.webp"
-  },
-  {
-    "volume": "mr2ct_radworld",
-    "plane": "axial",
-    "label": "CT translated from MRI",
-    "src": "assets/img/hero/mr2ct_radworld_axial.webp",
-    "still": "assets/img/hero/mr2ct_radworld_axial_still.webp"
-  },
-  {
-    "volume": "gen_pelvis_0",
-    "plane": "axial",
-    "label": "Pelvis CT",
-    "src": "assets/img/hero/gen_pelvis_0_axial.webp",
-    "still": "assets/img/hero/gen_pelvis_0_axial_still.webp"
-  },
-  {
-    "volume": "rep_covid",
-    "plane": "axial",
-    "label": "Report-guided chest CT",
-    "src": "assets/img/hero/rep_covid_axial.webp",
-    "still": "assets/img/hero/rep_covid_axial_still.webp"
-  },
-  {
-    "volume": "rep_gallbladder",
-    "plane": "axial",
-    "label": "Report-guided abdominal CT",
-    "src": "assets/img/hero/rep_gallbladder_axial.webp",
-    "still": "assets/img/hero/rep_gallbladder_axial_still.webp"
-  },
-  {
-    "volume": "gen_hn_0",
-    "plane": "coronal",
-    "label": "Head and neck CT, coronal",
-    "src": "assets/img/hero/gen_hn_0_coronal.webp",
-    "still": "assets/img/hero/gen_hn_0_coronal_still.webp"
-  },
-  {
-    "volume": "pretrain_mr_0",
+    "volume": "brain_mr2",
+    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain_mr/case03.nii.gz",
     "plane": "coronal",
     "label": "Brain MRI, coronal",
-    "src": "assets/img/hero/pretrain_mr_0_coronal.webp",
-    "still": "assets/img/hero/pretrain_mr_0_coronal_still.webp"
+    "slices": [
+      64,
+      143
+    ],
+    "range": [
+      -1,
+      1
+    ],
+    "src": "assets/img/hero/brain_mr2_coronal.webp",
+    "still": "assets/img/hero/brain_mr2_coronal_still.webp"
   },
   {
-    "volume": "gen_abdomen_0",
-    "plane": "coronal",
-    "label": "Abdomen and pelvis CT, coronal",
-    "src": "assets/img/hero/gen_abdomen_0_coronal.webp",
-    "still": "assets/img/hero/gen_abdomen_0_coronal_still.webp"
+    "volume": "abdomen_ct",
+    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain/case13.nii.gz",
+    "plane": "axial",
+    "label": "Abdomen CT",
+    "slices": [
+      56,
+      104
+    ],
+    "range": [
+      -1000,
+      1000
+    ],
+    "src": "assets/img/hero/abdomen_ct_axial.webp",
+    "still": "assets/img/hero/abdomen_ct_axial_still.webp"
   },
   {
-    "volume": "mr2ct_radworld",
+    "volume": "chest_ct",
+    "source": "Desktop/radworld_server_outputs/signoff/pretrain/case07.nii.gz",
     "plane": "coronal",
-    "label": "CT translated from MRI, coronal",
-    "src": "assets/img/hero/mr2ct_radworld_coronal.webp",
-    "still": "assets/img/hero/mr2ct_radworld_coronal_still.webp"
+    "label": "Chest CT, coronal",
+    "slices": [
+      85,
+      145
+    ],
+    "range": [
+      -1000,
+      1000
+    ],
+    "src": "assets/img/hero/chest_ct_coronal.webp",
+    "still": "assets/img/hero/chest_ct_coronal_still.webp"
+  },
+  {
+    "volume": "chest_ct",
+    "source": "Desktop/radworld_server_outputs/signoff/pretrain/case07.nii.gz",
+    "plane": "sagittal",
+    "label": "Chest CT, sagittal",
+    "slices": [
+      87,
+      172
+    ],
+    "range": [
+      -1000,
+      1000
+    ],
+    "src": "assets/img/hero/chest_ct_sagittal.webp",
+    "still": "assets/img/hero/chest_ct_sagittal_still.webp"
+  },
+  {
+    "volume": "pelvis_ct",
+    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_7/pretrain/case18.nii.gz",
+    "plane": "axial",
+    "label": "Pelvis CT",
+    "slices": [
+      6,
+      44
+    ],
+    "range": [
+      -1000,
+      1000
+    ],
+    "src": "assets/img/hero/pelvis_ct_axial.webp",
+    "still": "assets/img/hero/pelvis_ct_axial_still.webp"
+  },
+  {
+    "volume": "head_ct",
+    "source": "Library/CloudStorage/Dropbox/\u5e94\u7528/Overleaf/Gen3D/resources/codes/figure1/data/visualization/modality_transfer/1HNA124_ct.nii.gz",
+    "plane": "sagittal",
+    "label": "Head CT, sagittal",
+    "slices": [
+      107,
+      148
+    ],
+    "range": [
+      -1000,
+      1000
+    ],
+    "src": "assets/img/hero/head_ct_sagittal.webp",
+    "still": "assets/img/hero/head_ct_sagittal_still.webp"
+  },
+  {
+    "volume": "brain_mr",
+    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain_mr/case07.nii.gz",
+    "plane": "axial",
+    "label": "Brain MRI",
+    "slices": [
+      26,
+      93
+    ],
+    "range": [
+      -1,
+      1
+    ],
+    "src": "assets/img/hero/brain_mr_axial.webp",
+    "still": "assets/img/hero/brain_mr_axial_still.webp"
+  },
+  {
+    "volume": "abdomen_ct",
+    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain/case13.nii.gz",
+    "plane": "coronal",
+    "label": "Abdomen CT, coronal",
+    "slices": [
+      72,
+      144
+    ],
+    "range": [
+      -1000,
+      1000
+    ],
+    "src": "assets/img/hero/abdomen_ct_coronal.webp",
+    "still": "assets/img/hero/abdomen_ct_coronal_still.webp"
+  },
+  {
+    "volume": "brain_mr2",
+    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain_mr/case03.nii.gz",
+    "plane": "sagittal",
+    "label": "Brain MRI, sagittal",
+    "slices": [
+      98,
+      158
+    ],
+    "range": [
+      -1,
+      1
+    ],
+    "src": "assets/img/hero/brain_mr2_sagittal.webp",
+    "still": "assets/img/hero/brain_mr2_sagittal_still.webp"
+  },
+  {
+    "volume": "chest_ct",
+    "source": "Desktop/radworld_server_outputs/signoff/pretrain/case07.nii.gz",
+    "plane": "axial",
+    "label": "Chest CT",
+    "slices": [
+      58,
+      102
+    ],
+    "range": [
+      -1000,
+      1000
+    ],
+    "src": "assets/img/hero/chest_ct_axial.webp",
+    "still": "assets/img/hero/chest_ct_axial_still.webp"
+  },
+  {
+    "volume": "head_neck_ct",
+    "source": "Desktop/radworld_server_outputs/signoff/pretrain/case01.nii.gz",
+    "plane": "coronal",
+    "label": "Head and neck CT, coronal",
+    "slices": [
+      96,
+      130
+    ],
+    "range": [
+      -1000,
+      1000
+    ],
+    "src": "assets/img/hero/head_neck_ct_coronal.webp",
+    "still": "assets/img/hero/head_neck_ct_coronal_still.webp"
   }
 ]

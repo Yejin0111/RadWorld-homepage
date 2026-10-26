@@ -39,7 +39,7 @@ export function mountTuring(root, data, windows) {
       },
     };
     const def = {
-      id: c.id, label: c.type, mask: 'm', cross: c.cross, plane: 'axial',
+      id: c.id, label: c.type, mask: 'm', cross: c.cross, plane: 'axial', crosshair: false,
       window: c.windows[0], windows: c.windows, zoom: 1,
       panes: [{ vol: 'v', title: '', mask: 'toggle' }],
     };
@@ -69,6 +69,7 @@ export function mountTuring(root, data, windows) {
   function expertRows() {
     return [
       { label: 'Junior radiologists', value: ref.junior },
+      { label: 'Mid-level radiologists', value: ref.mid },
       { label: 'Senior radiologists', value: ref.senior },
       { label: 'All radiologists', value: ref.overall, summary: true },
     ];
@@ -103,16 +104,17 @@ export function mountTuring(root, data, windows) {
     root.querySelector('[data-role="exit"]').addEventListener('click', reset);
   }
 
+  // axial only: the slice slider and the tumor outline, no plane, window, zoom or crosshair
   function compactControls(view) {
-    const options = document.createElement('details');
-    options.className = 'turing-view-options';
-    const summary = document.createElement('summary');
-    summary.textContent = 'View options';
-    const groups = document.createElement('div');
-    groups.className = 'turing-option-groups';
-    [...view.ctl.children].filter((group) => !group.classList.contains('slice-group')).forEach((group) => groups.append(group));
-    options.append(summary, groups);
-    view.ctl.append(options);
+    for (const group of [...view.ctl.children]) {
+      if (group.classList.contains('slice-group')) continue;
+      if (group.classList.contains('opts')) {
+        group.querySelectorAll('label').forEach((l) => { if (!l.querySelector('[data-role="mask"]')) l.remove(); });
+        group.querySelectorAll('button').forEach((x) => x.remove());
+        continue;
+      }
+      group.remove();
+    }
   }
 
   showPreview();
@@ -120,7 +122,10 @@ export function mountTuring(root, data, windows) {
   function start() {
     preview?.destroy();
     preview = null;
-    order = shuffle(data.cases.slice()).slice(0, ROUNDS);
+    // half real, half synthetic, in random order (the page does not say so)
+    const half = ROUNDS / 2;
+    const pick = (truth) => shuffle(data.cases.filter((c) => truthOf(c) === truth)).slice(0, half);
+    order = shuffle([...pick('real'), ...pick('synthetic')]);
     n = 0;
     answers = [];
     showCase();
@@ -149,7 +154,6 @@ export function mountTuring(root, data, windows) {
               <button type="button" class="real" data-answer="real" disabled>Real <span class="kbd">R</span></button>
               <button type="button" class="syn" data-answer="synthetic" disabled>Synthetic <span class="kbd">S</span></button>
             </div>
-            <p class="fineprint">The outline marks the tumor.</p>
             <button type="button" class="turing-exit" data-role="exit">Back to preview</button>
           </div>
         </div>

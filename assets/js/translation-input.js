@@ -6,6 +6,11 @@ export function initTranslationInputs(root = document) {
     buttons.forEach((button) => button.addEventListener('click', () => {
       image.src = button.dataset.src;
       image.alt = `Input ${button.textContent.trim()} MRI`;
+      const sweep = card.querySelector('.tr-sweep');  // the moving pane follows, on the same slice
+      if (sweep) {
+        sweep.dataset.sweepPane = button.dataset.sequence;
+        sweep.dispatchEvent(new CustomEvent('sweep-pane', { bubbles: true }));
+      }
       buttons.forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
     }));
   });

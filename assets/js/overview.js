@@ -5,14 +5,14 @@ const TASKS = [
   {
     key: 'report', name: 'Report-to-volume generation', input: 'Radiology report',
     output: 'Generated CT / MRI', image: 'assets/img/concept/out_report.webp',
-    outputViews: spriteViews('assets/img/views/rep_pericardial', [16, 24, 19]),
+    outputViews: cubeFaces('report_out'),
     alt: 'Generated CT showing the findings described in a radiology report',
     caption: 'Generate CT volumes reflecting report-described findings.',
     setting: '“There is a mild pericardial effusion, up to 12 mm thick.”',
   },
   {
     key: 'mask', name: 'Mask-to-volume generation', input: 'Organ / tumor mask',
-    inputViews: spriteViews('assets/img/views/m2i_a', [29, 19, 17], '_mask'),
+    inputViews: spriteViews('assets/img/views/m2i_a', [29, 19, 17], '_label'),  // the condition itself: body and organ labels
     inputImage: 'assets/img/concept/in_mask.webp', inputAlt: 'Organ segmentation mask used to guide CT generation',
     output: 'Generated CT / MRI', image: 'assets/img/concept/out_mask.webp',
     outputViews: spriteViews('assets/img/views/m2i_a', [29, 19, 17]),
@@ -23,7 +23,9 @@ const TASKS = [
   {
     key: 'translation', name: 'Modality translation', input: 'Source scan',
     inputImage: 'assets/img/concept/in_source.webp', inputAlt: 'Acquired source scan for modality translation',
+    inputViews: cubeFaces('mr2ct_in'),
     output: 'Target modality', image: 'assets/img/concept/out_source.webp',
+    outputViews: cubeFaces('mr2ct_out'),
     alt: 'Generated target modality from the acquired source scan',
     caption: 'Condition on an available scan to generate a target modality, MRI sequence or contrast phase.',
     setting: 'Head and neck MRI → CT.',
@@ -31,7 +33,9 @@ const TASKS = [
   {
     key: 'treatment', name: 'Treatment simulation', input: 'Pre-treatment CT',
     inputImage: 'assets/img/concept/in_pre.webp', inputAlt: 'Pre-treatment CT used for virtual treatment simulation',
+    inputViews: cubeFaces('tace_pre'),
     output: 'Virtual post-treatment CT', image: 'assets/img/concept/out_tace.webp',
+    outputViews: cubeFaces('tace_virtual'),
     alt: 'Virtual post-treatment CT generated from the pre-treatment scan and treatment details',
     caption: 'Simulate post-treatment CT from pre-treatment CT and treatment details.',
     setting: 'TACE: pirarubicin 12 mg, lobaplatin 15 mg, lipiodol 5 mL.',
@@ -75,6 +79,11 @@ function inputMarkup(task, id) {
 
 function outputMarkup(task, id) {
   return volumeMarkup(id, { views: task.outputViews, slice: task.still || task.image, alt: task.alt });
+}
+
+// Axial, coronal and sagittal faces of a real volume, from tools/make_cubes.py.
+function cubeFaces(name) {
+  return ['axial', 'coronal', 'sagittal'].map(plane => `assets/img/concept/cube_${name}_${plane}.webp`);
 }
 
 function orthogonalViews(prefix, suffix = '') {

@@ -118,10 +118,23 @@ TUMOR_TYPES = [  # folder, label, modality
     ("lung_tumor", "Lung tumor", "CT"),
     ("pancreatic_tumor", "Pancreatic tumor", "CT"),
 ]
-TURING_PER_CLASS = 2      # per tumor type: this many real and this many synthetic
-# Reader-study answers (one JSON per reader and tumor type). The quiz shows, per tumor type, the
-# synthetic cases that most of the six radiologists judged real and real cases that they all judged
-# real, so every case looks like a convincing scan. Only datasets that allow redistribution.
+# Quiz cases, chosen by the authors (2026-10-26): reader-study cases at least three of the six
+# readers got wrong (56), and the 12 real cases all six judged real. 34 real, 34 synthetic.
+TURING_CASES = {
+    "bladder_001", "bladder_002", "bladder_003", "bladder_004", "bladder_006", "bladder_014",
+    "bladder_015", "bladder_018", "bladder_020", "colon_001", "colon_002", "colon_004", "colon_009",
+    "colon_013", "colon_014", "colon_019", "colon_023", "colon_026", "colon_028", "colon_029",
+    "colon_036", "kidney_001", "kidney_003", "kidney_004", "kidney_005", "kidney_006", "kidney_007",
+    "kidney_008", "kidney_009", "kidney_012", "kidney_015", "kidney_016", "kidney_022", "kidney_026",
+    "kidney_029", "kidney_032", "liver_001", "liver_003", "liver_004", "liver_005", "liver_006",
+    "liver_007", "liver_008", "liver_015", "liver_020", "liver_034", "liver_040", "lung_002",
+    "lung_003", "lung_004", "lung_006", "lung_008", "lung_009", "lung_010", "lung_019", "lung_021",
+    "lung_029", "lung_031", "pancreatic_002", "pancreatic_010", "pancreatic_015", "pancreatic_017",
+    "pancreatic_018", "pancreatic_019", "pancreatic_021", "pancreatic_022", "pancreatic_023",
+    "pancreatic_040",
+}
+# Reader-study answers (one JSON per reader and tumor type), shown with each case in the review page
+# and used to pick TURING_CASES. Only datasets that allow redistribution.
 READER_RESULTS = TUM / "结果收集_v2"
 READERS = ["初级1", "初级2", "中级1", "中级2", "高级1", "高级2"]
 READER_JSON = {"bladder_tumor": "bladder_tumor_viewer.json", "colon_cancer_primaries": "colon_cancer_primaries_viewer.json",
@@ -745,12 +758,11 @@ def build_turing(man_turing):
         rows = list(csv.DictReader(open(TUM / f"human_check_cases/mapping_files/{folder}_mapping.csv")))
         votes = reader_votes(folder)
         for src in ("real", "gen"):
-            pool = [r for r in rows if r["source"] == src and r["identifier"].split("/")[2] in ALLOWED_DATASETS]
-            pool.sort(key=lambda r: (-votes.get(r["encoded_filename"], 0), r["encoded_filename"]))
+            pool = [r for r in rows if r["source"] == src and r["identifier"].split("/")[2] in ALLOWED_DATASETS
+                    and f"{folder.split('_')[0]}_{r['encoded_filename'].split('_')[0]}" in TURING_CASES]
+            pool.sort(key=lambda r: r["encoded_filename"])
             taken = 0
             for r in pool:
-                if taken >= TURING_PER_CLASS:
-                    break
                 ds = r["identifier"].split("/")[2]
                 fn = r["encoded_filename"]
                 img, zooms, _ = canonical(TUM / f"human_check_cases/{folder}/images/{fn}")
@@ -759,12 +771,18 @@ def build_turing(man_turing):
                 if mask.sum() == 0:
                     continue
                 taken += 1
-                si, sj, sk = crop_box(mask)
+                # axially only the slices with tumor, and none that is empty (the first slices of some
+                # source volumes are blank, in real and synthetic cases alike, which would give the
+                # answer away): readers judge the tumor, not the ends of the scan
+                si, sj, sk = crop_box(mask, zmin_len=1, zmargin=0)
                 img, mask = img[si, sj, sk], mask[si, sj, sk]
+                flat = img.reshape(-1, img.shape[2]).std(0) < 1e-3 * (float(img.max()) - float(img.min()) + 1e-6)
+                keep = np.flatnonzero(~flat)
+                img, mask = img[:, :, keep.min():keep.max() + 1], mask[:, :, keep.min():keep.max() + 1]
                 if folder == "bladder_tumor":
                     enc, u8, windows = encoding_lin(-1, 1, "a.u."), enc_lin(img, -1, 1), ["auto"]
-                elif folder == "lung_tumor":
-                    enc, u8, windows = encoding_ct(), enc_ct(img), ["lung", "mediastinum"]
+                elif folder == "lung_tumor":  # the lung window of the reader study
+                    enc, u8, windows = encoding_lin(-1000, 300, "HU"), enc_lin(img, -1000, 300), ["auto"]
                 else:
                     enc, u8, windows = encoding_lin(-75, 175, "HU"), enc_lin(img, -75, 175), ["reader"]
                 per_z = mask.reshape(-1, mask.shape[2]).sum(0)
@@ -787,7 +805,7 @@ def build_turing(man_turing):
     return {
         "cases": cases,
         "reference": {
-            "overall": 59.7, "overall_ci": [55.6, 63.9], "junior": 52.9, "senior": 66.0,
+            "overall": 59.7, "overall_ci": [55.6, 63.9], "junior": 52.9, "mid": 60.0, "senior": 66.0,  # mid: Figure 2 source data
             "synthetic_called_real": 58.8, "readers": 6, "scans_per_reader": 240, "judgments": 1440,
         },
     }

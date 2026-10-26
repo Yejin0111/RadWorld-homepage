@@ -2,7 +2,7 @@
  "generation": [
   {
    "id": "pretrain_ct",
-   "label": "Chest CT",
+   "label": "Head and neck to abdomen CT",
    "input": {
     "kind": "request",
     "tags": [
@@ -44,7 +44,7 @@
   },
   {
    "id": "gen_abdomen",
-   "label": "Abdomen and pelvis CT",
+   "label": "Chest to pelvis CT",
    "input": {
     "kind": "request",
     "tags": [
@@ -86,7 +86,7 @@
   },
   {
    "id": "gen_hn",
-   "label": "Head and neck CT",
+   "label": "Head and neck to chest CT",
    "input": {
     "kind": "request",
     "tags": [
@@ -117,48 +117,6 @@
     "sagittal": {
      "sprite": {
       "src": "assets/img/views/gen_hn_sagittal.webp",
-      "n": 36,
-      "cols": 6,
-      "rows": 6
-     },
-     "start": 17
-    }
-   }
-  },
-  {
-   "id": "gen_pelvis",
-   "label": "Pelvis CT",
-   "input": {
-    "kind": "request",
-    "tags": [
-     "CT",
-     "Chest",
-     "Abdomen",
-     "Pelvis"
-    ]
-   },
-   "views": {
-    "axial": {
-     "sprite": {
-      "src": "assets/img/views/gen_pelvis_axial.webp",
-      "n": 36,
-      "cols": 6,
-      "rows": 6
-     },
-     "start": 10
-    },
-    "coronal": {
-     "sprite": {
-      "src": "assets/img/views/gen_pelvis_coronal.webp",
-      "n": 36,
-      "cols": 6,
-      "rows": 6
-     },
-     "start": 18
-    },
-    "sagittal": {
-     "sprite": {
-      "src": "assets/img/views/gen_pelvis_sagittal.webp",
       "n": 36,
       "cols": 6,
       "rows": 6
@@ -210,92 +168,39 @@
  ],
  "report": [
   {
-   "id": "rep_calcification",
-   "label": "Calcified plaques",
+   "id": "rep_nodule",
+   "label": "Lung nodule",
    "input": {
     "kind": "report",
-    "text": "There are calcified atherosclerotic plaques in the walls of the thoracic aorta and the coronary arteries."
+    "text": "There are multiple nodules, about 5 mm across, in both lungs."
    },
    "views": {
     "axial": {
      "sprite": {
-      "src": "assets/img/views/rep_calcification_axial.webp",
-      "n": 36,
-      "cols": 6,
-      "rows": 6
-     },
-     "start": 28,
-     "arrows": [
-      [
-       0.6967,
-       0.3169,
-       0.6128,
-       0.368
-      ]
-     ]
-    },
-    "coronal": {
-     "sprite": {
-      "src": "assets/img/views/rep_calcification_coronal.webp",
-      "n": 36,
-      "cols": 6,
-      "rows": 6
-     },
-     "start": 25
-    },
-    "sagittal": {
-     "sprite": {
-      "src": "assets/img/views/rep_calcification_sagittal.webp",
-      "n": 36,
-      "cols": 6,
-      "rows": 6
-     },
-     "start": 12
-    }
-   }
-  },
-  {
-   "id": "rep_hernia",
-   "label": "Hiatal hernia",
-   "input": {
-    "kind": "report",
-    "text": "There is a small sliding hiatal hernia at the lower end of the esophagus."
-   },
-   "views": {
-    "axial": {
-     "sprite": {
-      "src": "assets/img/views/rep_hernia_axial.webp",
-      "n": 36,
-      "cols": 6,
-      "rows": 6
-     },
-     "start": 7,
-     "arrows": [
-      [
-       0.6688,
-       0.3651,
-       0.595,
-       0.43
-      ]
-     ]
-    },
-    "coronal": {
-     "sprite": {
-      "src": "assets/img/views/rep_hernia_coronal.webp",
-      "n": 36,
-      "cols": 6,
-      "rows": 6
-     },
-     "start": 23
-    },
-    "sagittal": {
-     "sprite": {
-      "src": "assets/img/views/rep_hernia_sagittal.webp",
+      "src": "assets/img/views/rep_nodule_axial.webp",
       "n": 36,
       "cols": 6,
       "rows": 6
      },
      "start": 13
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/rep_nodule_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 24
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/rep_nodule_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 9
     }
    }
   },
@@ -351,47 +256,76 @@
    }
   },
   {
-   "id": "rep_heart",
-   "label": "Enlarged heart",
+   "id": "rep_fibrotic",
+   "label": "Fibrotic sequela",
    "input": {
     "kind": "report",
-    "text": "The heart is markedly enlarged."
+    "text": "There are linear fibroatelectatic sequelae in the lingula of the left lung and reticulonodular sequelae at both lung apices."
    },
    "views": {
     "axial": {
      "sprite": {
-      "src": "assets/img/views/rep_heart_axial.webp",
+      "src": "assets/img/views/rep_fibrotic_axial.webp",
       "n": 36,
       "cols": 6,
       "rows": 6
      },
-     "start": 16,
-     "arrows": [
-      [
-       0.2818,
-       0.2983,
-       0.3585,
-       0.3597
-      ]
-     ]
+     "start": 16
     },
     "coronal": {
      "sprite": {
-      "src": "assets/img/views/rep_heart_coronal.webp",
+      "src": "assets/img/views/rep_fibrotic_coronal.webp",
       "n": 36,
       "cols": 6,
       "rows": 6
      },
-     "start": 28
+     "start": 21
     },
     "sagittal": {
      "sprite": {
-      "src": "assets/img/views/rep_heart_sagittal.webp",
+      "src": "assets/img/views/rep_fibrotic_sagittal.webp",
       "n": 36,
       "cols": 6,
       "rows": 6
      },
-     "start": 24
+     "start": 8
+    }
+   }
+  },
+  {
+   "id": "rep_calcification",
+   "label": "Calcification",
+   "input": {
+    "kind": "report",
+    "text": "There are calcified atherosclerotic changes in the walls of the aorta and the coronary arteries."
+   },
+   "views": {
+    "axial": {
+     "sprite": {
+      "src": "assets/img/views/rep_calcification_axial.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 20
+    },
+    "coronal": {
+     "sprite": {
+      "src": "assets/img/views/rep_calcification_coronal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 31
+    },
+    "sagittal": {
+     "sprite": {
+      "src": "assets/img/views/rep_calcification_sagittal.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "start": 19
     }
    }
   }
@@ -399,7 +333,7 @@
  "mask": [
   {
    "id": "m2i_a",
-   "label": "Abdomen and pelvis 1",
+   "label": "Abdomen and pelvis",
    "input": {
     "kind": "mask"
    },
@@ -414,6 +348,12 @@
      "start": 29,
      "overlay": {
       "src": "assets/img/views/m2i_a_axial_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "label": {
+      "src": "assets/img/views/m2i_a_axial_label.webp",
       "n": 36,
       "cols": 6,
       "rows": 6
@@ -438,6 +378,12 @@
       "n": 36,
       "cols": 6,
       "rows": 6
+     },
+     "label": {
+      "src": "assets/img/views/m2i_a_coronal_label.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
      }
     },
     "sagittal": {
@@ -453,48 +399,66 @@
       "n": 36,
       "cols": 6,
       "rows": 6
+     },
+     "label": {
+      "src": "assets/img/views/m2i_a_sagittal_label.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
      }
     }
    }
   },
   {
-   "id": "m2i_b",
-   "label": "Abdomen and pelvis 2",
+   "id": "m2t_liver",
+   "label": "Liver tumor",
    "input": {
     "kind": "mask"
    },
    "views": {
     "axial": {
      "sprite": {
-      "src": "assets/img/views/m2i_b_axial.webp",
-      "n": 36,
+      "src": "assets/img/views/m2t_liver_axial.webp",
+      "n": 29,
       "cols": 6,
-      "rows": 6
+      "rows": 5
      },
-     "start": 30,
+     "start": 14,
      "overlay": {
-      "src": "assets/img/views/m2i_b_axial_mask.webp",
-      "n": 36,
+      "src": "assets/img/views/m2t_liver_axial_mask.webp",
+      "n": 29,
       "cols": 6,
-      "rows": 6
+      "rows": 5
+     },
+     "label": {
+      "src": "assets/img/views/m2t_liver_axial_label.webp",
+      "n": 29,
+      "cols": 6,
+      "rows": 5
      },
      "mask": {
-      "src": "assets/img/views/m2i_b_input_mask.webp",
-      "n": 36,
+      "src": "assets/img/views/m2t_liver_input_mask.webp",
+      "n": 29,
       "cols": 6,
-      "rows": 6
+      "rows": 5
      }
     },
     "coronal": {
      "sprite": {
-      "src": "assets/img/views/m2i_b_coronal.webp",
+      "src": "assets/img/views/m2t_liver_coronal.webp",
       "n": 36,
       "cols": 6,
       "rows": 6
      },
-     "start": 25,
+     "start": 11,
      "overlay": {
-      "src": "assets/img/views/m2i_b_coronal_mask.webp",
+      "src": "assets/img/views/m2t_liver_coronal_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "label": {
+      "src": "assets/img/views/m2t_liver_coronal_label.webp",
       "n": 36,
       "cols": 6,
       "rows": 6
@@ -502,14 +466,20 @@
     },
     "sagittal": {
      "sprite": {
-      "src": "assets/img/views/m2i_b_sagittal.webp",
+      "src": "assets/img/views/m2t_liver_sagittal.webp",
       "n": 36,
       "cols": 6,
       "rows": 6
      },
-     "start": 17,
+     "start": 29,
      "overlay": {
-      "src": "assets/img/views/m2i_b_sagittal_mask.webp",
+      "src": "assets/img/views/m2t_liver_sagittal_mask.webp",
+      "n": 36,
+      "cols": 6,
+      "rows": 6
+     },
+     "label": {
+      "src": "assets/img/views/m2t_liver_sagittal_label.webp",
       "n": 36,
       "cols": 6,
       "rows": 6

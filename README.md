@@ -82,13 +82,15 @@ credits in the footer, as their licenses require.
 ## Rebuilding assets
 
 ```bash
-python3 tools/prepare_assets.py         # volumes, posters, teaser, data/gallery.json, data/turing.json
+python3 tools/prepare_assets.py         # volumes, posters, data/gallery.json, data/turing.json (the 68 TURING_CASES)
 python3 tools/prepare_assets.py --only report,teaser   # rebuild part of it
 python3 tools/make_social.py            # 1200x630 social preview
 python3 tools/make_concept.py           # images of the world-model figure (paper figures, Figure 2f volumes, TACE crops)
-python3 tools/make_hero.py              # additional animated sweeps from existing display sprites (Pillow)
-python3 tools/make_views.py             # Generation slides: slice sprites, Figure 2e arrows, mask overlays, data/showcase.json
-python3 tools/make_translation.py       # Translation slides: slices of Figure 4b and Extended Data Figure 5
+python3 tools/make_hero.py              # hero grid: 12 sweeps through 6 generated volumes in three planes (original outputs)
+python3 tools/make_views.py             # Generation reel: slice sprites of the report, organ-mask and Figure 2f tumor cases, data/showcase.json
+python3 tools/make_cubes.py             # overview cubes: three-plane faces of the report, MR-to-CT and TACE examples
+python3 tools/make_sweeps.py            # Translation and Treatment slides: synchronised sweeps, data/sweeps.json (paper volumes)
+python3 tools/make_translation.py       # static Translation slices of Figure 4b and ED Figure 5 (kept as a fallback)
 python3 tools/build_km.py               # data/km.json, Kaplan-Meier curves of Figure 5e (needs the Overleaf folder)
 python3 tools/check_numbers.py          # every number on the page must appear in the manuscript
 ```

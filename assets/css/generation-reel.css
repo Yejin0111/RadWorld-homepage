@@ -70,3 +70,7 @@
   .capabilities-intro { margin-bottom: 40px; padding-bottom: 36px; }
   .capabilities-intro .section-sub { font-size: 14px; }
 }
+
+/* Translation and Treatment slides: synchronised sweeps over the still (assets/js/scan-sweeps.js) */
+.tr-sweep { position: absolute; inset: 0; background-repeat: no-repeat; opacity: 0; transition: opacity .25s; pointer-events: none; }
+.tr-sweep.is-ready { opacity: 1; }
