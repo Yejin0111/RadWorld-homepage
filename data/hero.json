@@ -1,7 +1,6 @@
 [
   {
     "volume": "head_ct",
-    "source": "Library/CloudStorage/Dropbox/\u5e94\u7528/Overleaf/Gen3D/resources/codes/figure1/data/visualization/modality_transfer/1HNA124_ct.nii.gz",
     "plane": "axial",
     "label": "Head CT",
     "slices": [
@@ -17,7 +16,6 @@
   },
   {
     "volume": "brain_mr2",
-    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain_mr/case03.nii.gz",
     "plane": "coronal",
     "label": "Brain MRI, coronal",
     "slices": [
@@ -33,7 +31,6 @@
   },
   {
     "volume": "abdomen_ct",
-    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain/case13.nii.gz",
     "plane": "axial",
     "label": "Abdomen CT",
     "slices": [
@@ -49,7 +46,6 @@
   },
   {
     "volume": "chest_ct",
-    "source": "Desktop/radworld_server_outputs/signoff/pretrain/case07.nii.gz",
     "plane": "coronal",
     "label": "Chest CT, coronal",
     "slices": [
@@ -65,7 +61,6 @@
   },
   {
     "volume": "chest_ct",
-    "source": "Desktop/radworld_server_outputs/signoff/pretrain/case07.nii.gz",
     "plane": "sagittal",
     "label": "Chest CT, sagittal",
     "slices": [
@@ -81,7 +76,6 @@
   },
   {
     "volume": "pelvis_ct",
-    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_7/pretrain/case18.nii.gz",
     "plane": "axial",
     "label": "Pelvis CT",
     "slices": [
@@ -97,7 +91,6 @@
   },
   {
     "volume": "head_ct",
-    "source": "Library/CloudStorage/Dropbox/\u5e94\u7528/Overleaf/Gen3D/resources/codes/figure1/data/visualization/modality_transfer/1HNA124_ct.nii.gz",
     "plane": "sagittal",
     "label": "Head CT, sagittal",
     "slices": [
@@ -113,7 +106,6 @@
   },
   {
     "volume": "brain_mr",
-    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain_mr/case07.nii.gz",
     "plane": "axial",
     "label": "Brain MRI",
     "slices": [
@@ -129,7 +121,6 @@
   },
   {
     "volume": "abdomen_ct",
-    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain/case13.nii.gz",
     "plane": "coronal",
     "label": "Abdomen CT, coronal",
     "slices": [
@@ -145,7 +136,6 @@
   },
   {
     "volume": "brain_mr2",
-    "source": "Desktop/radworld_server_outputs/homepage_gen/seed_42/pretrain_mr/case03.nii.gz",
     "plane": "sagittal",
     "label": "Brain MRI, sagittal",
     "slices": [
@@ -161,7 +151,6 @@
   },
   {
     "volume": "chest_ct",
-    "source": "Desktop/radworld_server_outputs/signoff/pretrain/case07.nii.gz",
     "plane": "axial",
     "label": "Chest CT",
     "slices": [
@@ -177,7 +166,6 @@
   },
   {
     "volume": "head_neck_ct",
-    "source": "Desktop/radworld_server_outputs/signoff/pretrain/case01.nii.gz",
     "plane": "coronal",
     "label": "Head and neck CT, coronal",
     "slices": [

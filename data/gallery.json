@@ -1723,14 +1723,12 @@
     {
      "id": "cbct2ct",
      "label": "CBCT to CT, head and neck",
-     "source": "SynthRAD2025",
      "text": "Cone-beam CT with streak artifacts, translated into CT. The patient's real CT is shown for comparison.",
      "window": "soft",
      "windows": [
       "soft",
       "bone"
      ],
-     "credit": "SynthRAD2025 case 2HNA070 (center A), CC BY-NC 4.0",
      "render3dPresets": [
       "bone"
      ],
@@ -1777,8 +1775,6 @@
     {
      "id": "mr2ct",
      "label": "MR to CT, head and neck",
-     "source": "SynthRAD2025",
-     "credit": "SynthRAD2025 case 1HNA124 (center A), CC BY-NC 4.0",
      "text": "Head and neck MR, translated into CT. The patient's real CT is shown for comparison.",
      "panes": [
       {
@@ -1827,14 +1823,12 @@
     {
      "id": "cbct2ct_ab",
      "label": "CBCT to CT, abdomen",
-     "source": "SynthRAD2025",
      "text": "Abdominal cone-beam CT with uncalibrated intensities, translated into CT. The patient's real CT is shown for comparison.",
      "window": "abdomen",
      "windows": [
       "abdomen",
       "bone"
      ],
-     "credit": "SynthRAD2025 case 2ABC137 (center C), CC BY-NC 4.0",
      "level": 0.3,
      "panes": [
       {
@@ -1879,14 +1873,12 @@
     {
      "id": "mr2ct_ab",
      "label": "MR to CT, abdomen",
-     "source": "SynthRAD2025",
      "text": "Abdominal MR, translated into CT. The patient's real CT is shown for comparison.",
      "window": "abdomen",
      "windows": [
       "abdomen",
       "bone"
      ],
-     "credit": "SynthRAD2025 case 1ABB035 (center B), CC BY-NC 4.0",
      "panes": [
       {
        "vol": "mr2ct_ab_0",
@@ -1930,14 +1922,12 @@
     {
      "id": "ct_phase",
      "label": "Non-contrast to arterial phase",
-     "source": "Coltea-Lung-CT-100W",
      "text": "Arterial-phase CT generated from non-contrast CT. The real arterial phase, aligned to the input, is shown for comparison.",
      "window": "mediastinum",
      "windows": [
       "mediastinum",
       "lung"
      ],
-     "credit": "Coltea-Lung-CT-100W case CH24092019, CC BY-SA 4.0",
      "panes": [
       {
        "vol": "ct_phase_0",
@@ -1981,14 +1971,12 @@
     {
      "id": "ct_venous",
      "label": "Non-contrast to venous phase",
-     "source": "Coltea-Lung-CT-100W",
      "text": "Venous-phase CT generated from non-contrast CT. The real venous phase, aligned to the input, is shown for comparison.",
      "window": "mediastinum",
      "windows": [
       "mediastinum",
       "lung"
      ],
-     "credit": "Coltea-Lung-CT-100W case EM31082020, CC BY-SA 4.0",
      "panes": [
       {
        "vol": "ct_venous_0",
@@ -2295,9 +2283,7 @@
     {
      "id": "m2i_a",
      "label": "Abdomen and pelvis 1",
-     "source": "WORD",
      "text": "RadWorld generated this CT from the organ mask, which labels each organ and structure.",
-     "credit": "Organ mask derived from a WORD CT scan (research use)",
      "window": "abdomen",
      "windows": [
       "abdomen",
@@ -2339,9 +2325,7 @@
     {
      "id": "m2i_b",
      "label": "Abdomen and pelvis 2",
-     "source": "WORD",
      "text": "RadWorld generated this CT from the organ mask, which labels each organ and structure.",
-     "credit": "Organ mask derived from a WORD CT scan (research use)",
      "window": "abdomen",
      "windows": [
       "abdomen",

@@ -811,6 +811,19 @@ def build_turing(man_turing):
     }
 
 
+PROVENANCE = ("source", "credit", "license")
+
+
+def without_provenance(obj):
+    """The published data names no source dataset per case (the footer credits the datasets once);
+    the build log above keeps them for the record."""
+    if isinstance(obj, dict):
+        return {k: without_provenance(v) for k, v in obj.items() if k not in PROVENANCE}
+    if isinstance(obj, list):
+        return [without_provenance(v) for v in obj]
+    return obj
+
+
 def build_teaser(man):
     """Animated sweeps (WebP) through volumes already in the manifest, one per teaser item."""
     items = [  # volume key, window, plane
@@ -912,9 +925,9 @@ def main():
         "pending": [p for p in PENDING if p["id"] not in built],
     }
     gallery_path.parent.mkdir(parents=True, exist_ok=True)
-    gallery_path.write_text(json.dumps(gallery, ensure_ascii=False, indent=1))
+    gallery_path.write_text(json.dumps(without_provenance(gallery), ensure_ascii=False, indent=1))
     if run("turing"):
-        (ROOT / "data/turing.json").write_text(json.dumps(build_turing(None), ensure_ascii=False, indent=1))
+        (ROOT / "data/turing.json").write_text(json.dumps(without_provenance(build_turing(None)), ensure_ascii=False, indent=1))
     total = sum(v["bytes"] for v in man.volumes.values())
     print(f"gallery volumes: {len(man.volumes)}, {total / 1e6:.1f} MB")
 

@@ -150,7 +150,7 @@ def main():
         target, poster = output / f"{name}.webp", output / f"{name}_still.webp"
         frames[0].save(target, "WEBP", save_all=True, append_images=frames[1:], duration=90, loop=0, quality=72, method=4)
         still.save(poster, "WEBP", quality=85)
-        manifest.append({"volume": key, "source": str(VOLUMES[key][0].relative_to(Path.home())), "plane": plane, "label": label, "slices": [first, last], "range": list(window),
+        manifest.append({"volume": key, "plane": plane, "label": label, "slices": [first, last], "range": list(window),
                          "src": str(target.relative_to(ROOT)), "still": str(poster.relative_to(ROOT))})
         print(f"{target.relative_to(ROOT)}: {len(frames)} frames, {target.stat().st_size // 1024} KB")
     (ROOT / "data/hero.json").write_text(json.dumps(manifest, indent=2) + "\n")

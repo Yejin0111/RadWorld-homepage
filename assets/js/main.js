@@ -25,7 +25,9 @@ const AUTHORS = [
   'He, Junjun', 'Cai, Jianfei', 'Ji, Yuanfeng',
 ];
 
-// Public datasets whose derived volumes appear on the page (licence check of 2026-09-25).
+// Public datasets whose scans appear on the page: the real scans and inputs, and the scans synthetic
+// tumors were added to (licence check of 2026-09-25). The footer credits each once; the data files
+// name no dataset per case.
 const DATASETS = {
   'SynthRAD2025': { license: 'CC BY-NC 4.0 (centers A to C)', url: 'https://zenodo.org/records/14918089' },
   'KiTS2023': { license: 'CC BY-NC-SA 4.0', url: 'https://kits-challenge.org/kits23/' },
@@ -44,8 +46,6 @@ const DATASETS = {
   'WORD': { license: 'GPL-3.0, research use only', url: 'https://github.com/HiLab-git/WORD' },
   'BraTS 2024 post-treatment glioma': { license: 'CC BY-NC 4.0', url: 'https://www.synapse.org/Synapse:syn53708249/wiki/627500' },
 };
-// Images on the page that come from the paper's figures rather than from data/gallery.json
-const FIGURE_SOURCES = ['BraTS 2024 post-treatment glioma'];  // T1CE slide (Extended Data Figure 5a)
 
 function applyConfig() {
   document.documentElement.dataset.status = cfg.status === 'published' ? 'published' : 'preprint';
@@ -130,14 +130,10 @@ function setupNav() {
   byId.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
 }
 
-function fillCredits(gallery, turing) {
+function fillCredits() {
   const ul = document.getElementById('data-credits');
   if (!ul) return;
-  const used = new Set();
-  for (const g of Object.values(gallery.groups || {})) for (const c of g.cases) if (c.source) used.add(c.source);
-  for (const c of (turing && turing.cases) || []) used.add(c.source);
-  FIGURE_SOURCES.forEach((n) => used.add(n));
-  const items = [...used].filter((n) => DATASETS[n]).sort((a, b) => a.localeCompare(b));
+  const items = Object.keys(DATASETS).sort((a, b) => a.localeCompare(b));
   ul.innerHTML = items.map((n) => `<li><a href="${DATASETS[n].url}" target="_blank" rel="noopener">${escapeHTML(n)}</a>, ${licenseLinks(DATASETS[n].license)}</li>`).join('');
 }
 
@@ -170,7 +166,7 @@ async function main() {
 
   let turing = null;
   try { turing = await (await fetch('data/turing.json')).json(); } catch { /* optional */ }
-  fillCredits(gallery, turing);
+  fillCredits();
   const app = document.getElementById('turing-app');
   if (app && turing) mountTuring(app, turing, gallery.windows);
 }
