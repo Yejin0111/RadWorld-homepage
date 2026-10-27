@@ -105,18 +105,17 @@ encoding, so window presets are defined in HU.
 ## Checking the page
 
 ```bash
-python3 tools/check_numbers.py   # numbers must appear in the compiled manuscript or the text of its figures,
-                                 # no semicolons or em dashes, no dataset names or sample sizes outside the credits
-python3 tools/check_charts.py    # every chart cell must match its exact table cell, figure source data or
-                                 # Results sentence, each chart title's claim must hold in every row, and the
-                                 # TACE treatment details must match Figure 5f
-python3 tools/test_page.py       # Chromium, WebKit and Firefox, desktop and phone sizes (a few minutes)
+python3 tools/check_numbers.py   # numbers must appear in the compiled manuscript, the text of its figures or the
+                                 # source data of a value a figure draws without printing it (the mid-level reader
+                                 # accuracy of Figure 2d), no semicolons or em dashes, no dataset names or sample
+                                 # sizes outside the credits
+python3 tools/check_charts.py    # every cell of the Applications charts must match its exact table cell or Results
+                                 # sentence, each chart title's claim must hold in every row, and the reader-study
+                                 # accuracies, the hazard ratios and the TACE treatment details must match their sources
 ```
 
-`test_page.py` starts its own server and checks the figure under the title, the carousels (tabs,
-buttons, swipe, one height, images at one size), the Generation case chips, the charts and their
-tooltips, the side-by-side charts lining up, plays the quiz and tries each `site-config.js` setting.
-It also covers earlier bugs (a held key or a quick second click answering unseen quiz cases).
+There is no browser test suite since the redesign: check layout changes in screenshots at phone
+(360 to 430px) and desktop widths.
 
 ## Where the samples come from
 

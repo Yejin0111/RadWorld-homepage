@@ -2,7 +2,8 @@
 follows the manuscript style rules (no semicolons, no em dashes).
 
 Usage: python tools/check_numbers.py
-Exit code 1 if a number is not found in the LaTeX sources (or the text of the figure PDFs) or a style rule
+Exit code 1 if a number is not found in the LaTeX sources (or the text of the figure PDFs, or the source
+data of a value a figure draws without printing it) or a style rule
 is broken. Needs pdftotext (poppler).
 """
 import html
@@ -37,6 +38,11 @@ import subprocess
 for pdf in sorted((OV / "resources/figures").glob("figure*.pdf")):
     tex += "\n" + subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True).stdout
 tex_numbers = set(re.findall(r"\d[\d,]*\.?\d*", tex))
+# values a figure draws without printing them, read from that figure's source data: the reader-study
+# accuracy by experience level (Figure 2d, Overall group; tools/check_charts.py ties each to its level)
+import csv
+FIG2D = OV / "resources/codes/figure2/data/generation-quality-tuning-test/accuracy_ci_turing_test.csv"
+tex_numbers |= {f"{100 * float(r['Accuracy']):.1f}" for r in csv.DictReader(open(FIG2D)) if r["Organ"] == "Overall"}
 
 # ---- page text (visible prose only), plus text the scripts write at run time
 page = (ROOT / "index.html").read_text(encoding="utf-8")
